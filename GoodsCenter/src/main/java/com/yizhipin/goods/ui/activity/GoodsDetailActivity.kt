@@ -362,7 +362,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailPresenter>(), GoodsDetail
                 mEvaluateImageAdapter.setData(list)
             }
 
-            when (result.webUser.level) {
+            when (result.webUser.level.toInt()) {
                 1 -> mGradeIv.setImageResource(R.drawable.grade12)
                 2 -> mGradeIv.setImageResource(R.drawable.grade13)
                 3 -> mGradeIv.setImageResource(R.drawable.grade14)

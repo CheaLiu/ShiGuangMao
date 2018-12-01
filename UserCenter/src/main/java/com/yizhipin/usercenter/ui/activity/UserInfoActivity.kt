@@ -9,16 +9,15 @@ import com.yizhipin.base.ext.enable
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ext.onClick
 import com.yizhipin.base.ui.activity.BaseTakePhotoActivity
+import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.base.utils.UploadUtil
 import com.yizhipin.usercenter.R
-import com.yizhipin.usercenter.common.UserConstant
 import com.yizhipin.usercenter.injection.component.DaggerUserComponent
 import com.yizhipin.usercenter.injection.module.UserModule
 import com.yizhipin.usercenter.presenter.UserInfoPresenter
 import com.yizhipin.usercenter.presenter.view.UserInfoView
 import com.yizhipin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_user_info.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.io.File
 
@@ -39,23 +38,11 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
 
     private fun initView() {
 
-        if (intent.getBooleanExtra(UserConstant.KEY_TO_USERINFO, false)) {
-            mHeaderBar.getTiTleTv().text = getString(R.string.basis)
-            mConfirmBtn.text = getString(R.string.confirm)
-            mMobileView.visibility = View.VISIBLE
-            mWeChatView.visibility = View.VISIBLE
-            mMobileLine.visibility = View.VISIBLE
-            mWeChatLine.visibility = View.VISIBLE
-            mHeaderBar.getRightTv().visibility = View.GONE
-        }
-
+        mBackIv.onClick(this)
         mUserIconView.onClick(this)
-        mHeaderBar.getRightTv().onClick(this)
         mConfirmBtn.onClick(this)
-        mMobileView.onClick(this)
-        mWeChatView.onClick(this)
-        mHeaderBar.getBackIv().onClick(this)
-        mConfirmBtn.enable(mNickNameEt, { isBtnEnable() })
+        mRightTv.onClick(this)
+        mConfirmBtn.enable(mNickEt, { isBtnEnable() })
     }
 
     override fun onStart() {
@@ -64,7 +51,9 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
     }
 
     private fun initData() {
-        mPresenter.getUserInfo()
+        var map = mutableMapOf<String, String>()
+        map.put("id", AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
+        mPresenter.getUserInfo(map)
     }
 
     /*
@@ -78,29 +67,18 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
     override fun onClick(v: View) {
 
         when (v.id) {
-            R.id.mBackIv -> {
-                finish()
-            }
-            R.id.mRightTv -> { //跳过
-                finish()
-            }
+            R.id.mRightTv, R.id.mBackIv -> finish()
+
             R.id.mUserIconView -> showAlertView()
 
             R.id.mConfirmBtn -> {
 
                 var map = mutableMapOf<String, String>()
-                map.put("nickname", mNickNameEt.text.toString())
+                map.put("nickname", mNickEt.text.toString())
                 map.put("imgurl", mRemoteFileUrl)
-                map.put("payPwd", "")
-                map.put("push", "true")
-                map.put("weixin", "")
-                map.put("alipay", "")
-                map.put("alipayName", "")
                 mPresenter.editUserInfo(map)
             }
 
-            R.id.mMobileView -> startActivity<BindMobileActivity>()
-            R.id.mWeChatView -> startActivity<BindWeChatActivity>()
         }
     }
 
@@ -129,7 +107,6 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
         runOnUiThread {
             hideLoading()
             toast(R.string.upload_success)
-            mAddTv.visibility = View.GONE
             mRemoteFileUrl = message
             mUserIconIv.loadUrl(mRemoteFileUrl)
         }
@@ -147,20 +124,19 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
     override fun getUserResult(result: UserInfo) {
 
         mRemoteFileUrl = result.imgurl
-        mNickNameEt.setText(result.nickname)
-        mNickNameEt.setSelection(result.nickname.length)
-        if (result.mobile != "") {
+        mNickEt.setText(result.nickname)
+        mNickEt.setSelection(result.nickname.length)
+        /*if (result.mobile != "") {
             mMobileEt.setText(result.mobile)
             mMobileIv.visibility = View.GONE
             mMobileView.isEnabled = false
-        }
-        if (result.weixin != "") {
-            mWeChatEt.setText(result.mobile)
-            mWeChatIv.visibility = View.GONE
-            mWeChatView.isEnabled = false
-        }
+        }*/
+        /*   if (result.weixin != "") {
+               mWeChatEt.setText(result.mobile)
+               mWeChatIv.visibility = View.GONE
+               mWeChatView.isEnabled = false
+           }*/
         if (result.imgurl != "") {
-            mAddTv.visibility = View.GONE
             mUserIconIv.loadUrl(result.imgurl)
         }
 

@@ -9,7 +9,6 @@ import com.yizhipin.base.data.response.Shop
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ext.onClick
-import com.yizhipin.base.ext.setVisible
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.goods.R
@@ -71,11 +70,11 @@ class UserActivity : BaseMvpActivity<UserPresenter>(), UserView, View.OnClickLis
         with(result) {
             mShopNameTv.text = nickname
             mCreditTv.text = score
-            mLumpTv.text = baiPin
+//            mLumpTv.text = baiPin
             mShopIv.loadUrl(imgurl)
-            if (commissioner) mCategoryTv.setVisible(true) else mCategoryTv.setVisible(false)
+//            if (commissioner) mCategoryTv.setVisible(true) else mCategoryTv.setVisible(false)
 
-            when (level) {
+            when (level.toInt()) {
                 1 -> mGradeIv.setImageResource(R.drawable.grade1)
                 2 -> mGradeIv.setImageResource(R.drawable.grade2)
                 3 -> mGradeIv.setImageResource(R.drawable.grade3)

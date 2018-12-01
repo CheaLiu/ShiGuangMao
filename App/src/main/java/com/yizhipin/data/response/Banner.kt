@@ -8,8 +8,6 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 class Banner(var id: Int,
-             var bannerImgurl: String,
-             var pid: Int,
-             var content: String,
-             var href: String,
+             var imgurl: String,
+             var url: String,
              var type: String):Parcelable

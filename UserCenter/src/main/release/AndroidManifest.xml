@@ -10,6 +10,7 @@
         android:exported="true">
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.RegisterActivity"/>
+        <activity android:name=".ui.activity.ResetPwdActivity"/>
         <activity android:name=".ui.activity.UserInfoActivity"/>
         <activity android:name=".ui.activity.BindMobileActivity"/>
         <activity android:name=".ui.activity.BindWeChatActivity"/>

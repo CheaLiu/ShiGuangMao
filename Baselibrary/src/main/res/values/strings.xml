@@ -2,16 +2,17 @@
     <string name="app_name">BaseLibrary</string>
     <string name="version">1.0.0</string>
 
-    <string name="nav_bar_home">主页</string>
+    <string name="nav_bar_home">首页</string>
     <string name="nav_bar_category">消息</string>
     <string name="nav_bar_extend">发现</string>
     <string name="nav_bar_user">我的</string>
-
     <string name="login_acount">登录账户</string>
     <string name="register_acount">注册账户</string>
     <string name="forget_pwd">忘记密码</string>
     <string name="register">注册</string>
     <string name="invitation_code">邀请码 (非必填，填写后享受9折优惠)</string>
+    <string name="get_code">获取验证码</string>
+    <string name="get_code_success">获取验证码成功</string>
 
 
     <string name="login">登录</string>
@@ -19,16 +20,15 @@
     <string name="input_mobile">请输入电话号码</string>
     <string name="code">验证码</string>
     <string name="input_code">请输入验证码</string>
-    <string name="get_code">获取验证码</string>
     <string name="read">我已经阅读并同意用户</string>
     <string name="register_agreement">注册即代表同意《时光猫平台用户注册协议》</string>
     <string name="login_wechart">微信登录</string>
-    <string name="info">完善资料</string>
+    <string name="info">完善信息</string>
     <string name="skip">跳过</string>
-    <string name="add_head">添加头像</string>
+    <string name="add_head">上传头像</string>
     <string name="continuation">继续</string>
     <string name="nickname">昵称</string>
-    <string name="input_nickname">请设置您的昵称</string>
+    <string name="input_nickname">请输入昵称</string>
     <string name="upload_success">上传成功</string>
     <string name="mobile_bind">手机号绑定</string>
     <string name="bind_mobile">绑定手机号</string>
@@ -180,7 +180,6 @@
     <string name="hint_commissioner">您的附近没有专员，是否愿意成为专员？</string>
     <string name="understand">了解一下</string>
     <string name="order_confirm">订单确认</string>
-
     <string name="input_pay_pwd">请输入支付密码</string>
     <string name="set_pay_pwd">设置支付密码</string>
     <string name="set_six_pay_pwd">设置6位支付密码</string>
@@ -230,19 +229,20 @@
     <string name="hot_search">热门搜索</string>
     <string name="hundred_number">百人团人数</string>
     <string name="completed">已完成</string>
-
-
     <string name="send_code_success">发送验证码成功</string>
     <string name="next">下一步</string>
     <string name="input_sms_code">请输入短信验证码</string>
     <string name="input_pwd">请输入密码</string>
     <string name="input_pwd_again">请再次输入密码</string>
     <string name="input_pwd_rule">请输入密码（6-20位字母或数字）</string>
-    <string name="reset_pwd">重置密码</string>
     <string name="pwd_atypism">两次密码输入不一致</string>
     <string name="save">保存</string>
     <string name="edit">编辑</string>
     <string name="complete">完成</string>
+    <string name="reset_pwd">重设密码</string>
+
+
+    <string name="affirm_commit">确认提交</string>
 
 
 </resources>

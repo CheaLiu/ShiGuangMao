@@ -88,6 +88,8 @@ dependencies {
     api 'com.github.codbking:PickTime:v1.0.1'
     //FlowLayout
     api "com.zhy:flowlayout-lib:${flowlayout_version}"
+    //经纬度
+    api "com.github.quentin7b:android-location-tracker:${location_version}"
 }
 
 //Parcelable序列化插件

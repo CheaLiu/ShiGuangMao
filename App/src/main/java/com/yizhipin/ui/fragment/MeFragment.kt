@@ -94,7 +94,7 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView, View.OnCl
             mCreditTv.visibility = View.VISIBLE
             mAmountTv.visibility = View.VISIBLE
             mCartCountTv.visibility = View.VISIBLE
-            mBasePresenter.getUserInfo()
+//            mBasePresenter.getUserInfo()
 
         } else {
             mUserIconIv.setImageResource(R.drawable.user)
@@ -212,10 +212,10 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView, View.OnCl
         mCreditTv.text = result.score
         mAmountTv.text = "¥ ${result.totalAmount}"
         mUserIconIv.loadUrl(result.imgurl)
-        if (result.commissioner) mCommissionerIv.visibility = View.VISIBLE else mCommissionerIv.visibility = View.GONE
-        if (result.commissioner) mCommissionerTv.text = getString(R.string.commissioner_plate) else mCommissionerTv.text = getString(R.string.apply_commissioner)
+//        if (result.commissioner) mCommissionerIv.visibility = View.VISIBLE else mCommissionerIv.visibility = View.GONE
+//        if (result.commissioner) mCommissionerTv.text = getString(R.string.commissioner_plate) else mCommissionerTv.text = getString(R.string.apply_commissioner)
 
-        when (result.level) {
+       /* when (result.level.toInt()) {
             1 -> mGradeIv.setImageResource(R.drawable.grade1)
             2 -> mGradeIv.setImageResource(R.drawable.grade2)
             3 -> mGradeIv.setImageResource(R.drawable.grade3)
@@ -226,7 +226,7 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView, View.OnCl
             8 -> mGradeIv.setImageResource(R.drawable.grade8)
             9 -> mGradeIv.setImageResource(R.drawable.grade9)
             10 -> mGradeIv.setImageResource(R.drawable.grade10)
-        }
+        }*/
     }
 
     /**

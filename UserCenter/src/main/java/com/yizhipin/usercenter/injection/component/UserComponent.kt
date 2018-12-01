@@ -20,4 +20,5 @@ interface UserComponent {
     fun inject(activity: PayPwdSetActivity)
     fun inject(activity: PayPwdUpdateActivity)
     fun inject(activity: PayPwdResetActivity)
+    fun inject(activity: ResetPwdActivity)
 }

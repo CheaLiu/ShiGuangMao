@@ -16,9 +16,24 @@ open class UserServiceImpl @Inject constructor() : UserService {
     @Inject
     lateinit var mRepository: UserRepository
 
-    /**
-     * 登录
-     */
+    override fun getCode(map: MutableMap<String, String>): Observable<Boolean> {
+
+        return mRepository.getCode(map)
+                .convertBoolean()
+    }
+
+    override fun resetPwd(map: MutableMap<String, String>): Observable<Boolean> {
+
+        return mRepository.resetPwd(map)
+                .convertBoolean()
+    }
+
+    override fun register(map: MutableMap<String, String>): Observable<UserInfo> {
+
+        return mRepository.register(map)
+                .convert()
+    }
+
     override fun login(map: MutableMap<String, String>): Observable<UserInfo> {
 
         return mRepository.login(map)
@@ -28,8 +43,8 @@ open class UserServiceImpl @Inject constructor() : UserService {
     /**
      * 获取用户信息
      */
-    override fun getUserInfo(): Observable<UserInfo> {
-        return mRepository.getUserInfo()
+    override fun getUserInfo(map: MutableMap<String, String>): Observable<UserInfo> {
+        return mRepository.getUserInfo(map)
                 .convert()
     }
 

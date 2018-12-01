@@ -19,9 +19,9 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
     /**
      * 获取用户信息
      */
-    fun getUserInfo() {
+    fun getUserInfo(map: MutableMap<String, String>) {
         mView.showLoading()
-        mUserServiceImpl.getUserInfo().execute(object : BaseSubscriber<UserInfo>(mView) {
+        mUserServiceImpl.getUserInfo(map).execute(object : BaseSubscriber<UserInfo>(mView) {
             override fun onNext(t: UserInfo) {
                 mView.getUserResult(t)
             }

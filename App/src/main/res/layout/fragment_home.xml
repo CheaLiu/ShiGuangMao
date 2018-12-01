@@ -3,55 +3,35 @@
               style="@style/MatchMatch.Vertical"
               android:background="@color/yBgGray">
 
-    <LinearLayout
-        style="@style/SearchHeaderStyle"
-        android:layout_height="@dimen/ySerchHead"
-        android:paddingLeft="@dimen/yPaddingBigLar">
+    <RelativeLayout
+        style="@style/MatchWrap"
+        android:layout_height="@dimen/yBtnHeight"
+        android:background="@color/yWhite"
+        android:paddingLeft="@dimen/yPaddingMiddle"
+        android:paddingRight="@dimen/yPaddingMiddle">
 
         <ImageView
             style="@style/WrapWrap"
-            android:src="@drawable/coordinate"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/bell"/>
 
         <TextView
             style="@style/WrapWrap"
-            android:layout_marginLeft="@dimen/yPaddingSmall"
-            android:text="金山家园"
-            android:textColor="@color/yWhite"
-            android:textSize="@dimen/yTextMiddleBigSize"/>
+            android:layout_centerInParent="true"
+            android:text="@string/nav_bar_home"
+            android:textColor="@color/yBlack"
+            android:textSize="@dimen/yTextLargeSize"/>
 
-        <ImageView
+        <TextView
             style="@style/WrapWrap"
-            android:layout_marginLeft="@dimen/yPaddingSmall"
-            android:src="@drawable/lower"/>
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/route"
+            android:text="上海店"
+            android:textColor="@color/yRed"
+            android:textSize="@dimen/yTextMiddleLarSize"/>
 
-        <LinearLayout
-            android:id="@+id/mSearchV"
-            style="@style/MatchWrap.Horizontal"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/ySerchHeight"
-            android:layout_marginLeft="@dimen/yPadding"
-            android:layout_weight="1"
-            android:background="@drawable/home_header_corner_bg"
-            android:gravity="center_horizontal">
-
-            <ImageView
-                style="@style/WrapWrap"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/yPaddingSmall"
-                android:src="@drawable/search"/>
-
-            <EditText
-                android:id="@+id/mSearchEt"
-                style="@style/WrapMatch"
-                android:layout_marginLeft="@dimen/yPaddingSmall"
-                android:background="@null"
-                android:cursorVisible="false"
-                android:editable="false"
-                android:hint="@string/serch_hint"
-                android:textSize="@dimen/yTextSmallLarSize"/>
-        </LinearLayout>
-
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
         style="@style/MatchWrap">
@@ -59,13 +39,24 @@
         <LinearLayout
             style="@style/MatchWrap.Vertical">
 
-            <RelativeLayout
-                style="@style/MatchWrap">
+            <com.youth.banner.Banner
+                android:id="@+id/mHomeBanner"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"/>
 
-                <com.youth.banner.Banner
-                    android:id="@+id/mHomeBanner"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mCategoryRv"
+                style="@style/MatchWrap"
+                />
+
+            <RelativeLayout
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/yPaddingSmall"
+                android:background="@color/yWhite"
+                android:paddingLeft="@dimen/yPaddingMiddle"
+                android:paddingTop="@dimen/yPaddingSmall"
+                android:paddingRight="@dimen/yPaddingMiddle"
+                android:paddingBottom="@dimen/yPaddingSmall">
 
                 <com.yizhipin.message.widgets.NewsFlipperView
                     android:id="@+id/mNewsFlipperView"
@@ -77,17 +68,18 @@
                     android:layout_marginBottom="@dimen/common_padding_small"
                     android:background="@drawable/corner_news_bg"/>
 
-
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/more"
+                    android:textColor="@color/yRed"
+                    android:textSize="@dimen/yTextMiddleSize"/>
             </RelativeLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/mCategoryRv"
-                style="@style/MatchWrap"
-                android:layout_marginTop="@dimen/yPaddingSmall"/>
 
             <LinearLayout
                 style="@style/MatchWrap.Horizontal"
-                android:layout_marginTop="@dimen/yPaddingMiddle"
+                android:layout_marginTop="@dimen/yPaddingSmall"
                 android:background="@color/yWhite"
                 android:padding="@dimen/yPadding">
 
@@ -164,9 +156,9 @@
                 <View
                     android:id="@+id/line"
                     style="@style/DividerFixedHeight"
-                    android:layout_marginTop="@dimen/yPaddingBigLar"
                     android:layout_below="@+id/hint_commissioner"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/yPaddingBigLar"/>
 
                 <TextView
                     android:id="@+id/mUnderstandTv"

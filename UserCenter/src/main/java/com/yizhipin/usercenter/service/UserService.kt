@@ -9,8 +9,11 @@ import io.reactivex.Observable
  */
 interface UserService {
 
+    fun getCode(map: MutableMap<String, String>): Observable<Boolean>
+    fun resetPwd(map: MutableMap<String, String>): Observable<Boolean>
+    fun register(map: MutableMap<String, String>): Observable<UserInfo>
     fun login(map: MutableMap<String, String>): Observable<UserInfo>
-    fun getUserInfo(): Observable<UserInfo>
+    fun getUserInfo(map: MutableMap<String, String>): Observable<UserInfo>
     fun editUserInfo(map: MutableMap<String, String>): Observable<UserInfo>
     fun bindMobile(map: MutableMap<String, String>): Observable<Boolean>
     fun getCartCount(map: MutableMap<String, String>): Observable<Int>

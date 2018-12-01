@@ -31,6 +31,7 @@ buildscript {
     ext.startview_version = '1.0.0'
     ext.autosize_version = '1.0.1'
     ext.flowlayout_version = "1.0.3"
+    ext.location_version = "3.2"
 
     repositories {
         google()

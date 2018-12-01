@@ -12,10 +12,19 @@ import retrofit2.http.*
  */
 interface UserApi {
 
+    @POST(Api.GET_CODE) //获取验证码
+    fun getCode(@Query("mobile") mobile: String): Observable<BaseResp<Boolean>>
+
+    @POST(Api.RESET_PWD) //重置密码
+    fun resetPwd(): Observable<BaseResp<Boolean>>
+
+    @POST(Api.REGISTER) //注册
+    fun register(): Observable<BaseResp<UserInfo>>
+
     @POST(Api.LOGIN) //登录
     fun login(): Observable<BaseResp<UserInfo>>
 
-    @GET("${Api.EDIT_USER_INFO}${"/{"}${BaseConstant.KEY_SP_TOKEN}${"}"}") //获取用户信息
+    @GET("${Api.EDIT_USER_INFO}${"/{id}"}") //获取用户信息
     fun getUserInfo(@Path(BaseConstant.KEY_SP_TOKEN) id: String): Observable<BaseResp<UserInfo>>
 
     //    @PUT(Api.EDIT_USER_INFO.plus("/{id}")) //编辑用户信息

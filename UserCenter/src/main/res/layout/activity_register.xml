@@ -116,7 +116,7 @@
             android:layout_marginLeft="@dimen/yPaddingMiddle"
             android:background="@null"
             android:hint="@string/input_pwd"
-            android:inputType="phone"
+            android:inputType="textPassword"
             android:maxLength="11"
             android:textColor="@color/yBlackLight"
             android:textColorHint="@color/yHint"

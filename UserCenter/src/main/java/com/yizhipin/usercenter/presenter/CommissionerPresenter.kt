@@ -23,12 +23,12 @@ open class CommissionerPresenter @Inject constructor() : BasePresenter<UserInfoV
         if (!checkNetWork())
             return
 
-        mView.showLoading()
+      /*  mView.showLoading()
         mUserServiceImpl.getUserInfo().execute(object : BaseSubscriber<UserInfo>(mView) {
             override fun onNext(t: UserInfo) {
                 mView.getUserResult(t)
             }
-        }, mLifecycleProvider)
+        }, mLifecycleProvider)*/
     }
 
     /**

@@ -21,7 +21,7 @@
     <dimen name="yPaddingSmall">5dp</dimen>
     <dimen name="yPaddingMinSmall">3dp</dimen>
 
-    <dimen name="yBtnHeight">40dp</dimen>
+    <dimen name="yBtnHeight">45dp</dimen>
     <dimen name="yEditHeight">45dp</dimen>
     <dimen name="yBtnRadius">20dp</dimen>
     <dimen name="yHeadHeight">80dp</dimen>

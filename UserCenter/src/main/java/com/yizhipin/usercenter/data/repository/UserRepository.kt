@@ -16,9 +16,24 @@ import javax.inject.Inject
  */
 class UserRepository @Inject constructor() {
 
-    /**
-     * 登录
-     */
+    fun getCode(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
+
+        return RetrofitFactoryGet().create(UserApi::class.java)
+                .getCode(map["mobile"]!!)
+    }
+
+    fun resetPwd(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
+
+        return RetrofitFactoryPost(map).create(UserApi::class.java)
+                .resetPwd()
+    }
+
+    fun register(map: MutableMap<String, String>): Observable<BaseResp<UserInfo>> {
+
+        return RetrofitFactoryPost(map).create(UserApi::class.java)
+                .register()
+    }
+
     fun login(map: MutableMap<String, String>): Observable<BaseResp<UserInfo>> {
 
         return RetrofitFactoryPost(map).create(UserApi::class.java)
@@ -28,9 +43,9 @@ class UserRepository @Inject constructor() {
     /**
      * 获取用户信息
      */
-    fun getUserInfo(): Observable<BaseResp<UserInfo>> {
+    fun getUserInfo(map: MutableMap<String, String>): Observable<BaseResp<UserInfo>> {
         return RetrofitFactoryGet().create(UserApi::class.java)
-                .getUserInfo(AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
+                .getUserInfo(map["id"]!!)
     }
 
     /**
@@ -52,14 +67,17 @@ class UserRepository @Inject constructor() {
         return RetrofitFactoryPut(map).create(UserApi::class.java)
                 .bindMobile(AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
     }
+
     fun setPayPwd(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
         return RetrofitFactoryPost(map).create(UserApi::class.java)
                 .setPayPwd()
     }
+
     fun updatePayPwd(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
         return RetrofitFactoryPost(map).create(UserApi::class.java)
                 .updatePayPwd()
     }
+
     fun resetPayPwd(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
         return RetrofitFactoryPost(map).create(UserApi::class.java)
                 .resetPayPwd()

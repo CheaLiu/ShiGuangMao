@@ -19,7 +19,6 @@ import com.yizhipin.data.response.Banner
 import com.yizhipin.data.response.CategoryHome
 import com.yizhipin.goods.common.GoodsConstant
 import com.yizhipin.goods.ui.activity.GoodsDetailActivity
-import com.yizhipin.goods.ui.activity.SearchActivity
 import com.yizhipin.presenter.HomePresenter
 import com.yizhipin.presenter.view.HomeView
 import com.yizhipin.ui.adapter.CategoryHomeAdapter
@@ -61,12 +60,10 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
     private fun initView() {
 
         mUnderstandTv.onClick(this)
-        mSearchV.onClick(this)
-        mSearchEt.onClick(this)
     }
 
     private fun initHotGoodsView() {
-        mGoodsRv.layoutManager = GridLayoutManager(activity, 3)
+        mGoodsRv.layoutManager = GridLayoutManager(activity!!, 3)
         mHotGoodsAdapter = HotGoodsAdapter(activity!!)
         mGoodsRv.adapter = mHotGoodsAdapter
         mHotGoodsAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<Goods> {
@@ -118,9 +115,6 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
     override fun onClick(v: View) {
         when (v.id) {
 
-            R.id.mSearchEt -> startActivity<SearchActivity>()
-            R.id.mSearchV -> startActivity<SearchActivity>()
-
             R.id.mUnderstandTv -> { //了解一下
 
             }
@@ -144,7 +138,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
     override fun onGetBannerSuccess(result: MutableList<Banner>) {
         var list = arrayListOf<String>()
         for (data in result) {
-            list.add(BaseConstant.IMAGE_SERVICE_ADDRESS.plus(data.bannerImgurl))
+            list.add(BaseConstant.IMAGE_SERVICE_ADDRESS.plus(data.imgurl))
         }
         //设置图片集合
         mHomeBanner.setImages(list)
@@ -152,8 +146,8 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
         mHomeBanner.start()
         mHomeBanner.setOnBannerListener(object : OnBannerListener {
             override fun OnBannerClick(position: Int) {
-                if (!result[position].href.isNullOrEmpty()) {
-                    startActivity<WebViewActivity>(WebViewActivity.EXTRA_URL to result[position].href)
+                if (!result[position].url.isNullOrEmpty()) {
+                    startActivity<WebViewActivity>(WebViewActivity.EXTRA_URL to result[position].url)
                 }
 
             }

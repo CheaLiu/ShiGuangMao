@@ -6,7 +6,10 @@ package com.yizhipin.usercenter.data.api
 interface Api {
     companion object {
 
-        const val LOGIN = "api/WebUser/Login/Sms" //登录
+        const val GET_CODE = "api/WebUser/Sms" //获取验证码
+        const val REGISTER = "api/WebUser" //注册
+        const val LOGIN = "api/WebUser/Login" //登录
+        const val RESET_PWD = "api/WebUser/ResetPassword" //重置密码
         const val EDIT_USER_INFO = "api/WebUser"//编辑用户信息
         const val BIND_MOBILE = "api/WebUser/BindingMobile"//编辑用户信息
         const val ADDRESS_LIST = "api/UserAddress/List"//收货地址列表
