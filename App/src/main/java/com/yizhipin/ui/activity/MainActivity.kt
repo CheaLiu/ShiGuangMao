@@ -1,9 +1,5 @@
 package com.yizhipin.ui.activity
 
-import android.app.Activity
-import android.app.Application
-import android.content.ComponentCallbacks
-import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -11,7 +7,6 @@ import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
 import com.yizhipin.R
 import com.yizhipin.base.common.AppManager
-import com.yizhipin.base.common.BaseApplication
 import com.yizhipin.base.event.HomeIntentEvent
 import com.yizhipin.base.ui.activity.BaseActivity
 import com.yizhipin.generalizecenter.ui.fragment.GeneralizeFragment

@@ -1,6 +1,7 @@
 package com.yizhipin.presenter.view
 
 import com.yizhipin.base.data.response.Goods
+import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.presenter.view.BaseView
 import com.yizhipin.data.response.Banner
 
@@ -10,4 +11,5 @@ import com.yizhipin.data.response.Banner
 interface HomeView : BaseView {
     fun onGetBannerSuccess(result: MutableList<Banner>)
     fun onGetGoodsListSuccess(result: MutableList<Goods>)
+    fun onGetOssAddressSuccess(result: OssAddress)
 }

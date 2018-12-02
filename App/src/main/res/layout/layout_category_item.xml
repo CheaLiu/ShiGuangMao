@@ -5,7 +5,6 @@
               android:background="@color/yWhite"
               android:gravity="center_horizontal"
               android:paddingTop="@dimen/yPadding"
-              android:paddingBottom="@dimen/yPadding"
               tools:ignore="MissingDefaultResource">
 
     <ImageView

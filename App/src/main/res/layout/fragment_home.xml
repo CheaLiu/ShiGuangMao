@@ -42,12 +42,13 @@
             <com.youth.banner.Banner
                 android:id="@+id/mHomeBanner"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"/>
+                android:layout_height="180dp"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mCategoryRv"
                 style="@style/MatchWrap"
-                />
+                android:background="@color/yWhite"
+                android:paddingBottom="@dimen/yPadding"/>
 
             <RelativeLayout
                 style="@style/MatchWrap"
@@ -76,6 +77,12 @@
                     android:textColor="@color/yRed"
                     android:textSize="@dimen/yTextMiddleSize"/>
             </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecommendRv"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/yPaddingSmall"
+                android:background="@color/yWhite"/>
 
             <LinearLayout
                 style="@style/MatchWrap.Horizontal"

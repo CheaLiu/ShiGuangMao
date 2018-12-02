@@ -3,6 +3,7 @@ package com.yizhipin.usercenter.data.repository
 import com.yizhipin.base.data.net.RetrofitFactoryGet
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.Goods
+import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.data.api.MainApi
 import com.yizhipin.data.response.Banner
 import io.reactivex.Observable
@@ -24,5 +25,9 @@ class MainRepository @Inject constructor() {
     fun getGoodsList(): Observable<BaseResp<MutableList<Goods>>> {
         return RetrofitFactoryGet().create(MainApi::class.java)
                 .getGoodsList(true)
+    }
+    fun getOssAddress(): Observable<BaseResp<OssAddress>> {
+        return RetrofitFactoryGet().create(MainApi::class.java)
+                .getOssAddress()
     }
 }

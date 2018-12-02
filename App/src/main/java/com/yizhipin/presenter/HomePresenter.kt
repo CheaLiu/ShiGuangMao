@@ -1,8 +1,7 @@
 package com.yizhipin.presenter
 
-import com.yizhipin.base.data.protocol.BasePagingResp
-import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.Goods
+import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.ext.execute
 import com.yizhipin.base.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
@@ -37,6 +36,16 @@ open class HomePresenter @Inject constructor() : BasePresenter<HomeView>() {
                 .execute(object : BaseSubscriber<MutableList<Goods>>(mView) {
                     override fun onNext(t: MutableList<Goods>) {
                         mView.onGetGoodsListSuccess(t)
+                    }
+                }, mLifecycleProvider)
+
+    }
+    fun getOssAddress() {
+//        mView.showLoading()
+        mServiceImpl.getOssAddress()
+                .execute(object : BaseSubscriber<OssAddress>(mView) {
+                    override fun onNext(t: OssAddress) {
+                        mView.onGetOssAddressSuccess(t)
                     }
                 }, mLifecycleProvider)
 

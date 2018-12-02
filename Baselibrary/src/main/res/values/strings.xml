@@ -13,6 +13,18 @@
     <string name="invitation_code">邀请码 (非必填，填写后享受9折优惠)</string>
     <string name="get_code">获取验证码</string>
     <string name="get_code_success">获取验证码成功</string>
+    <string name="veil_photography">婚纱摄影</string>
+    <string name="describe_photography">写真摄影</string>
+    <string name="baby_photography">宝宝摄影</string>
+    <string name="formal_place">礼服馆</string>
+    <string name="time_cloud">时光云盘</string>
+    <string name="time_supermarket">时光超市</string>
+    <string name="with_pat">随行拍</string>
+    <string name="integral_integral">积分商城</string>
+    <string name="hot_shoot">热门拍摄景点</string>
+    <string name="majordomo_recommend">总监摄影师推荐</string>
+    <string name="list_of_star">明星榜</string>
+    <string name="formal_recommned">千款礼服推荐</string>
 
 
     <string name="login">登录</string>

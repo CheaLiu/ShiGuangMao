@@ -9,11 +9,14 @@ import com.eightbitlab.rxbus.Bus
 import com.yizhipin.R
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.Goods
+import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.event.HomeIntentEvent
 import com.yizhipin.base.ext.onClick
 import com.yizhipin.base.ui.adapter.BaseRecyclerViewAdapter
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import com.yizhipin.base.ui.web.WebViewActivity
+import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.base.utils.BasePrefsUtils
 import com.yizhipin.base.widgets.BannerImageLoader
 import com.yizhipin.data.response.Banner
 import com.yizhipin.data.response.CategoryHome
@@ -23,6 +26,7 @@ import com.yizhipin.presenter.HomePresenter
 import com.yizhipin.presenter.view.HomeView
 import com.yizhipin.ui.adapter.CategoryHomeAdapter
 import com.yizhipin.ui.adapter.HotGoodsAdapter
+import com.yizhipin.ui.adapter.RecommendHomeAdapter
 import com.yizhipin.usercenter.injection.component.DaggerMainComponent
 import com.yizhipin.usercenter.injection.module.MianModule
 import com.youth.banner.BannerConfig
@@ -45,12 +49,15 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initOssAddress()
         initView()
         initHotGoodsView()
         initBanner()
         initNews()
         initCategoryRv()
+        initRecommendRv()
     }
+
 
     override fun injectComponent() {
         DaggerMainComponent.builder().activityComponent(mActivityComponent).mianModule(MianModule()).build().inject(this)
@@ -95,16 +102,37 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
     }
 
     private fun initCategoryRv() {
-        var dataList = mutableListOf(CategoryHome(R.drawable.windmill, getString(R.string.hamlet))
-                , CategoryHome(R.drawable.bed, getString(R.string.stay))
-                , CategoryHome(R.drawable.mountains, getString(R.string.group_group))
-                , CategoryHome(R.drawable.barchart, getString(R.string.generalize))
-                , CategoryHome(R.drawable.van, getString(R.string.motor_homes)))
+        var dataList = mutableListOf(CategoryHome(R.drawable.mainicon1, getString(R.string.veil_photography)),
+                CategoryHome(R.drawable.mainicon2, getString(R.string.describe_photography)),
+                CategoryHome(R.drawable.mainicon3, getString(R.string.baby_photography)),
+                CategoryHome(R.drawable.mainicon4, getString(R.string.formal_place)),
+                CategoryHome(R.drawable.mainicon5, getString(R.string.time_cloud)),
+                CategoryHome(R.drawable.mainicon6, getString(R.string.time_supermarket)),
+                CategoryHome(R.drawable.mainicon7, getString(R.string.with_pat)),
+                CategoryHome(R.drawable.mainicon8, getString(R.string.integral_integral)))
 
-        mCategoryRv.layoutManager = GridLayoutManager(activity, 5)
+        mCategoryRv.layoutManager = GridLayoutManager(activity, 4)
         val categoryHomeAdapter = CategoryHomeAdapter(activity!!)
         categoryHomeAdapter.setData(dataList)
         mCategoryRv.adapter = categoryHomeAdapter
+        categoryHomeAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<CategoryHome> {
+            override fun onItemClick(item: CategoryHome, position: Int) {
+                Bus.send(HomeIntentEvent(position))
+            }
+        })
+    }
+
+    private fun initRecommendRv() {
+        var dataList = mutableListOf(
+                CategoryHome(R.drawable.mainphoto1, getString(R.string.hot_shoot)),
+                CategoryHome(R.drawable.mainphoto2, getString(R.string.majordomo_recommend)),
+                CategoryHome(R.drawable.mainphoto3, getString(R.string.list_of_star)),
+                CategoryHome(R.drawable.mainphoto4, getString(R.string.formal_recommned)))
+
+        mRecommendRv.layoutManager = GridLayoutManager(activity, 2)
+        val categoryHomeAdapter = RecommendHomeAdapter(activity!!)
+        categoryHomeAdapter.setData(dataList)
+        mRecommendRv.adapter = categoryHomeAdapter
         categoryHomeAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<CategoryHome> {
             override fun onItemClick(item: CategoryHome, position: Int) {
                 Bus.send(HomeIntentEvent(position))
@@ -138,7 +166,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
     override fun onGetBannerSuccess(result: MutableList<Banner>) {
         var list = arrayListOf<String>()
         for (data in result) {
-            list.add(BaseConstant.IMAGE_SERVICE_ADDRESS.plus(data.imgurl))
+            list.add(AppPrefsUtils.getString(BaseConstant.IMAGE_ADDRESS).plus(data.imgurl))
         }
         //设置图片集合
         mHomeBanner.setImages(list)
@@ -164,5 +192,19 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, View.OnClickLis
 
     override fun onGetGoodsListSuccess(result: MutableList<Goods>) {
         mHotGoodsAdapter.setData(result)
+    }
+
+    /**
+     * 获取图片地址(阿里云存储)
+     */
+    private fun initOssAddress() {
+        mBasePresenter.getOssAddress()
+    }
+
+    /**
+     * 获取图片地址成功
+     */
+    override fun onGetOssAddressSuccess(result: OssAddress) {
+        BasePrefsUtils.putOssInfo(result)
     }
 }

@@ -14,6 +14,7 @@ import com.yizhipin.base.rx.BaseFunc
 import com.yizhipin.base.rx.BaseFuncBoolean
 import com.yizhipin.base.rx.BaseFuncPaging
 import com.yizhipin.base.rx.BaseSubscriber
+import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.base.utils.GlideUtils
 import com.yizhipin.base.widgets.DefaultTextWatcher
 import io.reactivex.Observable
@@ -83,7 +84,7 @@ fun Button.enable(editText: EditText, method: () -> Boolean) {
  * ImageView加载网络图片 扩展
  */
 fun ImageView.loadUrl(url: String) {
-    GlideUtils.loadUrlImage(context, BaseConstant.IMAGE_SERVICE_ADDRESS + url, this)
+    GlideUtils.loadUrlImage(context, AppPrefsUtils.getString(BaseConstant.IMAGE_ADDRESS) + url, this)
 }
 
 /**
