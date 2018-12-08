@@ -29,15 +29,15 @@
             android:name="CHANNEL"
             android:value="${CHANNEL_VALUE}" />
 
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name="com.yizhipin.teacher.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.SettingActivity" />
-        <activity android:name=".ui.activity.VersionInfoActivity" />
+        <activity android:name="com.yizhipin.teacher.ui.activity.SettingActivity" />
+        <activity android:name="com.yizhipin.teacher.ui.activity.VersionInfoActivity" />
         <activity android:name=".base.ui.web.WebViewActivity" />
     </application>
 

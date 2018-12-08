@@ -25,34 +25,34 @@ class GoodsRepository @Inject constructor() {
         商品详情
      */
     fun getGoodsDetail(map: MutableMap<String, String>): Observable<BaseResp<Goods>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getGoodsDetail(map["id"]!!, map["loginUid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getGoodsDetail(map["id"]!!, map["loginUid"]!!)
     }
 
     fun getEvaluateNew(map: MutableMap<String, String>): Observable<BaseResp<Evaluate>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getEvaluateNew(map["pid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getEvaluateNew(map["pid"]!!)
     }
 
     fun getReportNew(map: MutableMap<String, String>): Observable<BaseResp<Report>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getReportNew(map["pid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getReportNew(map["pid"]!!)
     }
 
     fun getCartCountData(map: MutableMap<String, String>): Observable<BaseResp<String>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getCartCountData(map["uid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getCartCountData(map["uid"]!!)
     }
 
     fun getEvaluateList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<Evaluate>>> {
         if (map["loginUid"].isNullOrEmpty()) {
-            return RetrofitFactoryGet().create(GoodsApi::class.java).getEvaluateListNotLogin(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!)
+            return RetrofitFactoryGet.create(GoodsApi::class.java).getEvaluateListNotLogin(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!)
         } else {
-            return RetrofitFactoryGet().create(GoodsApi::class.java).getEvaluateList(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!, map["loginUid"]!!)
+            return RetrofitFactoryGet.create(GoodsApi::class.java).getEvaluateList(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!, map["loginUid"]!!)
         }
     }
 
     fun getReportList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<Evaluate>>> {
         if (map["loginUid"].isNullOrEmpty()) {
-            return RetrofitFactoryGet().create(GoodsApi::class.java).getReportListNotLogin(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!, map["uid"]!!)
+            return RetrofitFactoryGet.create(GoodsApi::class.java).getReportListNotLogin(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!, map["uid"]!!)
         } else {
-            return RetrofitFactoryGet().create(GoodsApi::class.java).getReportList(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!, map["uid"]!!, map["loginUid"]!!)
+            return RetrofitFactoryGet.create(GoodsApi::class.java).getReportList(map["currentPage"]!!, map["pid"]!!, map["shopId"]!!, map["uid"]!!, map["loginUid"]!!)
         }
     }
 
@@ -65,15 +65,15 @@ class GoodsRepository @Inject constructor() {
     }
 
     fun getShopDetails(map: MutableMap<String, String>): Observable<BaseResp<Shop>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getShopDetails(map["id"]!!, map["loginUid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getShopDetails(map["id"]!!, map["loginUid"]!!)
     }
 
     fun getUserDetails(map: MutableMap<String, String>): Observable<BaseResp<UserInfo>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getUserDetails(map["id"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getUserDetails(map["id"]!!)
     }
 
     fun getCrowdorderList(map: MutableMap<String, String>): Observable<BaseResp<MutableList<UserInfo>>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getCrowdorderList(map["uid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getCrowdorderList(map["uid"]!!)
     }
 
     fun getComplainShop(map: MutableMap<String, String>): Observable<BaseResp<Complain>> {
@@ -85,7 +85,7 @@ class GoodsRepository @Inject constructor() {
     }
 
     fun getShareBillList(map: MutableMap<String, String>): Observable<BaseResp<MutableList<ShareBill>>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java).getShareBillList(map["lng"]!!, map["lat"]!!, map["pid"]!!)
+        return RetrofitFactoryGet.create(GoodsApi::class.java).getShareBillList(map["lng"]!!, map["lat"]!!, map["pid"]!!)
     }
 
 }

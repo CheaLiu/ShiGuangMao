@@ -4,6 +4,7 @@ import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.data.response.Banner
+import com.yizhipin.data.response.OrderItemBean
 import com.yizhipin.usercenter.data.api.Api
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -17,7 +18,7 @@ interface MainApi {
     /**
      * 获取banner
      */
-    @GET("${Api.BANNER}")
+    @GET(Api.BANNER)
     fun getBanner(): Observable<BaseResp<MutableList<Banner>>>
 
     /**
@@ -31,4 +32,10 @@ interface MainApi {
      */
     @GET(Api.IMAGE_ADDRESS)
     fun getOssAddress(): Observable<BaseResp<OssAddress>>
+
+    /**
+     * 获取订单列表
+     */
+    @GET(Api.ORDER_LIST)
+    fun getOrderList(): Observable<MutableList<OrderItemBean>>
 }

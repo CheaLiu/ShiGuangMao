@@ -6,6 +6,8 @@ import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.data.api.MainApi
 import com.yizhipin.data.response.Banner
+import com.yizhipin.data.response.OrderItemBean
+import com.yizhipin.ordercender.data.response.Order
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -18,16 +20,20 @@ class MainRepository @Inject constructor() {
      * 获取用户信息
      */
     fun getBanner(): Observable<BaseResp<MutableList<Banner>>> {
-        return RetrofitFactoryGet().create(MainApi::class.java)
+        return RetrofitFactoryGet.create(MainApi::class.java)
                 .getBanner()
     }
 
     fun getGoodsList(): Observable<BaseResp<MutableList<Goods>>> {
-        return RetrofitFactoryGet().create(MainApi::class.java)
+        return RetrofitFactoryGet.create(MainApi::class.java)
                 .getGoodsList(true)
     }
     fun getOssAddress(): Observable<BaseResp<OssAddress>> {
-        return RetrofitFactoryGet().create(MainApi::class.java)
+        return RetrofitFactoryGet.create(MainApi::class.java)
                 .getOssAddress()
+    }
+
+    fun getOrderList(): Observable<MutableList<OrderItemBean>> {
+        return RetrofitFactoryGet.create(MainApi::class.java).getOrderList()
     }
 }

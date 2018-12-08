@@ -52,7 +52,7 @@ class ShipAddressRepository @Inject constructor() {
      */
     fun getShipAddressList(): Observable<BaseResp<MutableList<ShipAddress>?>> {
 
-        return RetrofitFactoryGet().create(ShipAddressApi::class.java)
+        return RetrofitFactoryGet.create(ShipAddressApi::class.java)
                 .getShipAddressList(AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
 
     }

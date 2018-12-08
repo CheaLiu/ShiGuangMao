@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              style="@style/MatchMatch.Vertical"
-              android:background="@color/yBgGray">
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/yBgGray">
 
     <RelativeLayout
         style="@style/MatchWrap"
@@ -13,14 +13,14 @@
         <ImageView
             style="@style/WrapWrap"
             android:layout_centerVertical="true"
-            android:src="@drawable/bell"/>
+            android:src="@drawable/bg_bellw" />
 
         <TextView
             style="@style/WrapWrap"
             android:layout_centerInParent="true"
-            android:text="@string/nav_bar_home"
+            android:text="@string/navOrder"
             android:textColor="@color/yBlack"
-            android:textSize="@dimen/yTextLargeSize"/>
+            android:textSize="@dimen/yTextLargeSize" />
 
         <TextView
             style="@style/WrapWrap"
@@ -29,26 +29,24 @@
             android:drawableLeft="@drawable/route"
             android:text="上海店"
             android:textColor="@color/yRed"
-            android:textSize="@dimen/yTextMiddleLarSize"/>
+            android:textSize="@dimen/yTextMiddleLarSize" />
 
     </RelativeLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        style="@style/MatchWrap">
+    <android.support.v4.widget.NestedScrollView style="@style/MatchWrap">
 
-        <LinearLayout
-            style="@style/MatchWrap.Vertical">
+        <LinearLayout style="@style/MatchWrap.Vertical">
 
             <com.youth.banner.Banner
                 android:id="@+id/mHomeBanner"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"/>
+                android:layout_height="180dp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mCategoryRv"
                 style="@style/MatchWrap"
                 android:background="@color/yWhite"
-                android:paddingBottom="@dimen/yPadding"/>
+                android:paddingBottom="@dimen/yPadding" />
 
             <RelativeLayout
                 style="@style/MatchWrap"
@@ -67,7 +65,7 @@
                     android:layout_marginTop="@dimen/common_padding_small"
                     android:layout_marginRight="@dimen/common_padding_middle"
                     android:layout_marginBottom="@dimen/common_padding_small"
-                    android:background="@drawable/corner_news_bg"/>
+                    android:background="@drawable/corner_news_bg" />
 
                 <TextView
                     style="@style/WrapWrap"
@@ -75,14 +73,14 @@
                     android:layout_centerVertical="true"
                     android:text="@string/more"
                     android:textColor="@color/yRed"
-                    android:textSize="@dimen/yTextMiddleSize"/>
+                    android:textSize="@dimen/yTextMiddleSize" />
             </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mRecommendRv"
                 style="@style/MatchWrap"
                 android:layout_marginTop="@dimen/yPaddingSmall"
-                android:background="@color/yWhite"/>
+                android:background="@color/yWhite" />
 
             <LinearLayout
                 style="@style/MatchWrap.Horizontal"
@@ -93,7 +91,7 @@
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="@color/yMain"/>
+                    android:background="@color/yMain" />
 
                 <TextView
                     style="@style/MatchWrap"
@@ -101,11 +99,10 @@
                     android:background="@color/common_white"
                     android:text="@string/hot"
                     android:textColor="@color/yMain"
-                    android:textSize="@dimen/yTextMiddleSize"/>
+                    android:textSize="@dimen/yTextMiddleSize" />
             </LinearLayout>
 
-            <View
-                style="@style/DividerFixedHeight"/>
+            <View style="@style/DividerFixedHeight" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mGoodsRv"
@@ -114,7 +111,7 @@
                 android:background="@color/common_white"
                 android:paddingLeft="@dimen/common_padding"
                 android:paddingRight="@dimen/common_padding"
-                android:paddingBottom="@dimen/common_padding_small"/>
+                android:paddingBottom="@dimen/common_padding_small" />
 
             <LinearLayout
                 style="@style/MatchWrap.Horizontal"
@@ -125,7 +122,7 @@
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="@color/yMain"/>
+                    android:background="@color/yMain" />
 
                 <TextView
                     style="@style/MatchWrap"
@@ -133,7 +130,7 @@
                     android:background="@color/common_white"
                     android:text="@string/nearby_bill"
                     android:textColor="@color/yMain"
-                    android:textSize="@dimen/yTextMiddleSize"/>
+                    android:textSize="@dimen/yTextMiddleSize" />
 
             </LinearLayout>
 
@@ -148,7 +145,7 @@
                     android:layout_centerHorizontal="true"
                     android:text="@string/hint"
                     android:textColor="@color/yBlack"
-                    android:textSize="@dimen/yTextMiddleBigSize"/>
+                    android:textSize="@dimen/yTextMiddleBigSize" />
 
                 <TextView
                     android:id="@+id/hint_commissioner"
@@ -158,14 +155,14 @@
                     android:layout_marginTop="@dimen/yPaddingBigSmall"
                     android:text="@string/hint_commissioner"
                     android:textColor="@color/yBlack"
-                    android:textSize="@dimen/yTextMiddleBigSize"/>
+                    android:textSize="@dimen/yTextMiddleBigSize" />
 
                 <View
                     android:id="@+id/line"
                     style="@style/DividerFixedHeight"
                     android:layout_below="@+id/hint_commissioner"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/yPaddingBigLar"/>
+                    android:layout_marginTop="@dimen/yPaddingBigLar" />
 
                 <TextView
                     android:id="@+id/mUnderstandTv"
@@ -175,11 +172,10 @@
                     android:layout_marginTop="@dimen/yPaddingBigLar"
                     android:text="@string/understand"
                     android:textColor="@color/yMain"
-                    android:textSize="@dimen/yTextBigSize"/>
+                    android:textSize="@dimen/yTextBigSize" />
             </RelativeLayout>
 
-            <View
-                style="@style/DividerFixedHeight_10"/>
+            <View style="@style/DividerFixedHeight_10" />
 
 
         </LinearLayout>

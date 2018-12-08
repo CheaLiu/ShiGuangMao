@@ -18,7 +18,7 @@ class UserRepository @Inject constructor() {
 
     fun getCode(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
 
-        return RetrofitFactoryGet().create(UserApi::class.java)
+        return RetrofitFactoryGet.create(UserApi::class.java)
                 .getCode(map["mobile"]!!)
     }
 
@@ -44,7 +44,7 @@ class UserRepository @Inject constructor() {
      * 获取用户信息
      */
     fun getUserInfo(map: MutableMap<String, String>): Observable<BaseResp<UserInfo>> {
-        return RetrofitFactoryGet().create(UserApi::class.java)
+        return RetrofitFactoryGet.create(UserApi::class.java)
                 .getUserInfo(map["id"]!!)
     }
 
@@ -57,7 +57,7 @@ class UserRepository @Inject constructor() {
     }
 
     fun getCartCount(map: MutableMap<String, String>): Observable<BaseResp<Int>> {
-        return RetrofitFactoryGet().create(UserApi::class.java).getCartCount(map["uid"]!!)
+        return RetrofitFactoryGet.create(UserApi::class.java).getCartCount(map["uid"]!!)
     }
 
     /**

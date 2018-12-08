@@ -8,9 +8,9 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by ${XiLei} on 2018/7/26.
  */
-open  class BaseSubscriber<T>(val baseView: BaseView) : Observer<T> {
+open  class BaseSubscriber<T>(private val baseView: BaseView) : Observer<T> {
     override fun onSubscribe(d: Disposable) {
-
+        baseView.showLoading()
     }
 
     override fun onNext(t: T) {

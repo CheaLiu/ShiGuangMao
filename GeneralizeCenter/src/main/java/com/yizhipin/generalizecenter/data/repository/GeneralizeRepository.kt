@@ -15,35 +15,35 @@ import javax.inject.Inject
 class GeneralizeRepository @Inject constructor() {
 
     fun getGenBiddingList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<GeneralizeCollect>>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getGenBiddingList(map["currentPage"]!!, map["bidding"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getGenBiddingList(map["currentPage"]!!, map["bidding"]!!)
     }
 
     fun getGenBiddingDetails(map: MutableMap<String, String>): Observable<BaseResp<GeneralizeCollect>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getGenBiddingDetails(map["id"]!!, map["uid"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getGenBiddingDetails(map["id"]!!, map["uid"]!!)
     }
 
     fun getGenGroupDetails(map: MutableMap<String, String>): Observable<BaseResp<GeneralizeGroupDetails>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getGenGroupDetails(map["id"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getGenGroupDetails(map["id"]!!)
     }
 
     fun payPersonage(map: MutableMap<String, String>): Observable<BaseResp<String>> {
         return RetrofitFactoryPost(map).create(GeneralizeApi::class.java).payPersonage()
     }
     fun getEndTime(): Observable<BaseResp<String>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getEndTime()
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getEndTime()
     }
 
     fun getInvestStatistics(map: MutableMap<String, String>): Observable<BaseResp<GeneralizeInvestAmount>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getInvestStatistics(map["uid"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getInvestStatistics(map["uid"]!!)
     }
     fun getGenInvestList(map: MutableMap<String, String>): Observable<BaseResp<MutableList<GeneralizeInvest>>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getGenInvestList(map["uid"]!!,map["status"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getGenInvestList(map["uid"]!!,map["status"]!!)
     }
     fun getInvestDetailsList(map: MutableMap<String, String>): Observable<BaseResp<MutableList<InvestList>>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getInvestDetailsList(map["uid"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getInvestDetailsList(map["uid"]!!)
     }
     fun getInvestDetails(map: MutableMap<String, String>): Observable<BaseResp<InvestDetails>> {
-        return RetrofitFactoryGet().create(GeneralizeApi::class.java).getInvestDetails(map["uid"]!!,map["investmentId"]!!)
+        return RetrofitFactoryGet.create(GeneralizeApi::class.java).getInvestDetails(map["uid"]!!,map["investmentId"]!!)
     }
 
 

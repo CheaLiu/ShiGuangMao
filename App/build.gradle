@@ -55,6 +55,10 @@ android {
             }
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 def releaseTime() {
@@ -63,7 +67,6 @@ def releaseTime() {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
     implementation project(':Provider')
     if (isUserModule.toBoolean()) {
         implementation project(':UserCenter')
@@ -73,7 +76,6 @@ dependencies {
     implementation project(':OrderCenter')
     implementation project(':PayCenter')
     implementation project(':GeneralizeCenter')
-
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
 

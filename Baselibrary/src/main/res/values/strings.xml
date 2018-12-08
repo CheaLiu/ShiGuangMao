@@ -2,8 +2,8 @@
     <string name="app_name">BaseLibrary</string>
     <string name="version">1.0.0</string>
 
-    <string name="nav_bar_home">首页</string>
-    <string name="nav_bar_category">消息</string>
+    <string name="navOrder">抢单</string>
+    <string name="navMsg">消息</string>
     <string name="nav_bar_extend">发现</string>
     <string name="nav_bar_user">我的</string>
     <string name="login_acount">登录账户</string>
@@ -255,6 +255,7 @@
 
 
     <string name="affirm_commit">确认提交</string>
+    <string name="navSchedule">排期</string>
 
 
 </resources>

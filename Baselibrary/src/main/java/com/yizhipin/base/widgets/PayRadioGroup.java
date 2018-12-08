@@ -35,7 +35,7 @@ public class PayRadioGroup extends LinearLayout {
     public PayRadioGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        // retrieve selected radio button as requested by the user in the
+        // retrieve selected radio button as requested by the ic_mine in the
         // XML layout file
         TypedArray attributes = context.obtainStyledAttributes(
                 attrs, R.styleable.PayRidioGroup);
@@ -63,7 +63,7 @@ public class PayRadioGroup extends LinearLayout {
      */
     @Override
     public void setOnHierarchyChangeListener(OnHierarchyChangeListener listener) {
-        // the user listener is delegated to our pass-through listener
+        // the ic_mine listener is delegated to our pass-through listener
         mPassThroughListener.mOnHierarchyChangeListener = listener;
     }
 
@@ -304,7 +304,7 @@ public class PayRadioGroup extends LinearLayout {
     /**
      * <p>A pass-through listener acts upon the events and dispatches them
      * to another listener. This allows the table layout to set its own internal
-     * hierarchy change listener without preventing the user to setup his.</p>
+     * hierarchy change listener without preventing the ic_mine to setup his.</p>
      */
     private class PassThroughHierarchyChangeListener implements
             OnHierarchyChangeListener {

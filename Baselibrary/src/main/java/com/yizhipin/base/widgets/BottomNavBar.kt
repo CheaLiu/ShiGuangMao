@@ -15,24 +15,33 @@ class BottomNavBar @JvmOverloads constructor(
 ) : BottomNavigationBar(context, attrs, defStyleAttr) {
 
     init {
-        //首页
-        val homeItem = BottomNavigationItem(R.drawable.house, resources.getString(R.string.nav_bar_home))
-                .setInactiveIconResource(R.drawable.house2)
+        //抢单
+        val orderItem = BottomNavigationItem(
+                R.drawable.ic_order_checked,
+                resources.getString(R.string.navOrder))
+                .setInactiveIconResource(R.drawable.ic_order_unchecked)
                 .setActiveColorResource(R.color.yRed)
                 .setInActiveColorResource(R.color.yBlackDeep)
+
+        val scheduleItem = BottomNavigationItem(
+                R.drawable.ic_schedule_checked,
+                resources.getString(R.string.navSchedule))
+                .setInactiveIconResource(R.drawable.ic_dschedule_uncheck)
+                .setActiveColorResource(R.color.yRed)
+                .setInActiveColorResource(R.color.yBlackDeep)
+
         //消息
-        val categoryItem = BottomNavigationItem(R.drawable.message, resources.getString(R.string.nav_bar_category))
-                .setInactiveIconResource(R.drawable.message2)
-                .setActiveColorResource(R.color.yRed)
-                .setInActiveColorResource(R.color.yBlackDeep)
-        //发现
-        val msgItem = BottomNavigationItem(R.drawable.other, resources.getString(R.string.nav_bar_extend))
-                .setInactiveIconResource(R.drawable.other2)
+        val categoryItem = BottomNavigationItem(
+                R.drawable.ic_msg_checked,
+                resources.getString(R.string.navMsg))
+                .setInactiveIconResource(R.drawable.ic_msg_unchecked)
                 .setActiveColorResource(R.color.yRed)
                 .setInActiveColorResource(R.color.yBlackDeep)
         //我的
-        val userItem = BottomNavigationItem(R.drawable.user, resources.getString(R.string.nav_bar_user))
-                .setInactiveIconResource(R.drawable.user2)
+        val userItem = BottomNavigationItem(
+                R.drawable.ic_mine_checked,
+                resources.getString(R.string.nav_bar_user))
+                .setInactiveIconResource(R.drawable.ic_mine_unchecked)
                 .setActiveColorResource(R.color.yRed)
                 .setInActiveColorResource(R.color.yBlackDeep)
 
@@ -40,9 +49,9 @@ class BottomNavBar @JvmOverloads constructor(
         setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
         setBarBackgroundColor(R.color.common_white)
 
-        addItem(homeItem)
+        addItem(orderItem)
+                .addItem(scheduleItem)
                 .addItem(categoryItem)
-                .addItem(msgItem)
                 .addItem(userItem)
                 .setFirstSelectedPosition(0)
                 .initialise()

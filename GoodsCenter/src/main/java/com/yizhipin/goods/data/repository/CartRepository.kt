@@ -19,7 +19,7 @@ class CartRepository @Inject constructor() {
         获取购物车列表
      */
     fun getCartList(map: MutableMap<String, String>): Observable<BaseResp<MutableList<Cart>?>> {
-        return RetrofitFactoryGet().create(CartApi::class.java).getCartList(map["uid"]!!)
+        return RetrofitFactoryGet.create(CartApi::class.java).getCartList(map["uid"]!!)
     }
 
     /*

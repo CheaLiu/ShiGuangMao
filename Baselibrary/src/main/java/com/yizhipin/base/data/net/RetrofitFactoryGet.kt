@@ -14,12 +14,15 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitFactoryGet {
 
-    private val mRetrofit: Retrofit
-    private val mInterceptor: Interceptor
+    companion object {
 
-    init {
+        private fun initLogInterceptor(): Interceptor {
+            val interceptor = HttpLoggingInterceptor()
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            return interceptor
+        }
 
-        mInterceptor = Interceptor { chain ->
+        private val mInterceptor: Interceptor = Interceptor { chain ->
             val request = chain.request()
                     .newBuilder()
                     .header("Content-Type", "application/x-www-form-urlencoded")
@@ -29,30 +32,24 @@ class RetrofitFactoryGet {
             chain.proceed(request)
         }
 
-        mRetrofit = Retrofit.Builder()
+        private val mRetrofit: Retrofit = Retrofit.Builder()
                 .baseUrl(BaseConstant.SERVICE_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(initClient())
                 .build()
-    }
 
-    private fun initClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-                .addInterceptor(mInterceptor)
-                .addInterceptor(initLogInterceptor())
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(10, TimeUnit.SECONDS)
-                .build()
-    }
+        private fun initClient(): OkHttpClient {
+            return OkHttpClient.Builder()
+                    .addInterceptor(mInterceptor)
+                    .addInterceptor(initLogInterceptor())
+                    .connectTimeout(10, TimeUnit.SECONDS)
+                    .readTimeout(10, TimeUnit.SECONDS)
+                    .build()
+        }
 
-    private fun initLogInterceptor(): Interceptor {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-        return interceptor
-    }
-
-    fun <T> create(service: Class<T>): T {
-        return mRetrofit.create(service)
+        fun <T> create(service: Class<T>): T {
+            return mRetrofit.create(service)
+        }
     }
 }

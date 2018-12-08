@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">时光猫</string>
+    <string name="titleGrab">抢单</string>
+    <string name="navAll">全部</string>
+    <string name="navFollowingShot">跟拍</string>
+    <string name="navCamera">摄像</string>
+    <string name="navMakeUp">跟妆</string>
 </resources>

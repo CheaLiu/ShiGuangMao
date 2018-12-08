@@ -3,7 +3,10 @@ package com.yizhipin.usercenter.service.impl
 import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.ext.convert
+import com.yizhipin.base.ext.convertPaging
 import com.yizhipin.data.response.Banner
+import com.yizhipin.data.response.OrderItemBean
+import com.yizhipin.ordercender.data.response.Order
 import com.yizhipin.usercenter.data.repository.MainRepository
 import com.yizhipin.usercenter.service.MainService
 import io.reactivex.Observable
@@ -30,5 +33,12 @@ open class MainServiceImpl @Inject constructor() : MainService {
     override fun getOssAddress(): Observable<OssAddress> {
 
         return mRepository.getOssAddress().convert()
+    }
+
+    /**
+     * 抢单获取订单列表
+     */
+    override fun getOrderList(): Observable<MutableList<OrderItemBean>> {
+        return mRepository.getOrderList().convertPaging()
     }
 }

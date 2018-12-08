@@ -35,7 +35,7 @@ class BindMobileActivity : BaseMvpActivity<BindMobilePresenter>(), BindMobileVie
     override fun onClick(v: View) {
         when (v.id) {
             /* R.id.mSendCodeTv -> {
-                 mBasePresenter.login(mMobileEt.text.toString(), mCodeEt.text.toString(), "user")
+                 mBasePresenter.login(mMobileEt.text.toString(), mCodeEt.text.toString(), "ic_mine")
              }*/
 
             R.id.mLoginBtn -> {

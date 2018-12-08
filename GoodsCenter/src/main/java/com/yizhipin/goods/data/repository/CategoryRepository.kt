@@ -20,44 +20,44 @@ import javax.inject.Inject
 class CategoryRepository @Inject constructor() {
 
     fun getCategoryAll(): Observable<BaseResp<MutableList<Category>?>> {
-        return RetrofitFactoryGet().create(CategoryApi::class.java)
+        return RetrofitFactoryGet.create(CategoryApi::class.java)
                 .getCategory()
     }
 
     fun getSearchKeyword(): Observable<BaseResp<MutableList<SearchKeyword>?>> {
-        return RetrofitFactoryGet().create(CategoryApi::class.java)
+        return RetrofitFactoryGet.create(CategoryApi::class.java)
                 .getSearchKeyword()
     }
 
     fun getCategorySecond(map: MutableMap<String, String>): Observable<BaseResp<MutableList<CategorySecond>?>> {
-        return RetrofitFactoryGet().create(CategoryApi::class.java)
+        return RetrofitFactoryGet.create(CategoryApi::class.java)
                 .getCategorySecond(map["primaryCategory"]!!)
     }
 
     fun getGoodsList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<Goods>?>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java)
+        return RetrofitFactoryGet.create(GoodsApi::class.java)
                 .getGoodsList(map["currentPage"]!!, map["primaryCategory"]!!, map["secondCategory"]!!, map["order"]!!
                         , map["orderType"]!!)
     }
 
     fun getSearchGoodsList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<Goods>?>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java)
+        return RetrofitFactoryGet.create(GoodsApi::class.java)
                 .getSearchGoodsList(map["currentPage"]!!, map["name"]!!, map["order"]!!
                         , map["orderType"]!!)
     }
 
     fun getShopGoodsList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<Goods>?>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java)
+        return RetrofitFactoryGet.create(GoodsApi::class.java)
                 .getShopGoodsList(map["currentPage"]!!, map["shopId"]!!)
     }
 
     fun getCollectGoodsList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<CollectGoods>?>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java)
+        return RetrofitFactoryGet.create(GoodsApi::class.java)
                 .getCollectGoodsList(map["currentPage"]!!, map["uid"]!!)
     }
 
     fun getCollectShopList(map: MutableMap<String, String>): Observable<BasePagingResp<MutableList<CollectShop>?>> {
-        return RetrofitFactoryGet().create(GoodsApi::class.java)
+        return RetrofitFactoryGet.create(GoodsApi::class.java)
                 .getCollectShopList(map["currentPage"]!!, map["uid"]!!)
     }
 
