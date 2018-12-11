@@ -4,7 +4,7 @@ import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.response.CollectGoods
 import com.yizhipin.base.data.response.CollectShop
 import com.yizhipin.base.ext.execute
-import com.yizhipin.base.presenter.BasePresenter
+import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
 import com.yizhipin.goods.presenter.view.CollectView
 import com.yizhipin.goods.service.impl.CategoryServiceImpl

@@ -1,6 +1,7 @@
 package com.yizhipin.usercenter.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.yizhipin.base.data.response.UserInfo
@@ -49,11 +50,11 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
 
             R.id.mLoginBtn -> {
                 var map = mutableMapOf<String, String>()
-                map.put("mobile", mMobileEt.text.toString())
-                map.put("password", mPswEt.text.toString())
-                map.put("deviceToken", "")
-                map.put("deviceType", "android")
-                map.put("type", "0")
+                map["mobile"] = mMobileEt.text.toString()
+                map["password"] = mPswEt.text.toString()
+                map["deviceToken"] = ""
+                map["deviceType"] = "android"
+                map["type"] = "0"
                 mBasePresenter.login(map)
             }
         }
@@ -73,10 +74,9 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
      * 登录成功
      */
     override fun onLoginSuccess(result: UserInfo) {
+        Log.d("TAG", "access_token: " + result.token)
         UserPrefsUtils.putUserInfo(result)
-//          if (result.newUser) {
         startActivity<UserInfoActivity>()
-//          }
         finish()
     }
 

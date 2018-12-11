@@ -5,4 +5,7 @@
     <string name="navFollowingShot">跟拍</string>
     <string name="navCamera">摄像</string>
     <string name="navMakeUp">跟妆</string>
+    <string name="titleSchedule">排期</string>
+    <string name="btnSwitchView"><u>切换显示</u></string>
+    <string name="titleCalendar">%1$d年%2$d月</string>
 </resources>

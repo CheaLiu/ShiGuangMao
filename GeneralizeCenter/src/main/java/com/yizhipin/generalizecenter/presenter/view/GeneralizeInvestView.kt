@@ -1,6 +1,6 @@
 package com.yizhipin.generalizecenter.presenter.view
 
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.generalizecenter.data.response.GeneralizeInvest
 import com.yizhipin.generalizecenter.data.response.GeneralizeInvestAmount
 import com.yizhipin.generalizecenter.data.response.InvestDetails

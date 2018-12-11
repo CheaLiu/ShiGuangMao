@@ -1,6 +1,6 @@
 package com.yizhipin.goods.presenter.view
 
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.goods.data.response.ShareBill
 
 /**

@@ -1,8 +1,8 @@
-package com.yizhipin.base.presenter
+package com.yizhipin.base.mvp.presenter
 
 import android.content.Context
 import com.trello.rxlifecycle2.LifecycleProvider
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.base.utils.NetWorkUtils
 import javax.inject.Inject
 

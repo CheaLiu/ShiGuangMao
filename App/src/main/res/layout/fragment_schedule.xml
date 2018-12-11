@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_white"
+    android:orientation="vertical">
+
+    <com.qi.commonview.view.title.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_header_bar_height"
+        app:rightIconVisibility="GONE"
+        app:titleText="@string/titleSchedule">
+
+        <TextView
+            android:id="@+id/mSwitchViewBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="@dimen/common_padding"
+            android:drawableBottom="@drawable/bg_red_underline"
+            android:text="@string/btnSwitchView"
+            android:textColor="@color/common_red" />
+    </com.qi.commonview.view.title.TitleView>
+
+    <FrameLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

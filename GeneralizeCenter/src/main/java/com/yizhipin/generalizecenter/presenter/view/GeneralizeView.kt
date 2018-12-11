@@ -1,7 +1,7 @@
 package com.yizhipin.generalizecenter.presenter.view
 
 import com.yizhipin.base.data.protocol.BasePagingResp
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.generalizecenter.data.response.GeneralizeCollect
 import com.yizhipin.generalizecenter.data.response.GeneralizeGroupDetails
 

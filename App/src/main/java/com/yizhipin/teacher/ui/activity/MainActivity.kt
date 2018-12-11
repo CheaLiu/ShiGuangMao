@@ -14,6 +14,7 @@ import com.yizhipin.goods.ui.fragment.CategoryFragment
 import com.yizhipin.teacher.ui.fragment.GrabFragment
 import com.yizhipin.teacher.ui.fragment.HomeFragment
 import com.yizhipin.teacher.ui.fragment.MeFragment
+import com.yizhipin.teacher.ui.fragment.ScheduleFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import java.util.*
@@ -22,7 +23,7 @@ class MainActivity : BaseActivity() {
 
     private val mStack = Stack<Fragment>()
     private val mGrabFragment by lazy { GrabFragment() }
-    private val mCategoryFragment by lazy { CategoryFragment() }
+    private val mCategoryFragment by lazy { ScheduleFragment() }
     private val mGeneralizeFragment by lazy { GeneralizeFragment() }
     private val mMeFragment by lazy { MeFragment() }
 

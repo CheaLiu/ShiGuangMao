@@ -1,7 +1,7 @@
 package com.yizhipin.ordercender.presenter
 
 import com.yizhipin.base.ext.execute
-import com.yizhipin.base.presenter.BasePresenter
+import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
 import com.yizhipin.ordercender.data.response.ShipAddress
 import com.yizhipin.ordercender.presenter.view.ShipAddressView

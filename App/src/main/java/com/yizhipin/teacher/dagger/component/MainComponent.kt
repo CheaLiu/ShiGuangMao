@@ -11,7 +11,7 @@ import dagger.Component
  * Created by ${XiLei} on 2018/8/4.
  */
 @PerComponentScope
-@Component(dependencies = arrayOf(ActivityComponent::class), modules = arrayOf(MianModule::class))
+@Component(dependencies = arrayOf(ActivityComponent::class), modules = [MianModule::class])
 interface MainComponent {
 
     fun inject(activity: HomeFragment)

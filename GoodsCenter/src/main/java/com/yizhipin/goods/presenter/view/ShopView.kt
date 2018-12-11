@@ -2,7 +2,7 @@ package com.yizhipin.goods.presenter.view
 
 import com.yizhipin.base.data.response.Collect
 import com.yizhipin.base.data.response.Shop
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.goods.data.response.Complain
 
 /*

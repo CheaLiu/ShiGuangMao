@@ -22,8 +22,8 @@ import com.yizhipin.data.response.Banner
 import com.yizhipin.data.response.CategoryHome
 import com.yizhipin.goods.common.GoodsConstant
 import com.yizhipin.goods.ui.activity.GoodsDetailActivity
+import com.yizhipin.teacher.HomeView
 import com.yizhipin.teacher.presenter.HomePresenter
-import com.yizhipin.teacher.view.HomeView
 import com.yizhipin.teacher.ui.adapter.CategoryHomeAdapter
 import com.yizhipin.teacher.ui.adapter.HotGoodsAdapter
 import com.yizhipin.teacher.ui.adapter.RecommendHomeAdapter

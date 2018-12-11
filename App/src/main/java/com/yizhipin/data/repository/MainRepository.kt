@@ -6,8 +6,7 @@ import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.data.api.MainApi
 import com.yizhipin.data.response.Banner
-import com.yizhipin.data.response.OrderItemBean
-import com.yizhipin.ordercender.data.response.Order
+import com.yizhipin.data.response.ScheduleItemBean
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -33,7 +32,8 @@ class MainRepository @Inject constructor() {
                 .getOssAddress()
     }
 
-    fun getOrderList(): Observable<MutableList<OrderItemBean>> {
+    fun getOrderList(): Observable<MutableList<ScheduleItemBean>> {
         return RetrofitFactoryGet.create(MainApi::class.java).getOrderList()
     }
+
 }

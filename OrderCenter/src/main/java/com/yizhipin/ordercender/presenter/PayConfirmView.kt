@@ -1,6 +1,6 @@
 package com.yizhipin.ordercender.presenter
 
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 
 interface PayConfirmView : BaseView {
 

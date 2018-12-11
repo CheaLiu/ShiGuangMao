@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/PayCenter" />
             <option value="$PROJECT_DIR$/Provider" />
             <option value="$PROJECT_DIR$/UserCenter" />
+            <option value="$PROJECT_DIR$/calendarview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

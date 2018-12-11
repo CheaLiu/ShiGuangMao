@@ -1,6 +1,6 @@
 package com.yizhipin.ordercender.presenter.view
 
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.ordercender.data.response.Order
 
 /*

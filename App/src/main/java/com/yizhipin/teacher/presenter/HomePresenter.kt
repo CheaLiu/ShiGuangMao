@@ -3,10 +3,10 @@ package com.yizhipin.teacher.presenter
 import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.ext.execute
-import com.yizhipin.base.presenter.BasePresenter
+import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
 import com.yizhipin.data.response.Banner
-import com.yizhipin.teacher.view.HomeView
+import com.yizhipin.teacher.HomeView
 import com.yizhipin.usercenter.service.impl.MainServiceImpl
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.yizhipin.base.presenter.view
+package com.yizhipin.base.mvp.view
 
 /**
  * Created by ${XiLei} on 2018/7/26.

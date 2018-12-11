@@ -6,8 +6,8 @@ import com.yizhipin.base.injection.component.ActivityComponent
 import com.yizhipin.base.injection.component.DaggerActivityComponent
 import com.yizhipin.base.injection.moudule.ActivityModule
 import com.yizhipin.base.injection.moudule.LifecycleProviderModule
-import com.yizhipin.base.presenter.BasePresenter
-import com.yizhipin.base.presenter.view.BaseView
+import com.yizhipin.base.mvp.presenter.BasePresenter
+import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.base.widgets.ProgressLoading
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.toast

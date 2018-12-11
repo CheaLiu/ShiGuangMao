@@ -2,7 +2,7 @@ package com.yizhipin.goods.presenter
 
 import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.ext.execute
-import com.yizhipin.base.presenter.BasePresenter
+import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
 import com.yizhipin.generalizecenter.data.response.GeneralizeCollect
 import com.yizhipin.generalizecenter.data.response.GeneralizeGroupDetails
