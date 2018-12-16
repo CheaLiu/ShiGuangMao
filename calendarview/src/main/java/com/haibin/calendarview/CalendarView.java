@@ -24,6 +24,7 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 
@@ -82,6 +83,17 @@ public class CalendarView extends FrameLayout {
         super(context, attrs);
         mDelegate = new CalendarViewDelegate(context, attrs);
         init(context);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        ViewGroup.LayoutParams layoutParams = mMonthPager.getLayoutParams();
+        if (layoutParams!=null){
+            layoutParams.height = -1;
+            mMonthPager.setLayoutParams(layoutParams);
+        }
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mDelegate.setCalendarItemHeight(getMonthViewPager().getMeasuredHeight()/6);
     }
 
     /**
