@@ -12,8 +12,10 @@ class TimeTransformerUtil {
     companion object {
         const val TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
         const val FORMAT_YMD = "yyyy-MM-dd"
+
+
         fun getDate(text: String): Date {
-            val simpleDateFormat = SimpleDateFormat(TimeTransformerUtil.TIME_FORMAT, Locale.SIMPLIFIED_CHINESE)
+            val simpleDateFormat = SimpleDateFormat(TimeTransformerUtil.TIME_FORMAT, Locale.getDefault())
             return simpleDateFormat.parse(text)
         }
 
@@ -38,7 +40,12 @@ class TimeTransformerUtil {
         fun getCurrentYMD(): String {
             val calendar = Calendar.getInstance()
             val time = calendar.time
-            val simpleDateFormat = SimpleDateFormat(TimeTransformerUtil.FORMAT_YMD, Locale.SIMPLIFIED_CHINESE)
+            val simpleDateFormat = SimpleDateFormat(TimeTransformerUtil.FORMAT_YMD, Locale.getDefault())
+            return simpleDateFormat.format(time)
+        }
+
+        fun toString(time: Date, format: String): String {
+            var simpleDateFormat = SimpleDateFormat(format, Locale.getDefault())
             return simpleDateFormat.format(time)
         }
 

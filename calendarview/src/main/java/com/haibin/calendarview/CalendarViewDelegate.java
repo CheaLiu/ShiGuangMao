@@ -24,6 +24,7 @@ import android.util.AttributeSet;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +32,9 @@ import java.util.Map;
  * Google规范化的属性委托,
  * 代码量多，但是不影响阅读性
  */
-final class CalendarViewDelegate {
+final public class CalendarViewDelegate {
+
+    private Map<String, Object> mScheduleMap = new HashMap<>();
 
     /**
      * 周起始：周日
@@ -72,7 +75,6 @@ final class CalendarViewDelegate {
      * 月份显示模式
      */
     private int mMonthViewShowMode;
-
 
 
     /**
@@ -975,5 +977,16 @@ final class CalendarViewDelegate {
         }
         addSchemesFromMap(calendars);
         return calendars;
+    }
+
+    public final void setScheduleMap(Map<String, Object> scheduleMap) {
+        if (scheduleMap != null) {
+            mScheduleMap.clear();
+            mScheduleMap.putAll(scheduleMap);
+        }
+    }
+
+    public final Map<String, Object> getScheduleMap() {
+        return mScheduleMap;
     }
 }

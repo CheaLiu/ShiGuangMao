@@ -22,4 +22,8 @@ object UserPrefsUtils {
         AppPrefsUtils.putString(ProviderConstant.KEY_AMOUNT, userInfo?.amount ?: "0")
 //        AppPrefsUtils.putString(ProviderConstant.KEY_PAY_PWD, userInfo?.payPwd ?: "")
     }
+
+    fun getUserId():String{
+        return AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN)
+    }
 }

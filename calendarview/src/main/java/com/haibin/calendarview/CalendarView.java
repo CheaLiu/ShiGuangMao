@@ -41,7 +41,7 @@ public class CalendarView extends FrameLayout {
     /**
      * 抽取自定义属性
      */
-    private final CalendarViewDelegate mDelegate;
+    public final CalendarViewDelegate mDelegate;
 
     /**
      * 自定义自适应高度的ViewPager

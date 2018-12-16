@@ -5,15 +5,15 @@ import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.MonthView;
 import com.yizhipin.R;
 import com.yizhipin.data.response.ScheduleItemBean;
-import com.yizhipin.teacher.presenter.ScheduleCalendarPresenter;
 
 /**
  * 演示一个变态需求的月视图
@@ -23,7 +23,6 @@ import com.yizhipin.teacher.presenter.ScheduleCalendarPresenter;
 public class CustomMonthView extends MonthView {
 
     private int mRadius;
-
     /**
      * 自定义魅族标记的文本画笔
      */
@@ -44,6 +43,7 @@ public class CustomMonthView extends MonthView {
      * 今天的背景色
      */
     private Paint mCurrentDayPaint = new Paint();
+    private Paint mClearPaint = new Paint();
 
     /**
      * 圆点半径
@@ -62,7 +62,6 @@ public class CustomMonthView extends MonthView {
 
     public CustomMonthView(Context context) {
         super(context);
-
         mTextPaint.setTextSize(dipToPx(context, 8));
         mTextPaint.setColor(0xffffffff);
         mTextPaint.setAntiAlias(true);
@@ -88,6 +87,9 @@ public class CustomMonthView extends MonthView {
         mPointPaint.setStyle(Paint.Style.FILL);
         mPointPaint.setTextAlign(Paint.Align.CENTER);
         mPointPaint.setColor(Color.RED);
+
+        mClearPaint.setAntiAlias(true);
+        mClearPaint.setStyle(Paint.Style.FILL);
 
         mCircleRadius = dipToPx(getContext(), 7);
 
@@ -119,9 +121,10 @@ public class CustomMonthView extends MonthView {
     protected boolean onDrawSelected(Canvas canvas, Calendar calendar, int x, int y, boolean hasScheme) {
 //        int cx = x + mItemWidth / 2;
 //        int cy = y + mItemHeight / 2;
-        RectF rectF = new RectF(x, y, x + mItemWidth, y + mItemHeight);
-        canvas.drawRoundRect(rectF, mRadius, mRadius, mCurrentDayPaint);
-        return true;
+//        RectF rectF = new RectF(x, y, x + mItemWidth, y + mItemHeight);
+//        canvas.drawRoundRect(rectF, mRadius, mRadius, mCurrentDayPaint);
+//        return true;
+        return false;
     }
 
     @Override
@@ -133,56 +136,32 @@ public class CustomMonthView extends MonthView {
         int cx = x + mItemWidth / 2;
 //        int cy = y + mItemHeight / 2;
         int top = y - mItemHeight / 6;
-
-        if (calendar.isCurrentDay() && !isSelected) {
+        mCurMonthTextPaint.setColor(0xff333333);
+        mOtherMonthTextPaint.setColor(0xFFe1e1e1);
+        mCurMonthLunarTextPaint.setColor(0xff333333);
+        mOtherMonthLunarTextPaint.setColor(0xFFe1e1e1);
+        String date = calendar.getYear() + "-"
+                + (calendar.getMonth() < 10 ? (0 + "" + calendar.getMonth()) : calendar.getMonth()) + "-"
+                + (calendar.getDay() < 10 ? (0 + "" + calendar.getDay()) : calendar.getDay());
+        ScheduleItemBean itemBean = (ScheduleItemBean) getDelegate().getScheduleMap().get(date);
+        //-------------------------------画日程文本--------------------------------------------------------------------------------------------------------------
+        if (calendar.isCurrentMonth() && itemBean != null) {
+            //如果日程不为空，背景绘制成圆角矩形灰色背景
             RectF rectF = new RectF(x, y, x + mItemWidth, y + mItemHeight);
             canvas.drawRoundRect(rectF, mRadius, mRadius, mCurrentDayPaint);
-        }
-        mCurMonthTextPaint.setColor(0xff333333);
-        mCurMonthLunarTextPaint.setColor(0xffCFCFCF);
-        mSchemeLunarTextPaint.setColor(0xffCFCFCF);
-        mOtherMonthTextPaint.setColor(0xFFe1e1e1);
-        mOtherMonthLunarTextPaint.setColor(0xFFe1e1e1);
-        String date = calendar.getYear() + "-" + calendar.getMonth() + "-" + calendar.getDay();
-        ScheduleItemBean itemBean = ScheduleCalendarPresenter.Companion.getScheduleByDate(date);
-        if (isSelected) {
-            canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
-                    mSelectTextPaint);
-            //画日程文本
-            if (itemBean != null) {
-                if (itemBean.getStatus() == 2) {
-                    canvas.drawText(getResources().getStringArray(R.array.scheduleStatus)[2], cx, mTextBaseLine + y + mItemHeight / 10, mSelectedLunarTextPaint);
-                } else {
-                    canvas.drawText(itemBean.getId() + "", cx, mTextBaseLine + y + mItemHeight / 10, mSelectedLunarTextPaint);
-                }
-            }
-        } else {
-            canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
-                    calendar.isCurrentDay() ? mCurDayTextPaint :
-                            calendar.isCurrentMonth() ? mCurMonthTextPaint : mOtherMonthTextPaint);
-            //画日程文本
-            if (itemBean != null) {
-                if (itemBean.getStatus() == 2) {
-                    canvas.drawText(getResources().getStringArray(R.array.scheduleStatus)[2], cx, mTextBaseLine + y + mItemHeight / 10,
-                            calendar.isCurrentDay() ? mCurDayLunarTextPaint :
-                                    calendar.isCurrentMonth() ? !TextUtils.isEmpty(calendar.getSolarTerm()) ? mSolarTermTextPaint :
-                                            mCurMonthLunarTextPaint : mOtherMonthLunarTextPaint);
-                } else {
-                    canvas.drawText(itemBean.getId() + "", cx, mTextBaseLine + y + mItemHeight / 10,
-                            calendar.isCurrentDay() ? mCurDayLunarTextPaint :
-                                    calendar.isCurrentMonth() ? !TextUtils.isEmpty(calendar.getSolarTerm()) ? mSolarTermTextPaint :
-                                            mCurMonthLunarTextPaint : mOtherMonthLunarTextPaint);
-                }
+            if ("2".equals(itemBean.getStatus())) {
+                //状态为2，日程标记为休息
+                canvas.drawText(getResources().getStringArray(R.array.scheduleStatus)[2], cx, mTextBaseLine + y + mItemHeight / 10,
+                        calendar.isCurrentMonth() ? mCurMonthLunarTextPaint : mOtherMonthLunarTextPaint);
+            } else {
+                //其它状态显示服务用户名称
+                canvas.drawText(itemBean.getNickname(), cx, mTextBaseLine + y + mItemHeight / 10,
+                        calendar.isCurrentMonth() ? mCurMonthLunarTextPaint : mOtherMonthLunarTextPaint);
             }
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        Calendar calendar = getIndex();
-        String date = calendar.getYear() + "-" + calendar.getMonth() + "-" + calendar.getDay();
-        ScheduleItemBean itemBean = ScheduleCalendarPresenter.Companion.getScheduleByDate(date);
+        //-------------------------------绘制日期----------------------------------------------------------------------------------------------------------------
+        canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
+                calendar.isCurrentMonth() ? mCurMonthTextPaint : mOtherMonthTextPaint);
     }
 
     /**

@@ -43,7 +43,7 @@
         app:week_background="#fff"
         app:week_bar_height="46dp"
         app:month_view="com.yizhipin.view.CustomMonthView"
-        app:week_view="com.yizhipin.view..CustomWeekView"
+        app:week_view="com.yizhipin.view.CustomWeekView"
         app:week_bar_view="com.yizhipin.view.CustomWeekBar"
         app:week_line_background="#00000000"
         app:week_line_margin="16dp"

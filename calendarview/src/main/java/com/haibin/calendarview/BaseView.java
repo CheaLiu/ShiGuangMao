@@ -267,6 +267,10 @@ public abstract class BaseView extends View implements View.OnClickListener, Vie
     }
 
 
+    public CalendarViewDelegate getDelegate() {
+        return mDelegate;
+    }
+
     /**
      * 移除事件
      */

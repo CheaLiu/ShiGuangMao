@@ -34,8 +34,7 @@ interface ScheduleView : BaseView {
  * 日程安排日历展示
  */
 interface ScheduleCalendarView : BaseView {
-    fun getSchedule()
-    fun uploadSchdule()
+    fun uploadSchedule(scheduleMap: HashMap<String, ScheduleItemBean>)
 }
 
 interface ScheduleListView:BaseView{

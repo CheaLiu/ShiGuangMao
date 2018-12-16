@@ -2,8 +2,8 @@ package com.yizhipin.usercenter.injection.component
 
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
-import com.yizhipin.teacher.ui.fragment.HomeFragment
-import com.yizhipin.teacher.ui.fragment.MeFragment
+import com.yizhipin.teacher.schedule.ui.fragment.HomeFragment
+import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
 import com.yizhipin.usercenter.injection.module.MianModule
 import dagger.Component
 

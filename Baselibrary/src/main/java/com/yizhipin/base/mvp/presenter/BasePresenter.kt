@@ -9,9 +9,13 @@ import javax.inject.Inject
 /**
  * Created by ${XiLei} on 2018/7/26.
  */
-open class BasePresenter<T : BaseView> {
-
+open class BasePresenter<T : BaseView> constructor() {
     lateinit var mView: T
+
+    constructor(view: T) : this() {
+        mView = view
+    }
+
 
     @Inject
     lateinit var mLifecycleProvider: LifecycleProvider<*>
@@ -19,7 +23,7 @@ open class BasePresenter<T : BaseView> {
     lateinit var context: Context
 
     fun checkNetWork(): Boolean {
-        if(NetWorkUtils.isNetWorkAvailable(context)){
+        if (NetWorkUtils.isNetWorkAvailable(context)) {
             return true
         }
         mView.onError("网络不可用")
