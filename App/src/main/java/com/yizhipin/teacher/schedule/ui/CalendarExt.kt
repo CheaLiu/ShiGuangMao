@@ -11,6 +11,6 @@ import com.yizhipin.view.CustomMonthView
  */
 fun CalendarView.update(scheduleMap: Map<String, ScheduleItemBean>) {
     mDelegate.scheduleMap = scheduleMap
-    val view = monthViewPager.findViewById<View>(monthViewPager.currentItem)
+    val view = monthViewPager.findViewWithTag<View>(monthViewPager.currentItem)
     view?.invalidate()
 }

@@ -116,6 +116,7 @@ dependencies {
     //经纬度
     api "com.github.quentin7b:android-location-tracker:${location_version}"
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    api 'com.contrarywind:Android-PickerView:3.2.7'
 }
 
 //Parcelable序列化插件

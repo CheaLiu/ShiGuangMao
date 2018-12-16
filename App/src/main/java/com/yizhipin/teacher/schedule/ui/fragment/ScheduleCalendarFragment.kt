@@ -5,11 +5,13 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bigkoo.pickerview.TimePickerView
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.yizhipin.R
 import com.yizhipin.base.common.BaseConstant.Companion.KEY_SP_TOKEN
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
+import com.yizhipin.base.ui.pop.TimeUtils
 import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.data.response.ScheduleItemBean
 import com.yizhipin.teacher.ScheduleCalendarView
@@ -19,6 +21,8 @@ import com.yizhipin.teacher.schedule.presenter.ScheduleCalendarPresenter
 import com.yizhipin.teacher.schedule.ui.update
 import com.yizhipin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.fragment_schedule_calendar.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Creator Qi
@@ -40,6 +44,20 @@ class ScheduleCalendarFragment : BaseMvpFragment<ScheduleCalendarPresenter>(), S
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        calendarTitleView.setOnClickListener {
+            val calendar = java.util.Calendar.getInstance()
+            var dateFormat = SimpleDateFormat("yyyy年MM", Locale.getDefault())
+            calendar.time = dateFormat.parse(calendarTitleView.text.toString())
+            TimeUtils.showYMDialog(it.context, TimePickerView.OnTimeSelectListener { date, _ ->
+                val selectedCalendar = java.util.Calendar.getInstance()
+                selectedCalendar.time = date
+                val year = selectedCalendar.get(java.util.Calendar.YEAR)
+                val month = selectedCalendar.get(java.util.Calendar.MONTH) + 1
+                val day = selectedCalendar.get(java.util.Calendar.DAY_OF_MONTH)
+                calendarView.scrollToCalendar(year, month, day, true)
+                calendarTitleView.text = String.format(resources.getString(R.string.titleCalendar), year, month)
+            }, calendar)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -66,6 +84,10 @@ class ScheduleCalendarFragment : BaseMvpFragment<ScheduleCalendarPresenter>(), S
                 }
             }
         })
+        //月份Change监听
+        calendarView.setOnMonthChangeListener { year, month ->
+            calendarTitleView.text = String.format(resources.getString(R.string.titleCalendar), year, month)
+        }
         //获取老师日程列表
         mBasePresenter.getScheduleListFromNet(UserPrefsUtils.getUserId())
     }

@@ -34,8 +34,10 @@ buildscript {
     ext.location_version = "3.2"
 
     repositories {
+        maven { url "https://maven.aliyun.com/respository/google" }
+        maven { url "https://maven.aliyun.com/respository/jcenter" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         google()
-        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -45,9 +47,11 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        jcenter()
+        maven { url "https://maven.aliyun.com/respository/google" }
+        maven { url "https://maven.aliyun.com/respository/jcenter" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url 'https://jitpack.io' }
+        google()
     }
 }
 

@@ -34,11 +34,6 @@ public abstract class MonthView extends BaseMonthView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Paint paint = new Paint();
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        canvas.drawPaint(paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
-
         if (mLineCount == 0)
             return;
         mItemWidth = (getWidth() - 2 * mDelegate.getCalendarPadding()) / 7;
