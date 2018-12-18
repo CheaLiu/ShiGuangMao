@@ -1,3 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">UserCenter</string>
+    <string name="title_authentication_activity" tools:ignore="ExtraTranslation">实名认证</string>
+    <string name="keyName">姓名</string>
+    <string name="keyIdentityCard">身份证号</string>
+    <string name="keyIdentityCardPhoto">身份证照片</string>
+    <string name="card_reverse">反面</string>
+    <string name="front">正面</string>
 </resources>

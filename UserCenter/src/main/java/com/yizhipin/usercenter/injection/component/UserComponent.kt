@@ -10,7 +10,7 @@ import dagger.Component
  * Created by ${XiLei} on 2018/8/4.
  */
 @PerComponentScope
-@Component(dependencies = arrayOf(ActivityComponent::class), modules = arrayOf(UserModule::class))
+@Component(dependencies = [ActivityComponent::class], modules = [UserModule::class])
 interface UserComponent {
 
     fun inject(activity: LoginActivity)
@@ -21,4 +21,5 @@ interface UserComponent {
     fun inject(activity: PayPwdUpdateActivity)
     fun inject(activity: PayPwdResetActivity)
     fun inject(activity: ResetPwdActivity)
+    fun inject(activity: AuthenticationActivity)
 }
