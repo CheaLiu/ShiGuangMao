@@ -50,8 +50,17 @@ class ScheduleModel @Inject constructor() : BaseModel() {
     }
 
     fun deleteSchedule(id: String): Observable<BaseResp<Unit>> {
-        val map = HashMap<String,String>()
+        val map = HashMap<String, String>()
         map["id"] = id
         return RetrofitFactoryDelete(map).create(ScheduleService::class.java).deleteSchedule(id)
     }
+
+    fun getScheduleList(teacherId: String, status: Int, currentPage: Int): Observable<BaseResp<List<ScheduleItemBean>>> {
+        val map = HashMap<String, String>()
+        map["teacherId"] = teacherId
+        map["status"] = "" + status
+        map["currentPage"] = "" + currentPage
+        return RetrofitFactoryGet.create(ScheduleService::class.java).getScheduleList(teacherId,status,currentPage)
+    }
+
 }

@@ -37,7 +37,7 @@ interface ScheduleCalendarView : BaseView {
     fun uploadSchedule(scheduleMap: HashMap<String, ScheduleItemBean>)
 }
 
-interface ScheduleListView:BaseView{
-    fun getScheduleList()
+interface ScheduleListView : BaseView {
+//    fun showListView()
 }
 

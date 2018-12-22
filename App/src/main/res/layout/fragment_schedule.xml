@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/common_white"
     android:orientation="vertical">
 
     <com.qi.commonview.view.title.TitleView
         android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
+        android:background="@color/common_white"
         app:rightIconVisibility="GONE"
         app:titleText="@string/titleSchedule">
 
@@ -23,6 +23,11 @@
             android:text="@string/btnSwitchView"
             android:textColor="@color/common_red" />
     </com.qi.commonview.view.title.TitleView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bg_divider" />
 
     <FrameLayout
         android:id="@+id/contentView"

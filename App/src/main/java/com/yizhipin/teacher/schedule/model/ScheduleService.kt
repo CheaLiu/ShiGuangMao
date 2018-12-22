@@ -23,7 +23,17 @@ interface ScheduleService {
     @GET(Api.SCHEDULE_LIST)
     fun getScheduleList(@Query("teacherId") teacherId: String): Observable<BaseResp<List<ScheduleItemBean>>>
 
+    /**
+     * 获取日程列表(分页)
+     * @param teacherId 老师id
+     * @param status 排期状态（0待完成,1已完成,2休息）
+     */
+    @GET(Api.SCHEDULE_LIST_PAGE)
+    fun getScheduleList(@Query("teacherId") teacherId: String, @Query("status") status: Int, @Query("currentPage") currentPage: Int): Observable<BaseResp<List<ScheduleItemBean>>>
+
     /**删除日程*/
     @DELETE(Api.SCHEDULE_UPDATE)
-    fun deleteSchedule(@Path("id") id: String):Observable<BaseResp<Unit>>
+    fun deleteSchedule(@Path("id") id: String): Observable<BaseResp<Unit>>
+
+
 }

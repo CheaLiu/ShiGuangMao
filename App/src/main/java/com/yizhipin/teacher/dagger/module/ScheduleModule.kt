@@ -14,6 +14,6 @@ class ScheduleModule constructor(var view:ScheduleCalendarView) {
 
     @Provides
     fun provideSchduleCalendarView():ScheduleCalendarView{
-        return view;
+        return view
     }
 }

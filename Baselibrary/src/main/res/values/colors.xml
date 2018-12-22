@@ -9,7 +9,6 @@
     <color name="yBlackDeep">#919191</color>
 
 
-
     <color name="yBgGray">#f2f2f2</color>
     <color name="yMain">#58bdaf</color>
     <color name="yMainLight">#58bdc0</color>
@@ -49,4 +48,5 @@
     <color name="font_title_default">#686868</color>
     <color name="transparent">#00000000</color>
     <color name="common_background" tools:ignore="MissingDefaultResource">#f2f4fc</color>
+    <color name="bg_divider" tools:ignore="MissingDefaultResource">#c3c3c3</color>
 </resources>

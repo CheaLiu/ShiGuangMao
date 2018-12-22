@@ -15,13 +15,13 @@ class BottomNavBar @JvmOverloads constructor(
 ) : BottomNavigationBar(context, attrs, defStyleAttr) {
 
     init {
-        //抢单
+      /*  //抢单
         val orderItem = BottomNavigationItem(
                 R.drawable.ic_order_checked,
                 resources.getString(R.string.navOrder))
                 .setInactiveIconResource(R.drawable.ic_order_unchecked)
                 .setActiveColorResource(R.color.yRed)
-                .setInActiveColorResource(R.color.yBlackDeep)
+                .setInActiveColorResource(R.color.yBlackDeep)*/
 
         val scheduleItem = BottomNavigationItem(
                 R.drawable.ic_schedule_checked,
@@ -49,7 +49,7 @@ class BottomNavBar @JvmOverloads constructor(
         setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
         setBarBackgroundColor(R.color.common_white)
 
-        addItem(orderItem)
+//        addItem(orderItem)
                 .addItem(scheduleItem)
                 .addItem(categoryItem)
                 .addItem(userItem)

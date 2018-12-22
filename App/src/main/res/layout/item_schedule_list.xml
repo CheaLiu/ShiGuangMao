@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/common_padding"
+    android:paddingTop="@dimen/common_padding"
+    android:paddingBottom="@dimen/common_padding">
+
+    <ImageView
+        android:id="@+id/production"
+        android:layout_width="76dp"
+        android:layout_height="76dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/production"
+        android:layout_alignBottom="@+id/production"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:layout_toStartOf="@+id/divider"
+        android:layout_toEndOf="@+id/production">
+
+        <TextView
+            android:id="@+id/photographyType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_red" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/price_photography"
+            android:textColor="@color/common_red" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/photographyType" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/production"
+        android:layout_alignBottom="@+id/production"
+        android:layout_toLeftOf="@+id/icon"
+        android:background="@color/bg_divider" />
+
+    <ImageView
+        android:layout_alignParentEnd="true"
+        android:id="@+id/icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="25dp" />
+</RelativeLayout>

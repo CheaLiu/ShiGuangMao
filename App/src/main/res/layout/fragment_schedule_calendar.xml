@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/common_white"
     android:orientation="vertical">
 
     <TextView
@@ -25,11 +26,12 @@
         app:current_month_text_color="#333333"
         app:lunar_text_size="10sp"
         app:max_year="2100"
-        app:max_year_month="12"
         app:max_year_day="31"
+        app:max_year_month="12"
         app:min_year="2000"
-        app:min_year_month="1"
         app:min_year_day="1"
+        app:min_year_month="1"
+        app:month_view="com.yizhipin.view.CustomMonthView"
         app:month_view_show_mode="mode_fix"
         app:other_month_lunar_text_color="#e1e1e1"
         app:other_month_text_color="#e1e1e1"
@@ -42,21 +44,20 @@
         app:selected_theme_color="#80cfcfcf"
         app:week_background="#fff"
         app:week_bar_height="46dp"
-        app:month_view="com.yizhipin.view.CustomMonthView"
-        app:week_view="com.yizhipin.view.CustomWeekView"
         app:week_bar_view="com.yizhipin.view.CustomWeekBar"
         app:week_line_background="#00000000"
         app:week_line_margin="16dp"
         app:week_start_with="mon"
         app:week_text_size="10sp"
-        app:year_view_week_height="0dp"
-        app:year_view_week_text_color="#666666"
-        app:year_view_week_text_size="7sp"
+        app:week_view="com.yizhipin.view.CustomWeekView"
         app:year_view_background="#f6f6f6"
         app:year_view_day_text_color="#333333"
         app:year_view_day_text_size="8sp"
         app:year_view_month_text_color="#ff0000"
         app:year_view_month_text_size="20sp"
-        app:year_view_scheme_color="#f17706" />
+        app:year_view_scheme_color="#f17706"
+        app:year_view_week_height="0dp"
+        app:year_view_week_text_color="#666666"
+        app:year_view_week_text_size="7sp" />
 
 </LinearLayout>

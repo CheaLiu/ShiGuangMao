@@ -10,9 +10,6 @@ import com.yizhipin.base.common.AppManager
 import com.yizhipin.base.event.HomeIntentEvent
 import com.yizhipin.base.ui.activity.BaseActivity
 import com.yizhipin.generalizecenter.ui.fragment.GeneralizeFragment
-import com.yizhipin.goods.ui.fragment.CategoryFragment
-import com.yizhipin.teacher.schedule.ui.fragment.GrabFragment
-import com.yizhipin.teacher.schedule.ui.fragment.HomeFragment
 import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
 import com.yizhipin.teacher.schedule.ui.fragment.ScheduleFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,8 +19,8 @@ import java.util.*
 class MainActivity : BaseActivity() {
 
     private val mStack = Stack<Fragment>()
-    private val mGrabFragment by lazy { GrabFragment() }
-    private val mCategoryFragment by lazy { ScheduleFragment() }
+//    private val mGrabFragment by lazy { GrabFragment() }
+    private val mScheduleFragment by lazy { ScheduleFragment() }
     private val mGeneralizeFragment by lazy { GeneralizeFragment() }
     private val mMeFragment by lazy { MeFragment() }
 
@@ -38,14 +35,14 @@ class MainActivity : BaseActivity() {
 
     private fun initFragment() {
         val manager = supportFragmentManager.beginTransaction()
-        manager.add(R.id.mContaier, mGrabFragment)
-        manager.add(R.id.mContaier, mCategoryFragment)
+//        manager.add(R.id.mContaier, mGrabFragment)
+        manager.add(R.id.mContaier, mScheduleFragment)
         manager.add(R.id.mContaier, mGeneralizeFragment)
         manager.add(R.id.mContaier, mMeFragment)
         manager.commit()
 
-        mStack.add(mGrabFragment)
-        mStack.add(mCategoryFragment)
+//        mStack.add(mGrabFragment)
+        mStack.add(mScheduleFragment)
         mStack.add(mGeneralizeFragment)
         mStack.add(mMeFragment)
     }
