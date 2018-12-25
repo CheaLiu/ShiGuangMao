@@ -16,7 +16,7 @@ interface Api {
         const val SCHEDULE_CANCEL = "api/TeacherSchedule"//排期取消预约
         const val SCHEDULE_UPDATE = "api/TeacherSchedule/{id}"//排期取消预约
         const val SCHEDULE_LIST = "api/TeacherSchedule/List"//排期列表
-        const val SCHEDULE_LIST_PAGE = "GET /api/TeacherSchedule/Page"//排期列表
+        const val SCHEDULE_LIST_PAGE = "api/TeacherSchedule/Page"//排期列表
 
         const val BIND_MOBILE = "api/WebUser/BindingMobile"//编辑用户信息
         const val ADDRESS_LIST = "api/UserAddress/List"//收货地址列表

@@ -1,10 +1,11 @@
 package com.yizhipin.base.mvp.view
 
+import android.content.Context
+
 /**
  * Created by ${XiLei} on 2018/7/26.
  */
 interface BaseView {
-
     fun showLoading()
     fun hideLoading()
     fun onError(mes: String)

@@ -11,4 +11,6 @@
     <string name="tab_unfinished">待完成</string>
     <string name="tab_finished">已完成</string>
     <string name="price_photography">￥%1$d</string>
+    <string name="phasePrepare">准备阶段</string>
+    <string name="phaseFinished">已完成</string>
 </resources>

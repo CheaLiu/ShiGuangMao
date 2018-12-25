@@ -49,4 +49,5 @@
     <color name="transparent">#00000000</color>
     <color name="common_background" tools:ignore="MissingDefaultResource">#f2f4fc</color>
     <color name="bg_divider" tools:ignore="MissingDefaultResource">#c3c3c3</color>
+    <color name="border_image" tools:ignore="MissingDefaultResource">#dde0e0</color>
 </resources>

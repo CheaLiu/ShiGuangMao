@@ -256,6 +256,9 @@
 
     <string name="affirm_commit">确认提交</string>
     <string name="navSchedule">排期</string>
+    <string name="errorNetUnauthorized">用户信息认证失败</string>
+    <string name="errorNetForbidden">禁止用户</string>
+    <string name="errorNetNotFound">网络异常</string>
 
 
 </resources>

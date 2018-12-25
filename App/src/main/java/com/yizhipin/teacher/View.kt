@@ -38,6 +38,6 @@ interface ScheduleCalendarView : BaseView {
 }
 
 interface ScheduleListView : BaseView {
-//    fun showListView()
+    fun show(data: List<ScheduleItemBean>)
 }
 

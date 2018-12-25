@@ -10,10 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.yizhipin.R
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
+import com.yizhipin.data.response.ScheduleItemBean
 import com.yizhipin.teacher.ScheduleListView
 import com.yizhipin.teacher.dagger.component.DaggerScheduleListComponent
 import com.yizhipin.teacher.dagger.module.ScheduleListModule
 import com.yizhipin.teacher.schedule.presenter.ScheduleListPresenter
+import com.yizhipin.teacher.schedule.ui.adapter.ScheduleListAdapter
 import kotlinx.android.synthetic.main.fragment_schedule_list_child.*
 
 /**
@@ -30,6 +32,7 @@ class ScheduleListChildFragment : BaseMvpFragment<ScheduleListPresenter>(), Sche
         const val FINISHED = 1
     }
     var scheduleStatus:Int = 0
+    private lateinit var scheduleListAdapter: ScheduleListAdapter
 
     override fun injectComponent() {
         DaggerScheduleListComponent.builder().activityComponent(mActivityComponent).scheduleListModule(ScheduleListModule(this)).build().inject(this)
@@ -49,7 +52,14 @@ class ScheduleListChildFragment : BaseMvpFragment<ScheduleListPresenter>(), Sche
         colorDrawable.bounds = Rect(0, 0, 1, resources.getDimensionPixelSize(R.dimen.common_padding))
         dividerItemDecoration.setDrawable(colorDrawable)
         recyclerView.addItemDecoration(dividerItemDecoration)
+        scheduleListAdapter = ScheduleListAdapter()
+        recyclerView.adapter = scheduleListAdapter
+        //初始化数据，从网络获取列表数据
         mBasePresenter.getScheduleList(scheduleStatus)
+    }
+
+    override fun show(data: List<ScheduleItemBean>) {
+        scheduleListAdapter.addData(data)
     }
 
 }
