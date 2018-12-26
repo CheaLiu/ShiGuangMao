@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jcodecraeer.xrecyclerview.ProgressStyle
 import com.yizhipin.R
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import com.yizhipin.data.response.ScheduleItemBean
@@ -51,7 +52,8 @@ class ScheduleListChildFragment : BaseMvpFragment<ScheduleListPresenter>(), Sche
         val colorDrawable = ColorDrawable(resources.getColor(R.color.transparent))
         colorDrawable.bounds = Rect(0, 0, 1, resources.getDimensionPixelSize(R.dimen.common_padding))
         dividerItemDecoration.setDrawable(colorDrawable)
-        recyclerView.addItemDecoration(dividerItemDecoration)
+        recyclerView.addItemDecoration(dividerItemDecoration)//添加分割线
+        recyclerView.setLoadingMoreProgressStyle(ProgressStyle.SysProgress)//刷新样式
         scheduleListAdapter = ScheduleListAdapter()
         recyclerView.adapter = scheduleListAdapter
         //初始化数据，从网络获取列表数据

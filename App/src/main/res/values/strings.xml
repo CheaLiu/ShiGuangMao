@@ -13,4 +13,14 @@
     <string name="price_photography">￥%1$d</string>
     <string name="phasePrepare">准备阶段</string>
     <string name="phaseFinished">已完成</string>
+    <string name="remainingSum">余额</string>
+    <string name="creditScore">时光信用</string>
+    <string name="invitationCode">邀请码</string>
+    <string name="keyChargeSetting">收费设置</string>
+    <string name="keyCashPledge">我的押金</string>
+    <string name="keyDataProduction">我的资料、作品</string>
+    <string name="keyAttention">我的关注</string>
+    <string name="keyWorkNotice">工作须知</string>
+    <string name="keyServiceTel">客服电话</string>
+    <string name="keySystemSetting">系统设置</string>
 </resources>
