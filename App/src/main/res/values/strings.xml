@@ -23,4 +23,15 @@
     <string name="keyWorkNotice">工作须知</string>
     <string name="keyServiceTel">客服电话</string>
     <string name="keySystemSetting">系统设置</string>
+    <string name="titleChargingSetting">收费设置</string>
+    <!--<string name="chargeStandard"><![CDATA[<u>费用标准</u>]]></string>-->
+    <string name="chargeStandard"><u>费用标准</u></string>
+    <string name="yourPositionIs">您的职位为</string>
+    <string name="keyPosition">，级别为</string>
+    <string name="yourChargingStandardIs">您的收费标准为</string>
+    <string name="moneyChargingStandard">￥%1$d</string>
+    <string name="unitChargingStandard">/套系</string>
+    <string name="describeChargingStand">根据您的资历，您可以收取指定的资历费为</string>
+    <string name="hintChargingStandard">资历费一次性收取，不按套系计算</string>
+    <string name="sure">确定</string>
 </resources>

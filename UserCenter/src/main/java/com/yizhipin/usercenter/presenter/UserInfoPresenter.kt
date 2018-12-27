@@ -48,7 +48,6 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
      */
     fun getCartCount(map: MutableMap<String, String>) {
 
-//        mView.showLoading()
         mUserServiceImpl.getCartCount(map).execute(object : BaseSubscriber<Int>(mView) {
             override fun onNext(t: Int) {
                 mView.onGetCartSuccess(t)
