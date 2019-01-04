@@ -14,12 +14,12 @@ import javax.inject.Inject
  * Creator Qi
  * Date 2018/12/8
  */
-class ScheduleModel @Inject constructor() : BaseModel() {
+class ScheduleModel @Inject constructor() : BaseModel {
 
     override fun start() {
     }
 
-    override fun destory() {
+    override fun destroy() {
     }
 
     /**

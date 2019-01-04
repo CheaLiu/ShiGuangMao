@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".base.common.BaseApplication"
@@ -39,6 +39,15 @@
         <activity android:name="com.yizhipin.teacher.schedule.ui.activity.SettingActivity" />
         <activity android:name="com.yizhipin.teacher.schedule.ui.activity.VersionInfoActivity" />
         <activity android:name=".base.ui.web.WebViewActivity" />
+        <activity
+            android:name=".teacher.mine.activity.ChargingSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.activity.BaseInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.activity.CashPledgeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

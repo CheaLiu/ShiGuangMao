@@ -7,8 +7,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/common_white"
+        android:divider="@drawable/bg_divider_w_1dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:showDividers="middle">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -23,10 +28,14 @@
                 android:layout_centerHorizontal="true">
 
                 <TextView
+                    android:textSize="@dimen/text_large_size"
                     android:id="@+id/remainingSumView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="0" />
+                    android:hint="0"
+                    android:textColor="@color/text_light_dark"
+                    android:textColorHint="@color/text_light_dark"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -42,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/remainingView"
                 android:layout_centerHorizontal="true"
-                android:text="@string/remainingSum" />
+                android:text="@string/remainingSum"
+                android:textColor="@color/text_normal" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,10 +61,12 @@
             android:layout_weight="1">
 
             <TextView
+                android:textSize="@dimen/text_large_size"
                 android:id="@+id/creditScoreView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,10 +82,12 @@
             android:layout_weight="1">
 
             <TextView
+                android:textSize="@dimen/text_large_size"
                 android:id="@+id/InvitationCodeView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -85,9 +99,11 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/chargeSettingLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView
@@ -109,13 +125,15 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginStart="50dp"
         android:background="@color/bg_divider" />
 
     <RelativeLayout
+        android:id="@+id/cashPledgeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView
@@ -138,6 +156,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_views"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView
@@ -160,13 +179,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginStart="50dp"
         android:background="@color/bg_divider" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView
@@ -187,13 +207,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginStart="50dp"
         android:background="@color/bg_divider" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView
@@ -214,13 +235,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginStart="50dp"
         android:background="@color/bg_divider" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView
@@ -243,6 +265,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_views"
+        android:background="@color/common_white"
         android:padding="@dimen/padding_content">
 
         <ImageView

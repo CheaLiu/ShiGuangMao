@@ -29,6 +29,9 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
         mDialogLoading = ProgressLoading.create(this)
     }
 
+    /**
+     *
+     */
     abstract fun injectComponent()
 
     private fun initActivityInjection() {

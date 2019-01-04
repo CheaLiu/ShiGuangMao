@@ -1,4 +1,4 @@
-package com.yizhipin.teacher.mine.view;
+package com.yizhipin.teacher.mine.activity;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Creator Qi
  * Date 2018/12/27
+ * <p>收费设置</p>
  */
 public class ChargingSettingActivity extends BaseMvpActivity {
 

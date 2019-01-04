@@ -50,4 +50,5 @@
     <color name="common_background" tools:ignore="MissingDefaultResource">#f2f4fc</color>
     <color name="bg_divider" tools:ignore="MissingDefaultResource">#c3c3c3</color>
     <color name="border_image" tools:ignore="MissingDefaultResource">#dde0e0</color>
+    <color name="bg_page">#f5f5f5</color>
 </resources>

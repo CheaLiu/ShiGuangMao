@@ -34,4 +34,7 @@
     <string name="describeChargingStand">根据您的资历，您可以收取指定的资历费为</string>
     <string name="hintChargingStandard">资历费一次性收取，不按套系计算</string>
     <string name="sure">确定</string>
+    <string name="titleBaseInfo">基本信息</string>
+    <string name="uploadYourHead"><u>上传头像</u></string>
+    <string name="titleCashPledge">押金</string>
 </resources>

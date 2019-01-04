@@ -7,9 +7,9 @@ buildscript {
     ext.min_sdk_version = 19
     ext.target_sdk_version = 28
 
-    ext.multidex_version = '1.0.2'
+    ext.multidex_version = '1.0.3'
 
-    ext.kotlin_version = '1.3.10'
+    ext.kotlin_version = '1.3.11'
     ext.anko_version = '0.10.4'
     ext.rx_java_version = '2.1.12'
     ext.rx_android_version = '2.0.2'
