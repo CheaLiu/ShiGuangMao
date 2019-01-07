@@ -1,9 +1,9 @@
-package com.yizhipin.teacher.mine.dagger
+package com.yizhipin.teacher.mine.cashpledge.dagger
 
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
-import com.yizhipin.teacher.mine.mvp.CashPledgeView
-import com.yizhipin.teacher.mine.activity.CashPledgeActivity
+import com.yizhipin.teacher.mine.cashpledge.mvp.CashPledgeView
+import com.yizhipin.teacher.mine.cashpledge.DepositActivity
 import dagger.Component
 import dagger.Module
 import dagger.Provides
@@ -25,5 +25,5 @@ class CashPledgeModule constructor(val view: CashPledgeView) {
 @PerComponentScope
 @Component(modules = [CashPledgeModule::class], dependencies = [ActivityComponent::class])
 interface CashPledgeComponent {
-    fun inject(activity: CashPledgeActivity)
+    fun inject(activity: DepositActivity)
 }

@@ -1,9 +1,9 @@
-package com.yizhipin.teacher.mine.dagger
+package com.yizhipin.teacher.mine.baseinfo.dagger
 
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
-import com.yizhipin.teacher.mine.mvp.BaseInfoContract
-import com.yizhipin.teacher.mine.activity.BaseInfoActivity
+import com.yizhipin.teacher.mine.baseinfo.mvp.BaseInfoContract
+import com.yizhipin.teacher.mine.baseinfo.BaseInfoActivity
 import dagger.Component
 import dagger.Module
 import dagger.Provides

@@ -40,13 +40,19 @@
         <activity android:name="com.yizhipin.teacher.schedule.ui.activity.VersionInfoActivity" />
         <activity android:name=".base.ui.web.WebViewActivity" />
         <activity
-            android:name=".teacher.mine.activity.ChargingSettingActivity"
+            android:name=".teacher.mine.baseinfo.BaseInfoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".teacher.mine.activity.BaseInfoActivity"
+            android:name=".teacher.mine.cashpledge.DepositActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".teacher.mine.activity.CashPledgeActivity"
+            android:name=".teacher.mine.paymentdeposit.PaymentDepositActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.depositrefund.DepositRefundActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.chargingsetting.ChargingSettingActivity"
             android:screenOrientation="portrait" />
     </application>
 

@@ -37,4 +37,27 @@
     <string name="titleBaseInfo">基本信息</string>
     <string name="uploadYourHead"><u>上传头像</u></string>
     <string name="titleCashPledge">押金</string>
+    <string name="cashPledge">押金</string>
+    <string name="cashPledgeMoney">%1$d(%2$d可退)</string>
+    <string name="hintCashPledge">您退还租借的服装后，可申请退还押金\n\n租借服装时，押金不足需充值押金</string>
+    <string name="rechargePledge">充值押金</string>
+    <string name="depositRefund">退押金</string>
+    <string name="titlePaymentDeposit">支付押金</string>
+    <string name="topUpDeposit">充值押金</string>
+    <string name="warningDeposit">押金在退还商品后可全额退款，支付即视为同意《时光猫押金协议》</string>
+    <string name="paymentMode">支付方式</string>
+    <string name="theBalancePayment">余额支付</string>
+    <string name="aliPayExpressPayment">支付宝快捷支付</string>
+    <string name="weChatPay">微信支付</string>
+    <string name="unionPay">银联支付</string>
+    <string name="actualPayment">实际支付</string>
+    <string name="moneyRMB">￥%d</string>
+    <string name="confirmPayment">确认支付</string>
+    <string name="titleDepositRefund">退押金</string>
+    <string name="refundedAmount">退还金额</string>
+    <string name="hintRefundedAmount">可退￥0</string>
+    <string name="allRefund"><u>全部退还</u></string>
+    <string name="refundedChannel">退还渠道</string>
+    <string name="aliAccount">支付宝账号</string>
+    <string name="hintAliAccount">尚未填写提现账号</string>
 </resources>

@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.yizhipin.R
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
-import com.yizhipin.teacher.mine.activity.BaseInfoActivity
-import com.yizhipin.teacher.mine.activity.ChargingSettingActivity
+import com.yizhipin.teacher.mine.baseinfo.BaseInfoActivity
+import com.yizhipin.teacher.mine.cashpledge.DepositActivity
+import com.yizhipin.teacher.mine.chargingsetting.ChargingSettingActivity
 import com.yizhipin.usercenter.injection.component.DaggerMainComponent
 import com.yizhipin.usercenter.injection.module.MianModule
 import com.yizhipin.usercenter.presenter.UserInfoPresenter
@@ -30,7 +31,7 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>() {
         super.onViewCreated(view, savedInstanceState)
         chargeSettingLayout.setOnClickListener(this::onChargeSettingLayoutListener)//收费设置
         userIconView.setOnClickListener(this::onUserIconClickListener)//上传头像，修改基本信息
-        cashPledgeLayout.setOnClickListener(this::onCashPledgeLayoutClickListener)//我的押金
+        cashPledgeLayout.setOnClickListener(this::onDepositLayoutClickListener)//我的押金
     }
 
     override fun injectComponent() {
@@ -51,8 +52,9 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>() {
         startActivity(Intent(context, BaseInfoActivity::class.java))
     }
 
-    private fun onCashPledgeLayoutClickListener(view: View){
-
+    //押金
+    private fun onDepositLayoutClickListener(view: View) {
+        DepositActivity.startActivity(this)
     }
 
 }

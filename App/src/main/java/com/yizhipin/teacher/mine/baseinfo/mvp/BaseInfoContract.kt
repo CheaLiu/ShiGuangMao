@@ -1,4 +1,4 @@
-package com.yizhipin.teacher.mine.mvp
+package com.yizhipin.teacher.mine.baseinfo.mvp
 
 import com.yizhipin.base.mvp.model.BaseModel
 import com.yizhipin.base.mvp.view.BaseView

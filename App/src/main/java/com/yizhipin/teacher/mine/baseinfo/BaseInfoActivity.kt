@@ -1,12 +1,12 @@
-package com.yizhipin.teacher.mine.activity
+package com.yizhipin.teacher.mine.baseinfo
 
 import android.os.Bundle
 import com.yizhipin.R
 import com.yizhipin.base.ui.activity.BaseMvpActivity
-import com.yizhipin.teacher.mine.dagger.BaseInfoModule
-import com.yizhipin.teacher.mine.dagger.DaggerBaseInfoComponent
-import com.yizhipin.teacher.mine.mvp.BaseInfoContract
-import com.yizhipin.teacher.mine.mvp.BaseInfoPresenterImpl
+import com.yizhipin.teacher.mine.baseinfo.dagger.BaseInfoModule
+import com.yizhipin.teacher.mine.baseinfo.dagger.DaggerBaseInfoComponent
+import com.yizhipin.teacher.mine.baseinfo.mvp.BaseInfoContract
+import com.yizhipin.teacher.mine.baseinfo.mvp.BaseInfoPresenterImpl
 import kotlinx.android.synthetic.main.activity_base_info.*
 
 /**

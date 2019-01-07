@@ -8,7 +8,7 @@
     <com.qi.commonview.view.title.TitleView
         android:id="@+id/titleView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_actionsheet_title"
+        android:layout_height="wrap_content"
         app:leftIcon="@drawable/leftarrow"
         app:titleText="@string/titleBaseInfo" />
 

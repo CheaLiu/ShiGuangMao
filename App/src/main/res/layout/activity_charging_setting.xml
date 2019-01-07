@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <com.qi.commonview.view.title.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftIcon="@drawable/leftarrow"
+        app:titleText="@string/titleChargingSetting">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/margin_views"
+            android:text="@string/chargeStandard"
+            android:textColor="@color/common_red" />
+    </com.qi.commonview.view.title.TitleView>
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/titleView"
+        android:background="@color/common_divider" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.qi.commonview.view.title.TitleView
-                android:id="@+id/titleView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:leftIcon="@drawable/leftarrow"
-                app:titleText="@string/titleChargingSetting">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
-                    android:layout_marginEnd="@dimen/margin_views"
-                    android:text="@string/chargeStandard"
-                    android:textColor="@color/common_red" />
-            </com.qi.commonview.view.title.TitleView>
-
-            <View
-                android:id="@+id/dividerView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/titleView"
-                android:background="@color/common_divider" />
 
             <LinearLayout
                 android:id="@+id/professionDescribeView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/dividerView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:orientation="horizontal">
@@ -130,12 +131,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_charging_standard_white" />
+                    android:background="@drawable/bg_circle_solid_white_border_red" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_charging_standard_red" />
+                    android:background="@drawable/bg_circle_solid_red" />
             </LinearLayout>
 
             <TextView
@@ -151,10 +152,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_views"
         android:background="@drawable/bg_round_rect_solid_red"
-        android:text="@string/sure"
-        android:textColor="@color/common_white"
         android:gravity="center"
         android:padding="@dimen/padding_content"
-        android:layout_margin="@dimen/margin_views"/>
+        android:text="@string/sure"
+        android:textColor="@color/common_white" />
 </LinearLayout>

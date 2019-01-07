@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_page"
+    android:orientation="vertical">
+
+    <com.qi.commonview.view.title.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_white"
+        app:leftIcon="@drawable/leftarrow"
+        app:titleText="@string/titlePaymentDeposit" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="@dimen/margin_views"
+        android:background="@color/bg_divider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/common_white"
+                android:gravity="center"
+                android:padding="@dimen/padding_content"
+                android:text="@string/topUpDeposit"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/bg_divider" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/common_white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_views"
+                    android:layout_marginBottom="100dp"
+                    android:background="@drawable/bg_rect_solid_white_border_black"
+                    android:divider="@drawable/bg_w_1dp_solid_black"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_content"
+                        android:text="-"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_content"
+                        android:text="+"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:drawableStart="@drawable/tirps"
+                    android:drawablePadding="@dimen/padding_drawable_middle"
+                    android:padding="@dimen/padding_content"
+                    android:text="@string/warningDeposit" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_views"
+                android:background="@color/common_white"
+                android:divider="@drawable/bg_h_05dp_solid_divider"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_content"
+                    android:text="@string/paymentMode"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableStart="@drawable/wallet3"
+                        android:drawablePadding="@dimen/padding_drawable"
+                        android:gravity="center_vertical"
+                        android:text="@string/theBalancePayment" />
+
+                    <CheckBox
+                        android:id="@+id/balancePaymentCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:button="@drawable/select_checked" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableStart="@drawable/alipay"
+                        android:drawablePadding="@dimen/padding_drawable"
+                        android:gravity="center_vertical"
+                        android:text="@string/aliPayExpressPayment" />
+
+                    <CheckBox
+                        android:id="@+id/alipayCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:button="@drawable/select_checked" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableStart="@drawable/wechatpay"
+                        android:drawablePadding="@dimen/padding_drawable"
+                        android:gravity="center_vertical"
+                        android:text="@string/weChatPay" />
+
+                    <CheckBox
+                        android:id="@+id/weChatPayCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:button="@drawable/select_checked" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableStart="@drawable/creditcard"
+                        android:drawablePadding="@dimen/padding_drawable"
+                        android:gravity="center_vertical"
+                        android:text="@string/unionPay" />
+
+                    <CheckBox
+                        android:id="@+id/unionPayCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:button="@drawable/select_checked" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/padding_content"
+        android:paddingTop="@dimen/padding_content_small"
+        android:paddingRight="@dimen/padding_content"
+        android:paddingBottom="@dimen/padding_content_small">
+
+        <TextView
+            android:id="@+id/keyActualPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/actualPayment" />
+
+        <TextView
+            android:id="@+id/moneyRMBText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/keyActualPayment"
+            android:text="@string/moneyRMB"
+            android:textColor="@color/common_red"
+            android:textSize="@dimen/text_large_size" />
+
+        <TextView
+            android:id="@+id/confirmPaymentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_solid_red"
+            android:gravity="center"
+            android:text="@string/confirmPayment"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/text_large_size" />
+    </RelativeLayout>
+</LinearLayout>
