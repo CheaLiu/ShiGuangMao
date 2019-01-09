@@ -54,6 +54,21 @@
         <activity
             android:name=".teacher.mine.chargingsetting.ChargingSettingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.attention.AttentionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.note.NoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.phone.PhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.setting.SystemSettingActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -60,4 +60,27 @@
     <string name="refundedChannel">退还渠道</string>
     <string name="aliAccount">支付宝账号</string>
     <string name="hintAliAccount">尚未填写提现账号</string>
+    <string name="titleProlie">我的资料</string>
+    <string name="tabProfile">我的资料</string>
+    <string name="tabWork">我的作品</string>
+    <string name="keyShop">所属门店</string>
+    <string name="hintType">请输入内容</string>
+    <string name="keyTeacherType">老师类型</string>
+    <string name="keyPostType">岗位类型</string>
+    <string name="keyCity">所在城市</string>
+    <string name="keyDetailAddress">详细地址</string>
+    <string name="keyUrgencyLinkMan">紧急联系人</string>
+    <string name="keyPhone">联系电话</string>
+    <string name="keyEquipment">自有设备</string>
+    <string name="keySelfIntroduction">自我介绍</string>
+    <string name="hintIntroduction">请用第三人称简短描述自己</string>
+    <string name="addWork">添加作品</string>
+    <string name="titleAttention">我的关注</string>
+    <string name="teacher">老师</string>
+    <string name="user">用户</string>
+    <string name="titleNoviceHelp">新手帮助</string>
+    <string name="titleServiceTel">客服电话</string>
+    <string name="titleSystemSetting">系统设置</string>
+    <string name="pushToggle">推送开关</string>
+    <string name="modifyPassWord">修改登录密码</string>
 </resources>

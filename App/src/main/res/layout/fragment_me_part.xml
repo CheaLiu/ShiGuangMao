@@ -153,6 +153,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/profileLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_views"
@@ -184,6 +185,7 @@
         android:background="@color/bg_divider" />
 
     <RelativeLayout
+        android:id="@+id/attentionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/common_white"
@@ -212,6 +214,7 @@
         android:background="@color/bg_divider" />
 
     <RelativeLayout
+        android:id="@+id/workNoteLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/common_white"
@@ -240,6 +243,7 @@
         android:background="@color/bg_divider" />
 
     <RelativeLayout
+        android:id="@+id/phoneLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/common_white"
@@ -262,6 +266,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/settingLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_views"
