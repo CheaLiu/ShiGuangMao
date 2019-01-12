@@ -1,5 +1,7 @@
 package com.yizhipin.teacher.schedule.ui.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -10,8 +12,10 @@ import com.yizhipin.base.common.AppManager
 import com.yizhipin.base.event.HomeIntentEvent
 import com.yizhipin.base.ui.activity.BaseActivity
 import com.yizhipin.generalizecenter.ui.fragment.GeneralizeFragment
+import com.yizhipin.teacher.schedule.ui.activity.IntentParams.EXIST
 import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
 import com.yizhipin.teacher.schedule.ui.fragment.ScheduleFragment
+import com.yizhipin.usercenter.ui.activity.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import java.util.*
@@ -19,7 +23,7 @@ import java.util.*
 class MainActivity : BaseActivity() {
 
     private val mStack = Stack<Fragment>()
-//    private val mGrabFragment by lazy { GrabFragment() }
+    //    private val mGrabFragment by lazy { GrabFragment() }
     private val mScheduleFragment by lazy { ScheduleFragment() }
     private val mGeneralizeFragment by lazy { GeneralizeFragment() }
     private val mMeFragment by lazy { MeFragment() }
@@ -102,6 +106,30 @@ class MainActivity : BaseActivity() {
             AppManager.instance.exitApp(this)
         }
     }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent != null && intent.hasExtra(EXIST)) {//判断其他Activity启动本Activity时传递来的intent是否为空
+            val isExist = intent.getBooleanExtra(EXIST, false)
+            if (isExist) {
+                //如果为真则退出本Activity,跳转到登录页
+                LoginActivity.startActivity(this)
+//                this.finish()
+            }
+        }
+    }
+
+    companion object {
+        fun startActivity(context: Context, isExistsLogin: Boolean) {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.putExtra(EXIST, isExistsLogin)
+            context.startActivity(intent)
+        }
+    }
+
 }
 
+object IntentParams {
+    const val EXIST = "EXIST"//是否退出登录
+}
 

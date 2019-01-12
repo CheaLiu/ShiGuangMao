@@ -15,26 +15,17 @@
         app:leftIcon="@drawable/leftarrow"
         app:titleText="@string/titleSystemSetting" />
 
-    <FrameLayout
+    <CheckBox
+        android:id="@+id/pushToggle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:padding="@dimen/padding_content"
-            android:text="@string/pushToggle" />
-
-        <CheckBox
-            android:id="@+id/pushToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|end"
-            android:button="@drawable/article_toggon_btn"
-            android:checked="false"
-            android:paddingEnd="@dimen/padding_content" />
-    </FrameLayout>
+        android:padding="@dimen/padding_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:button="@drawable/article_toggon_btn"
+        android:checked="false"
+        android:layoutDirection="rtl"
+        android:text="@string/push_switch"
+        android:textColor="@color/text_normal"/>
 
     <TextView
         android:id="@+id/passwordBtn"

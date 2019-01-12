@@ -1,6 +1,9 @@
 package com.yizhipin.teacher.schedule.ui.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import com.yizhipin.BuildConfig
 import com.yizhipin.R
 import com.yizhipin.base.ui.activity.BaseActivity
 import kotlinx.android.synthetic.main.activity_version_info.*
@@ -17,7 +20,13 @@ class VersionInfoActivity : BaseActivity() {
     }
 
     private fun initView() {
-        mAboutTv.text = getString(R.string.system_version).plus(getString(R.string.version))
+        titleView.setOnLeftIconClickListener { onBackPressed() }
+        mAboutTv.text = getString(R.string.system_version).plus(BuildConfig.VERSION_NAME)
     }
 
+    companion object {
+        fun startActivity(context: Context){
+            context.startActivity(Intent(context, VersionInfoActivity::class.java))
+        }
+    }
 }

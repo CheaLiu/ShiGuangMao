@@ -1,5 +1,8 @@
 package com.yizhipin.usercenter.ui.activity
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -46,7 +49,9 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         when (v.id) {
             R.id.mBackIv -> finish()
             R.id.mRegistBtn -> startActivity<RegisterActivity>()
-            R.id.mRightTv -> startActivity<ResetPwdActivity>()
+            R.id.mRightTv -> {
+                ResetPwdActivity.startActivity(this,resources.getString(R.string.forget_pwd))
+            }
 
             R.id.mLoginBtn -> {
                 var map = mutableMapOf<String, String>()
@@ -78,6 +83,15 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         UserPrefsUtils.putUserInfo(result)
         startActivity<UserInfoActivity>()
         finish()
+    }
+
+    companion object {
+        fun startActivity(activity: Activity){
+            UserPrefsUtils.putUserInfo(null)
+            val intent = Intent()
+            intent.setClass(activity,LoginActivity::class.java)
+            activity.startActivity(intent)
+        }
     }
 
 }

@@ -1,7 +1,5 @@
 package com.yizhipin.base.mvp.view
 
-import android.content.Context
-
 /**
  * Created by ${XiLei} on 2018/7/26.
  */

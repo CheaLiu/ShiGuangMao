@@ -29,7 +29,9 @@
             android:name="CHANNEL"
             android:value="${CHANNEL_VALUE}" />
 
-        <activity android:name="com.yizhipin.teacher.schedule.ui.activity.MainActivity">
+        <activity
+            android:name="com.yizhipin.teacher.schedule.ui.activity.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,6 +70,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".teacher.mine.setting.SystemSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".teacher.mine.password.PasswordModificationActivity"
             android:screenOrientation="portrait" />
     </application>
 

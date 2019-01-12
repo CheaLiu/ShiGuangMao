@@ -83,4 +83,6 @@
     <string name="titleSystemSetting">系统设置</string>
     <string name="pushToggle">推送开关</string>
     <string name="modifyPassWord">修改登录密码</string>
+    <string name="titlePasswordModification">修改密码</string>
+    <string name="hint_type_password">请输入登录密码</string>
 </resources>

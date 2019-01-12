@@ -259,6 +259,8 @@
     <string name="errorNetUnauthorized">用户信息认证失败</string>
     <string name="errorNetForbidden">禁止用户</string>
     <string name="errorNetNotFound">网络异常</string>
-
+    <string name="modifyPassWord">修改登录密码</string>
+    <string name="titlePasswordModification">修改密码</string>
+    <string name="hint_type_password">请输入登录密码</string>
 
 </resources>

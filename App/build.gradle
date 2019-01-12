@@ -13,7 +13,7 @@ android {
     buildToolsVersion build_tools_version
 
     defaultConfig {
-        applicationId "com.shiguangmao.sgm"
+        applicationId "com.sgm.teacher"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode 1 //1.0.0

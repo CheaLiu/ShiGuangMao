@@ -260,5 +260,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_views"
         android:background="@drawable/bg_round_rect_solid_red"
-        android:padding="@dimen/padding_content" />
+        android:gravity="center"
+        android:padding="@dimen/padding_content"
+        android:text="@string/save"
+        android:textColor="@color/common_white" />
 </LinearLayout>

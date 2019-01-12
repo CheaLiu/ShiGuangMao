@@ -15,13 +15,13 @@
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/yPaddingSmall"
             android:paddingRight="@dimen/yPaddingSmall"
-            android:src="@drawable/leftarroww"/>
+            android:src="@drawable/leftarrow"/>
 
         <TextView
             android:id="@+id/mTitleTv"
             style="@style/WrapWrap"
             android:layout_centerInParent="true"
-            android:text="@string/info"
+            android:text="@string/titleBaseInfo"
             android:textColor="@color/yWhite"
             android:textSize="@dimen/yTextLargeSize"/>
 
