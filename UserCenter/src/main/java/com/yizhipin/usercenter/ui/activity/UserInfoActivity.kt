@@ -32,7 +32,6 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
-
         initView()
     }
 
@@ -122,20 +121,9 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
      * 获取用户信息成功
      */
     override fun getUserResult(result: UserInfo) {
-
         mRemoteFileUrl = result.imgurl
         mNickEt.setText(result.nickname)
         mNickEt.setSelection(result.nickname.length)
-        /*if (result.mobile != "") {
-            mMobileEt.setText(result.mobile)
-            mMobileIv.visibility = View.GONE
-            mMobileView.isEnabled = false
-        }*/
-        /*   if (result.weixin != "") {
-               mWeChatEt.setText(result.mobile)
-               mWeChatIv.visibility = View.GONE
-               mWeChatView.isEnabled = false
-           }*/
         if (result.imgurl != "") {
             mUserIconIv.loadUrl(result.imgurl)
         }
@@ -156,4 +144,5 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
 
     override fun onGetCartSuccess(result: Int) {
     }
+
 }

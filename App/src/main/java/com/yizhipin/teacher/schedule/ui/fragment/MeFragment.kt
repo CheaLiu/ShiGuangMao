@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.yizhipin.R
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import com.yizhipin.teacher.mine.attention.AttentionActivity
-import com.yizhipin.teacher.mine.baseinfo.BaseInfoActivity
 import com.yizhipin.teacher.mine.cashpledge.DepositActivity
 import com.yizhipin.teacher.mine.chargingsetting.ChargingSettingActivity
 import com.yizhipin.teacher.mine.note.NoteActivity
@@ -18,6 +17,7 @@ import com.yizhipin.teacher.mine.setting.SystemSettingActivity
 import com.yizhipin.usercenter.injection.component.DaggerMainComponent
 import com.yizhipin.usercenter.injection.module.MianModule
 import com.yizhipin.usercenter.presenter.UserInfoPresenter
+import com.yizhipin.usercenter.ui.activity.UserInfoActivity
 import kotlinx.android.synthetic.main.fragment_me.*
 import kotlinx.android.synthetic.main.fragment_me_part.*
 
@@ -59,7 +59,7 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>() {
 
     /**修改基本信息*/
     private fun onUserIconClickListener(view: View) {
-        startActivity(Intent(context, BaseInfoActivity::class.java))
+        startActivity(Intent(context, UserInfoActivity::class.java))
     }
 
     //押金

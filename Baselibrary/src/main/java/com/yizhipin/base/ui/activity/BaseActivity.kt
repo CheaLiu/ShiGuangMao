@@ -1,17 +1,32 @@
 package com.yizhipin.base.ui.activity
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.PermissionChecker
+import android.support.v7.app.AlertDialog
 import android.view.View
 import android.widget.FrameLayout
 import com.alibaba.android.arouter.launcher.ARouter
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import com.yizhipin.base.R
 import com.yizhipin.base.common.AppManager
 import org.jetbrains.anko.find
+import java.util.ArrayList
+import kotlin.collections.HashMap
 
 /**
  * Created by ${XiLei} on 2018/5/28.
  */
 open class BaseActivity : RxAppCompatActivity() {
+
+    /**
+     * 权限集合，权限名-需要的权限说明
+     */
+    private val permissionMap = HashMap<String, String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,4 +46,43 @@ open class BaseActivity : RxAppCompatActivity() {
             val content = find<FrameLayout>(android.R.id.content)
             return content.getChildAt(0)
         }
+
+    // 启动应用的设置
+    open fun startAppSettings() {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+        intent.data = Uri.parse("package:$packageName")
+        startActivity(intent)
+    }
+
+    /**
+     * 校验权限
+     * @param permissions 权限集合，权限名-需要的权限说明
+     * @param requestCode 权限请求
+     */
+    fun checkPermission(permissions: Map<String, String>, requestCode: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.permissionMap.clear()
+            this.permissionMap.putAll(permissions)
+            val deniedPermissions = ArrayList<String>()
+            for (permission in permissions) {
+                if (ActivityCompat.checkSelfPermission(this, permission.key) == PermissionChecker.PERMISSION_DENIED) {
+                    deniedPermissions.add(permission.key)
+                }
+            }
+            val array = arrayOfNulls<String>(deniedPermissions.size)
+            deniedPermissions.forEachIndexed { index, s ->
+                array[index] = s
+            }
+            ActivityCompat.requestPermissions(this,array, requestCode)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        permissions.forEachIndexed { index, s ->
+            if (grantResults[index] == PermissionChecker.PERMISSION_DENIED) {
+                AlertDialog.Builder(this).setMessage(this.permissionMap[s]).setPositiveButton(R.string.confirm) { _, _ -> startAppSettings() }.setNegativeButton(R.string.cancel, null).show()
+            }
+        }
+    }
 }

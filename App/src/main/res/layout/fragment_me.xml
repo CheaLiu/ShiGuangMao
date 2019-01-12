@@ -36,7 +36,7 @@
                 android:layout_height="80dp"
                 android:layout_below="@+id/bellView"
                 android:layout_margin="@dimen/common_margin"
-                android:src="@drawable/user"
+                android:src="@drawable/avatar_w"
                 app:civ_border_color="@color/border_image"
                 app:civ_border_width="4dp" />
 
@@ -131,6 +131,8 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <include layout="@layout/fragment_me_part" />

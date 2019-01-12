@@ -13,6 +13,7 @@ import com.jph.takephoto.app.TakePhoto
 import com.jph.takephoto.app.TakePhotoImpl
 import com.jph.takephoto.compress.CompressConfig
 import com.jph.takephoto.model.TResult
+import com.yizhipin.base.R
 import com.yizhipin.base.common.BaseApplication
 import com.yizhipin.base.injection.component.ActivityComponent
 import com.yizhipin.base.injection.component.DaggerActivityComponent
@@ -21,6 +22,7 @@ import com.yizhipin.base.injection.moudule.LifecycleProviderModule
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.base.utils.DateUtils
+import com.yizhipin.base.utils.PermissionRequestCode.CAMERA
 import com.yizhipin.base.widgets.ProgressLoading
 import org.jetbrains.anko.toast
 import java.io.File
@@ -44,6 +46,9 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val permissionMap = HashMap<String, String>()
+        permissionMap[android.Manifest.permission.CAMERA] = resources.getString(R.string.hintTakePhoto)
+        checkPermission(permissionMap, CAMERA)
         initActivityInjection()
         injectComponent()
 
@@ -133,7 +138,7 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
             }
         }
 
-        ).setOnDismissListener(object :OnDismissListener{
+        ).setOnDismissListener(object : OnDismissListener {
             override fun onDismiss(o: Any?) {
 
             }
@@ -173,9 +178,9 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
     /*
         新建临时文件
      */
-    fun createTempFile() {
+    private fun createTempFile() {
         val tempFileName = "${DateUtils.curTime}.png"
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
             this.mTempFile = File(Environment.getExternalStorageDirectory(), tempFileName)
             return
         }
