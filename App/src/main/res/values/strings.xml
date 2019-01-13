@@ -85,4 +85,6 @@
     <string name="modifyPassWord">修改登录密码</string>
     <string name="titlePasswordModification">修改密码</string>
     <string name="hint_type_password">请输入登录密码</string>
+    <string name="onDuty">上班</string>
+    <string name="offDuty">下班</string>
 </resources>

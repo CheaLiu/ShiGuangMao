@@ -65,5 +65,9 @@ interface Api {
         const val END_TIME = "api/Investment/EndTime"//竞价结束时间
         const val CROWDORDER_LIST = "api/Tuan/List"//拼单列表
         const val SHARE_BILL_LIST = "api/Tuan/NearBy"//附近品团列表
+
+        /*个人中心*/
+        /**工作状态*/
+        const val WORK_STATUS_LIST = "api/UserWorkStatus/List"
     }
 }

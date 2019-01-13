@@ -3,6 +3,8 @@ package com.yizhipin.usercenter.data.api
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.UserInfo
+import com.yizhipin.usercenter.bean.WorkStatusBean
+import com.yizhipin.usercenter.data.api.Api.Companion.WORK_STATUS_LIST
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -57,4 +59,10 @@ interface UserApi {
      */
     @POST(Api.RESET_PAY_PWD)
     fun resetPayPwd(): Observable<BaseResp<Boolean>>
+
+    /**
+     * 获取上下班状态
+     */
+    @GET(WORK_STATUS_LIST)
+    fun getUserWorkStatusList(@Query("uid") uid: String): Observable<BaseResp<List<WorkStatusBean>>>
 }

@@ -12,6 +12,7 @@ import com.yizhipin.base.ui.activity.BaseTakePhotoActivity
 import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.base.utils.UploadUtil
 import com.yizhipin.usercenter.R
+import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.injection.component.DaggerUserComponent
 import com.yizhipin.usercenter.injection.module.UserModule
 import com.yizhipin.usercenter.presenter.UserInfoPresenter
@@ -26,6 +27,8 @@ import java.io.File
  * 完善资料
  */
 class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoView, View.OnClickListener, UploadUtil.OnUploadProcessListener {
+    override fun showWorkStatus(workStatusBean: WorkStatusBean) {
+    }
 
     private var mRemoteFileUrl: String = ""
 

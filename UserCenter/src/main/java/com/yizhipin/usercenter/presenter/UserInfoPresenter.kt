@@ -1,11 +1,16 @@
 package com.yizhipin.usercenter.presenter
 
+import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.execute
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
+import com.yizhipin.base.rx.CodeHandlerSubscriber
+import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.presenter.view.UserInfoView
 import com.yizhipin.usercenter.service.impl.UserServiceImpl
+import com.yizhipin.usercenter.utils.UserPrefsUtils
 import javax.inject.Inject
 
 /**
@@ -19,13 +24,19 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
     /**
      * 获取用户信息
      */
-    fun getUserInfo(map: MutableMap<String, String>) {
+    fun getUserInfo(map1: MutableMap<String, String>) {
         mView.showLoading()
+        val map = mutableMapOf<String, String>()
+        map["id"] = AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN)
         mUserServiceImpl.getUserInfo(map).execute(object : BaseSubscriber<UserInfo>(mView) {
             override fun onNext(t: UserInfo) {
                 mView.getUserResult(t)
             }
         }, mLifecycleProvider)
+    }
+
+    fun getUserInfo() {
+        getUserInfo(mutableMapOf())
     }
 
     /**
@@ -51,6 +62,18 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
         mUserServiceImpl.getCartCount(map).execute(object : BaseSubscriber<Int>(mView) {
             override fun onNext(t: Int) {
                 mView.onGetCartSuccess(t)
+            }
+        }, mLifecycleProvider)
+    }
+
+    /**
+     * 工作状态
+     */
+    fun getWorkStatusList() {
+        mUserServiceImpl.getUserWorkStatusList(UserPrefsUtils.getUserId()).execute(object : CodeHandlerSubscriber<List<WorkStatusBean>>(mView) {
+            override fun onSucceed(data: List<WorkStatusBean>) {
+                if (data.isNotEmpty())
+                    mView.showWorkStatus(data[0])
             }
         }, mLifecycleProvider)
     }

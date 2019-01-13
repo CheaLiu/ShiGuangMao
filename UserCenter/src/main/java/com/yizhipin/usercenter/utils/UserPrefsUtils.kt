@@ -1,5 +1,6 @@
 package com.yizhipin.usercenter.utils
 
+import com.google.gson.Gson
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.utils.AppPrefsUtils
@@ -21,6 +22,7 @@ object UserPrefsUtils {
 //        AppPrefsUtils.putBoolean(ProviderConstant.KEY_IS_PUSH, userInfo?.push ?: false)
         AppPrefsUtils.putString(ProviderConstant.KEY_AMOUNT, userInfo?.amount ?: "0")
 //        AppPrefsUtils.putString(ProviderConstant.KEY_PAY_PWD, userInfo?.payPwd ?: "")
+        AppPrefsUtils.putString(ProviderConstant.KEY_USER_INFO,Gson().toJson(userInfo))
     }
 
     fun getUserId():String{

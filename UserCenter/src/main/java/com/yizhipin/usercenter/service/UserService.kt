@@ -1,6 +1,8 @@
 package com.yizhipin.usercenter.service
 
+import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.UserInfo
+import com.yizhipin.usercenter.bean.WorkStatusBean
 import io.reactivex.Observable
 
 
@@ -20,4 +22,5 @@ interface UserService {
     fun setPayPwd(map: MutableMap<String, String>): Observable<Boolean>
     fun updatePayPwd(map: MutableMap<String, String>): Observable<Boolean>
     fun resetPayPwd(map: MutableMap<String, String>): Observable<Boolean>
+    fun getUserWorkStatusList(uid: String): Observable<BaseResp<List<WorkStatusBean>>>
 }

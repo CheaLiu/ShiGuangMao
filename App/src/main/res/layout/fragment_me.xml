@@ -106,25 +106,17 @@
                 android:layout_toEndOf="@+id/userIconView"
                 android:textColor="@color/common_white" />
 
-            <FrameLayout
+
+            <TextView
+                android:id="@+id/workStatusView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/userIconView"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="25dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/reload" />
-
-                <TextView
-                    android:id="@+id/workStatusView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/common_white" />
-            </FrameLayout>
+                android:layout_gravity="center"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/reload"
+                android:textColor="@color/common_white" />
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 

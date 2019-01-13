@@ -6,7 +6,9 @@ import com.yizhipin.base.data.net.RetrofitFactoryPost
 import com.yizhipin.base.data.net.RetrofitFactoryPut
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.UserInfo
+import com.yizhipin.base.mvp.model.BaseModel
 import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.data.api.UserApi
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -14,7 +16,13 @@ import javax.inject.Inject
 /**
  * Created by ${XiLei} on 2018/7/27.
  */
-class UserRepository @Inject constructor() {
+class UserRepository @Inject constructor() : BaseModel {
+    override fun start() {
+
+    }
+
+    override fun destroy() {
+    }
 
     fun getCode(map: MutableMap<String, String>): Observable<BaseResp<Boolean>> {
 
@@ -46,6 +54,14 @@ class UserRepository @Inject constructor() {
     fun getUserInfo(map: MutableMap<String, String>): Observable<BaseResp<UserInfo>> {
         return RetrofitFactoryGet.create(UserApi::class.java)
                 .getUserInfo(map["id"]!!)
+    }
+
+    /**
+     * 获取工作状态
+     */
+    fun getWorkStatusList(uid: String): Observable<BaseResp<List<WorkStatusBean>>> {
+        return RetrofitFactoryGet.create(UserApi::class.java)
+                .getUserWorkStatusList(uid)
     }
 
     /**

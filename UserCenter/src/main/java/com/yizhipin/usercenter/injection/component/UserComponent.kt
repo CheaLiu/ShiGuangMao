@@ -1,5 +1,6 @@
 package com.yizhipin.usercenter.injection.component
 
+import android.support.v4.app.Fragment
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
 import com.yizhipin.usercenter.injection.module.UserModule

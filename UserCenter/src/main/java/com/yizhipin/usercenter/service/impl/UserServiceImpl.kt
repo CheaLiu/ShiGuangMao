@@ -1,8 +1,10 @@
 package com.yizhipin.usercenter.service.impl
 
+import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.convert
 import com.yizhipin.base.ext.convertBoolean
+import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.data.repository.UserRepository
 import com.yizhipin.usercenter.service.UserService
 import io.reactivex.Observable
@@ -12,9 +14,15 @@ import javax.inject.Inject
  * Created by ${XiLei} on 2018/7/26.
  */
 open class UserServiceImpl @Inject constructor() : UserService {
-
     @Inject
     lateinit var mRepository: UserRepository
+
+    /**
+     * 获取用户上班状态
+     */
+    override fun getUserWorkStatusList(uid: String): Observable<BaseResp<List<WorkStatusBean>>> {
+        return mRepository.getWorkStatusList(uid)
+    }
 
     override fun getCode(map: MutableMap<String, String>): Observable<Boolean> {
 
