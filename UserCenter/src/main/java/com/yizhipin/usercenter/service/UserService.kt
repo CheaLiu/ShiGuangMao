@@ -15,7 +15,7 @@ interface UserService {
     fun resetPwd(map: MutableMap<String, String>): Observable<Boolean>
     fun register(map: MutableMap<String, String>): Observable<UserInfo>
     fun login(map: MutableMap<String, String>): Observable<UserInfo>
-    fun getUserInfo(map: MutableMap<String, String>): Observable<UserInfo>
+    fun getUserInfo(uid: String): Observable<UserInfo>
     fun editUserInfo(map: MutableMap<String, String>): Observable<UserInfo>
     fun bindMobile(map: MutableMap<String, String>): Observable<Boolean>
     fun getCartCount(map: MutableMap<String, String>): Observable<Int>
@@ -23,4 +23,5 @@ interface UserService {
     fun updatePayPwd(map: MutableMap<String, String>): Observable<Boolean>
     fun resetPayPwd(map: MutableMap<String, String>): Observable<Boolean>
     fun getUserWorkStatusList(uid: String): Observable<BaseResp<List<WorkStatusBean>>>
+    fun postUserWorkStatus(uid: String, workStatus: Boolean): Observable<BaseResp<WorkStatusBean>>
 }

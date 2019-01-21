@@ -69,5 +69,7 @@ interface Api {
         /*个人中心*/
         /**工作状态*/
         const val WORK_STATUS_LIST = "api/UserWorkStatus/List"
+        /**更改工作状态*/
+        const val WORK_STATUS_POST = "api/UserWorkStatus"
     }
 }

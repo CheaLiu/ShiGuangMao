@@ -19,7 +19,7 @@ abstract class CodeHandlerSubscriber<T>(private val baseView: BaseView) : BaseSu
     override fun onNext(resp: BaseResp<T>) {
         super.onNext(resp)
         when {
-            "200" == resp.code -> onSucceed(resp.data)
+            "00" == resp.code -> onSucceed(resp.data)
             "401" == resp.code -> ToastUtils.INSTANCE.showToast(BaseApplication.context, R.string.errorNetUnauthorized)
             "403" == resp.code -> ToastUtils.INSTANCE.showToast(BaseApplication.context, R.string.errorNetForbidden)
             "404" == resp.code -> ToastUtils.INSTANCE.showToast(BaseApplication.context, R.string.errorNetNotFound)

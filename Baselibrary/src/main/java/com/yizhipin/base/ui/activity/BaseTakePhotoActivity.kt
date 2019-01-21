@@ -23,6 +23,7 @@ import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.base.utils.DateUtils
 import com.yizhipin.base.utils.PermissionRequestCode.CAMERA
+import com.yizhipin.base.utils.ToastUtils
 import com.yizhipin.base.widgets.ProgressLoading
 import org.jetbrains.anko.toast
 import java.io.File
@@ -188,4 +189,11 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
         this.mTempFile = File(filesDir, tempFileName)
     }
 
+    override fun showMsg(msg: String) {
+        ToastUtils.INSTANCE.showToast(this, msg)
+    }
+
+    override fun showMsg(msg: Int) {
+        showMsg(resources.getString(R.string.toastSucceedInClockingIn))
+    }
 }

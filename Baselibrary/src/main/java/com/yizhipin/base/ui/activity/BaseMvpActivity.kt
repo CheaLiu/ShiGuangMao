@@ -1,6 +1,7 @@
 package com.yizhipin.base.ui.activity
 
 import android.os.Bundle
+import com.yizhipin.base.R
 import com.yizhipin.base.common.BaseApplication
 import com.yizhipin.base.injection.component.ActivityComponent
 import com.yizhipin.base.injection.component.DaggerActivityComponent
@@ -8,6 +9,7 @@ import com.yizhipin.base.injection.moudule.ActivityModule
 import com.yizhipin.base.injection.moudule.LifecycleProviderModule
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.mvp.view.BaseView
+import com.yizhipin.base.utils.ToastUtils
 import com.yizhipin.base.widgets.ProgressLoading
 import org.jetbrains.anko.toast
 import javax.inject.Inject
@@ -54,5 +56,11 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
         toast(mes)
     }
 
+    override fun showMsg(msg: String) {
+        ToastUtils.INSTANCE.showToast(this, msg)
+    }
 
+    override fun showMsg(msg: Int) {
+        showMsg(resources.getString(R.string.toastSucceedInClockingIn))
+    }
 }

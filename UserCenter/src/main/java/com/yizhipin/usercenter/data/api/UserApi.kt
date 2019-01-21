@@ -5,6 +5,7 @@ import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.data.api.Api.Companion.WORK_STATUS_LIST
+import com.yizhipin.usercenter.data.api.Api.Companion.WORK_STATUS_POST
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -26,8 +27,8 @@ interface UserApi {
     @POST(Api.LOGIN) //登录
     fun login(): Observable<BaseResp<UserInfo>>
 
-    @GET("${Api.EDIT_USER_INFO}${"/{id}"}") //获取用户信息
-    fun getUserInfo(@Path(BaseConstant.KEY_SP_TOKEN) id: String): Observable<BaseResp<UserInfo>>
+    @GET("${Api.EDIT_USER_INFO}/{id}") //获取用户信息
+    fun getUserInfo(@Path("id") id: String): Observable<BaseResp<UserInfo>>
 
     //    @PUT(Api.EDIT_USER_INFO.plus("/{id}")) //编辑用户信息
     @PUT("${Api.EDIT_USER_INFO}${"/{"}${BaseConstant.KEY_SP_TOKEN}${"}"}") //编辑用户信息
@@ -65,4 +66,10 @@ interface UserApi {
      */
     @GET(WORK_STATUS_LIST)
     fun getUserWorkStatusList(@Query("uid") uid: String): Observable<BaseResp<List<WorkStatusBean>>>
+
+    /**
+     * 更新工作状态
+     */
+    @POST(WORK_STATUS_POST)
+    fun postUserWorkStatus(): Observable<BaseResp<WorkStatusBean>>
 }

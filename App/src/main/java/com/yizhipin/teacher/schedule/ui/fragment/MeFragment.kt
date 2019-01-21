@@ -12,6 +12,7 @@ import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.base.utils.ToastUtils
 import com.yizhipin.provider.common.ProviderConstant.Companion.KEY_USER_INFO
 import com.yizhipin.teacher.dagger.component.DaggerMeComponent
 import com.yizhipin.teacher.mine.attention.AttentionActivity
@@ -52,18 +53,13 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
         workNoteLayout.setOnClickListener(this::onWorkNoteLayoutClickListener)//工作须知
         phoneLayout.setOnClickListener(this::onPhoneLayoutListener)//客服电话
         settingLayout.setOnClickListener(this::onSettingLayoutListener)//系统设置
+        workStatusView.setOnClickListener(this::onWorkStatusViewListener)//上下班
     }
 
     private fun initViews() {
         val userInfo = Gson().fromJson<UserInfo>(AppPrefsUtils.getString(KEY_USER_INFO), object : TypeToken<UserInfo>() {
         }.type) ?: return
         updateViews(userInfo)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        mBasePresenter.getWorkStatusList()
-        mBasePresenter.getUserInfo()
     }
 
     override fun injectComponent() {
@@ -73,7 +69,10 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
 
     override fun onStart() {
         super.onStart()
+//        mBasePresenter.getWorkStatusList()
+        mBasePresenter.getUserInfo()
     }
+
 
     /**点击收费设置*/
     private fun onChargeSettingLayoutListener(view: View) {
@@ -115,6 +114,10 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
         SystemSettingActivity.startActivity(this)
     }
 
+    private fun onWorkStatusViewListener(view: View) {
+        mBasePresenter.postWorkStatus()
+    }
+
     override fun getUserResult(userInfo: UserInfo) {
         UserPrefsUtils.putUserInfo(userInfo)
         updateViews(userInfo)
@@ -131,6 +134,7 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
         remainingSumView.text = userInfo.amount//余额
         creditScoreView.text = userInfo.credit//信用
         invitationCodeView.text = userInfo.requestCode//邀请码
+        workStatusView.setText(if (userInfo.work) R.string.onDuty else R.string.offDuty)//工作状态
     }
 
     override fun onEditUserResult(result: UserInfo) {
@@ -140,6 +144,9 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
     }
 
     override fun showWorkStatus(workStatusBean: WorkStatusBean) {
+        val userInfo = UserPrefsUtils.getUserInfo()
+        userInfo.work = workStatusBean.work
+        UserPrefsUtils.putUserInfo(userInfo)
         workStatusView.setText(if (workStatusBean.work) R.string.onDuty else R.string.offDuty)
     }
 }

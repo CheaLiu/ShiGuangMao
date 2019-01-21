@@ -7,6 +7,7 @@ import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
 import com.yizhipin.base.rx.CodeHandlerSubscriber
 import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.usercenter.R
 import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.presenter.view.UserInfoView
 import com.yizhipin.usercenter.service.impl.UserServiceImpl
@@ -26,9 +27,7 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
      */
     fun getUserInfo(map1: MutableMap<String, String>) {
         mView.showLoading()
-        val map = mutableMapOf<String, String>()
-        map["id"] = AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN)
-        mUserServiceImpl.getUserInfo(map).execute(object : BaseSubscriber<UserInfo>(mView) {
+        mUserServiceImpl.getUserInfo(AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN)).execute(object : BaseSubscriber<UserInfo>(mView) {
             override fun onNext(t: UserInfo) {
                 mView.getUserResult(t)
             }
@@ -74,6 +73,16 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
             override fun onSucceed(data: List<WorkStatusBean>) {
                 if (data.isNotEmpty())
                     mView.showWorkStatus(data[0])
+            }
+        }, mLifecycleProvider)
+    }
+
+    /***上下班打卡*/
+    fun postWorkStatus() {
+        mUserServiceImpl.postUserWorkStatus(UserPrefsUtils.getUserId(), !UserPrefsUtils.getUserInfo().work).execute(object : CodeHandlerSubscriber<WorkStatusBean>(mView) {
+            override fun onSucceed(data: WorkStatusBean) {
+                mView.showWorkStatus(data)
+                mView.showMsg(R.string.toastSucceedInClockingIn)
             }
         }, mLifecycleProvider)
     }

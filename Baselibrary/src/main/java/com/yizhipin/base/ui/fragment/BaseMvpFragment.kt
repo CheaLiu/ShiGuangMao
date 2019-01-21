@@ -1,6 +1,7 @@
 package com.yizhipin.base.ui.fragment
 
 import android.os.Bundle
+import com.yizhipin.base.R
 import com.yizhipin.base.common.BaseApplication
 import com.yizhipin.base.injection.component.ActivityComponent
 import com.yizhipin.base.injection.component.DaggerActivityComponent
@@ -8,6 +9,7 @@ import com.yizhipin.base.injection.moudule.ActivityModule
 import com.yizhipin.base.injection.moudule.LifecycleProviderModule
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.mvp.view.BaseView
+import com.yizhipin.base.utils.ToastUtils
 import com.yizhipin.base.widgets.ProgressLoading
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.toast
@@ -50,5 +52,15 @@ open abstract class BaseMvpFragment<T : BasePresenter<*>> : BaseFragment(), Base
 
     override fun onError(mes: String) {
         toast(mes)
+    }
+
+    override fun showMsg(msg: String) {
+        if (context != null)
+            ToastUtils.INSTANCE.showToast(context!!, msg)
+    }
+
+    override fun showMsg(msg: Int) {
+        if (context != null)
+            showMsg(context!!.resources.getString(R.string.toastSucceedInClockingIn))
     }
 }

@@ -27,6 +27,7 @@ import java.io.File
  * 完善资料
  */
 class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoView, View.OnClickListener, UploadUtil.OnUploadProcessListener {
+
     override fun showWorkStatus(workStatusBean: WorkStatusBean) {
     }
 

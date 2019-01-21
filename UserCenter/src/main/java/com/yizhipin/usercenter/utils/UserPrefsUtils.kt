@@ -1,6 +1,7 @@
 package com.yizhipin.usercenter.utils
 
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.utils.AppPrefsUtils
@@ -22,10 +23,14 @@ object UserPrefsUtils {
 //        AppPrefsUtils.putBoolean(ProviderConstant.KEY_IS_PUSH, userInfo?.push ?: false)
         AppPrefsUtils.putString(ProviderConstant.KEY_AMOUNT, userInfo?.amount ?: "0")
 //        AppPrefsUtils.putString(ProviderConstant.KEY_PAY_PWD, userInfo?.payPwd ?: "")
-        AppPrefsUtils.putString(ProviderConstant.KEY_USER_INFO,Gson().toJson(userInfo))
+        AppPrefsUtils.putString(ProviderConstant.KEY_USER_INFO, Gson().toJson(userInfo))
     }
 
-    fun getUserId():String{
+    fun getUserInfo(): UserInfo {
+        return Gson().fromJson(AppPrefsUtils.getString(ProviderConstant.KEY_USER_INFO), object : TypeToken<UserInfo>() {}.type)
+    }
+
+    fun getUserId(): String {
         return AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN)
     }
 }

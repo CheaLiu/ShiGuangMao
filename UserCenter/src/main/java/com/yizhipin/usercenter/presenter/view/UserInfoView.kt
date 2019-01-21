@@ -1,5 +1,6 @@
 package com.yizhipin.usercenter.presenter.view
 
+import android.support.annotation.StringRes
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.usercenter.bean.WorkStatusBean

@@ -28,13 +28,13 @@
                 android:layout_centerHorizontal="true">
 
                 <TextView
-                    android:textSize="@dimen/text_large_size"
                     android:id="@+id/remainingSumView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="0"
                     android:textColor="@color/text_light_dark"
                     android:textColorHint="@color/text_light_dark"
+                    android:textSize="@dimen/text_large_size"
                     android:textStyle="bold" />
 
                 <TextView
@@ -61,11 +61,12 @@
             android:layout_weight="1">
 
             <TextView
-                android:textSize="@dimen/text_large_size"
                 android:id="@+id/creditScoreView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textColor="@color/text_light_dark"
+                android:textSize="@dimen/text_large_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -82,17 +83,18 @@
             android:layout_weight="1">
 
             <TextView
-                android:textSize="@dimen/text_large_size"
                 android:id="@+id/invitationCodeView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textColor="@color/text_light_dark"
+                android:textSize="@dimen/text_large_size"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/InvitationCodeView"
+                android:layout_below="@+id/invitationCodeView"
                 android:layout_centerHorizontal="true"
                 android:text="@string/invitationCode" />
         </RelativeLayout>

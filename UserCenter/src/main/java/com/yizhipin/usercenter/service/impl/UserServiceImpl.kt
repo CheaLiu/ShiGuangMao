@@ -24,6 +24,13 @@ open class UserServiceImpl @Inject constructor() : UserService {
         return mRepository.getWorkStatusList(uid)
     }
 
+    /**
+     * 更新用户上班状态
+     */
+    override fun postUserWorkStatus(uid: String, workStatus:Boolean): Observable<BaseResp<WorkStatusBean>> {
+        return mRepository.postUserWorkStatus(uid,workStatus)
+    }
+
     override fun getCode(map: MutableMap<String, String>): Observable<Boolean> {
 
         return mRepository.getCode(map)
@@ -51,8 +58,8 @@ open class UserServiceImpl @Inject constructor() : UserService {
     /**
      * 获取用户信息
      */
-    override fun getUserInfo(map: MutableMap<String, String>): Observable<UserInfo> {
-        return mRepository.getUserInfo(map)
+    override fun getUserInfo(uid:String): Observable<UserInfo> {
+        return mRepository.getUserInfo(uid)
                 .convert()
     }
 
