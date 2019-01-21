@@ -38,7 +38,7 @@
     <string name="uploadYourHead"><u>上传头像</u></string>
     <string name="titleCashPledge">押金</string>
     <string name="cashPledge">押金</string>
-    <string name="cashPledgeMoney">%1$d(%2$d可退)</string>
+    <string name="cashPledgeMoney">%1$.2f(%2$.2f可退)</string>
     <string name="hintCashPledge">您退还租借的服装后，可申请退还押金\n\n租借服装时，押金不足需充值押金</string>
     <string name="rechargePledge">充值押金</string>
     <string name="depositRefund">退押金</string>

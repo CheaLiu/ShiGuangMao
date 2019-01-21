@@ -3,6 +3,7 @@ package com.yizhipin.teacher.mine.cashpledge
 import android.content.Intent
 import android.os.Bundle
 import com.yizhipin.R
+import com.yizhipin.base.data.response.BeanDeposit
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.teacher.mine.cashpledge.dagger.CashPledgeModule
 import com.yizhipin.teacher.mine.cashpledge.dagger.DaggerCashPledgeComponent
@@ -26,10 +27,19 @@ class DepositActivity : BaseMvpActivity<CashPledgePresenter>(), CashPledgeView {
         titleView.setOnLeftIconClickListener { onBackPressed() }
         rechargeDepositBtn.setOnClickListener { PaymentDepositActivity.startActivity(this) }
         depositRefundBtn.setOnClickListener { DepositRefundActivity.startActivity(this) }
+        initData(savedInstanceState)
+    }
+
+    private fun initData(savedInstanceState: Bundle?) {
+        mBasePresenter.getDepositByUID()//获取押金信息
     }
 
     override fun injectComponent() {
         DaggerCashPledgeComponent.builder().activityComponent(mActivityComponent).cashPledgeModule(CashPledgeModule(this)).build().inject(this)
+    }
+
+    override fun showDeposit(data: BeanDeposit) {
+        cashPledgeText.text = resources.getString(R.string.cashPledgeMoney,data.total,data.available)
     }
 
     companion object {

@@ -63,17 +63,19 @@ open class BaseActivity : RxAppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             this.permissionMap.clear()
             this.permissionMap.putAll(permissions)
-            val deniedPermissions = ArrayList<String>()
+            val deniedPermissions = ArrayList<String>()//被拒绝的权限
             for (permission in permissions) {
                 if (ActivityCompat.checkSelfPermission(this, permission.key) == PermissionChecker.PERMISSION_DENIED) {
                     deniedPermissions.add(permission.key)
                 }
             }
+            if (deniedPermissions.size == 0) return
+            //如果被拒绝的权限不为空，则请求权限
             val array = arrayOfNulls<String>(deniedPermissions.size)
             deniedPermissions.forEachIndexed { index, s ->
                 array[index] = s
             }
-            ActivityCompat.requestPermissions(this,array, requestCode)
+            ActivityCompat.requestPermissions(this, array, requestCode)
         }
     }
 

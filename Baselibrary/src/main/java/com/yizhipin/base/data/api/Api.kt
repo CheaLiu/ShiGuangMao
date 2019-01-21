@@ -1,5 +1,11 @@
 package com.yizhipin.usercenter.data.api
 
+import com.yizhipin.base.data.protocol.BaseResp
+import com.yizhipin.base.data.response.BeanDeposit
+import io.reactivex.Observable
+import retrofit2.http.POST
+import retrofit2.http.Query
+
 /**
  * Created by ${XiLei} on 2018/7/27.
  */
@@ -72,4 +78,8 @@ interface Api {
         /**更改工作状态*/
         const val WORK_STATUS_POST = "api/UserWorkStatus"
     }
+    /*押金*/
+    /**获取用户押金*/
+    @POST("api/UserDeposit/User")
+    fun getDepositByUID(@Query("uid") uid: String): Observable<BaseResp<BeanDeposit>>
 }
