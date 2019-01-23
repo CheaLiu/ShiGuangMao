@@ -27,7 +27,8 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mDialogLoading = ProgressLoading.create(this)
-        setContentView(onCreateView())
+        if (onCreateView() != 0)
+            setContentView(onCreateView())
         initView(savedInstanceState)
         initData(savedInstanceState)
     }
