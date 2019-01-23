@@ -51,7 +51,7 @@
     <string name="weChatPay">微信支付</string>
     <string name="unionPay">银联支付</string>
     <string name="actualPayment">实际支付</string>
-    <string name="moneyRMB">￥%d</string>
+    <string name="moneyRMB">￥%.2f</string>
     <string name="confirmPayment">确认支付</string>
     <string name="titleDepositRefund">退押金</string>
     <string name="refundedAmount">退还金额</string>
@@ -87,4 +87,6 @@
     <string name="hint_type_password">请输入登录密码</string>
     <string name="onDuty">上班</string>
     <string name="offDuty">下班</string>
+    <string name="hintRechargeAmount">请添加充值金额</string>
+    <string name="hintPayType">请选择支付方式</string>
 </resources>

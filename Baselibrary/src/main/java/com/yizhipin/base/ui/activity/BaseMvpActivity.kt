@@ -26,9 +26,22 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mDialogLoading = ProgressLoading.create(this)
+        setContentView(onCreateView())
+        initView(savedInstanceState)
+        initData(savedInstanceState)
+    }
+
+    open fun onCreateView(): Int {
+        return 0
+    }
+
+    open fun initView(savedInstanceState: Bundle?) {
+    }
+
+    open fun initData(savedInstanceState: Bundle?) {
         initActivityInjection()
         injectComponent()
-        mDialogLoading = ProgressLoading.create(this)
     }
 
     /**

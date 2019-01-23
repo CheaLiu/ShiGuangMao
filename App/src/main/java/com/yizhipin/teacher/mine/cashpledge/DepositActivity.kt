@@ -21,16 +21,20 @@ import kotlinx.android.synthetic.main.activity_deposit.*
  */
 class DepositActivity : BaseMvpActivity<CashPledgePresenter>(), CashPledgeView {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_deposit)
+
+    override fun onCreateView(): Int {
+        return R.layout.activity_deposit
+    }
+
+    override fun initView(savedInstanceState: Bundle?) {
+        super.initView(savedInstanceState)
         titleView.setOnLeftIconClickListener { onBackPressed() }
         rechargeDepositBtn.setOnClickListener { PaymentDepositActivity.startActivity(this) }
         depositRefundBtn.setOnClickListener { DepositRefundActivity.startActivity(this) }
-        initData(savedInstanceState)
     }
 
-    private fun initData(savedInstanceState: Bundle?) {
+    override fun initData(savedInstanceState: Bundle?) {
+        super.initData(savedInstanceState)
         mBasePresenter.getDepositByUID()//获取押金信息
     }
 

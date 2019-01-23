@@ -9,7 +9,18 @@ import com.yizhipin.base.mvp.view.BaseView
  */
 interface PaymentDepositContract {
     interface IModel : BaseModel
-    interface IPresenter
-    interface IView : BaseView
+    interface IPresenter {
+        /**
+         * 提交金额前，校验数据
+         */
+        fun verify(payType: String, amount: Double):Boolean
+    }
+
+    interface IView : BaseView {
+        /**
+         * 更新充值金额控件
+         */
+        fun updateAmount(amount: Double)
+    }
 
 }

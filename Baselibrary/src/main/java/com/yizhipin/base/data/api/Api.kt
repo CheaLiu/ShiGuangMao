@@ -2,7 +2,9 @@ package com.yizhipin.usercenter.data.api
 
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.BeanDeposit
+import com.yizhipin.base.data.response.BeanRechargeDeposit
 import io.reactivex.Observable
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -80,6 +82,14 @@ interface Api {
     }
     /*押金*/
     /**获取用户押金*/
-    @POST("api/UserDeposit/User")
+    @GET("api/UserDeposit/User")
     fun getDepositByUID(@Query("uid") uid: String): Observable<BaseResp<BeanDeposit>>
+
+    /**
+     * @param uid 用户token
+     * @param amount 充值金额
+     * @param payType 支付方式
+     */
+    @POST("api/UserDeposit")
+    fun recharge(@Query("uid") uid: String, @Query("amount") amount: Double, @Query("payType") payType: String): Observable<BaseResp<BeanRechargeDeposit>>
 }

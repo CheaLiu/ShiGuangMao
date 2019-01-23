@@ -264,5 +264,9 @@
     <string name="hint_type_password">请输入登录密码</string>
     <string name="hintTakePhoto">上传头像需要拍照权限</string>
     <string name="toastSucceedInClockingIn">打卡成功</string>
+    <string name="errorCode500">内部服务器错误</string>
+    <string name="errorCode404">无法找到资源文件</string>
+    <string name="errorCode400">请求无效</string>
+    <string name="errorCode403">禁止访问</string>
 
 </resources>
