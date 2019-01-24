@@ -196,14 +196,6 @@ public abstract class BaseMonthView extends BaseView {
         return mItems.indexOf(calendar);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (mLineCount != 0) {
-            heightMeasureSpec = MeasureSpec.makeMeasureSpec(mHeight, MeasureSpec.EXACTLY);
-        }
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
     /**
      * 开始绘制前的钩子，这里做一些初始化的操作，每次绘制只调用一次，性能高效
      * 没有需要可忽略不实现

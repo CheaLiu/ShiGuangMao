@@ -111,6 +111,15 @@ public class CustomMonthView extends MonthView {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (mLineCount != 0) {
+            mHeight = MeasureSpec.getSize(heightMeasureSpec);
+            mItemHeight = mHeight/6;
+        }
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
     protected void onPreviewHook() {
         mSolarTermTextPaint.setTextSize(mCurMonthLunarTextPaint.getTextSize());
         mRadius = Math.min(mItemWidth, mItemHeight) / 11 * 5;

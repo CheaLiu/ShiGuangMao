@@ -17,6 +17,7 @@ package com.haibin.calendarview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -523,25 +524,24 @@ public final class MonthViewPager extends ViewPager {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            int year = (position + mDelegate.getMinYearMonth() - 1) / 12 + mDelegate.getMinYear();
-            int month = (position + mDelegate.getMinYearMonth() - 1) % 12 + 1;
-            BaseMonthView view;
             try {
+                int year = (position + mDelegate.getMinYearMonth() - 1) / 12 + mDelegate.getMinYear();
+                int month = (position + mDelegate.getMinYearMonth() - 1) % 12 + 1;
                 Constructor constructor = mDelegate.getMonthViewClass().getConstructor(Context.class);
-                view = (BaseMonthView) constructor.newInstance(getContext());
+                BaseMonthView view = (BaseMonthView) constructor.newInstance(getContext());
+                view.mMonthViewPager = MonthViewPager.this;
+                view.mParentLayout = mParentLayout;
+                view.setup(mDelegate);
+                view.setTag(position);
+                view.initMonthWithDate(year, month);
+                view.setSelectedCalendar(mDelegate.mSelectedCalendar);
+//            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,-1));
+                container.addView(view);
+                return view;
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
-            view.mMonthViewPager = MonthViewPager.this;
-            view.mParentLayout = mParentLayout;
-            view.setup(mDelegate);
-            view.setTag(position);
-            view.initMonthWithDate(year, month);
-            view.setSelectedCalendar(mDelegate.mSelectedCalendar);
-//            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,-1));
-            container.addView(view);
-            return view;
         }
 
         @Override

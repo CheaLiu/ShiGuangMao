@@ -93,7 +93,6 @@ public class CalendarView extends FrameLayout {
             mMonthPager.setLayoutParams(layoutParams);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mDelegate.setCalendarItemHeight(getMonthViewPager().getMeasuredHeight()/6);
     }
 
     /**
