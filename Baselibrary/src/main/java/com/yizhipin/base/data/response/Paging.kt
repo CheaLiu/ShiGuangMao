@@ -5,4 +5,4 @@ package com.yizhipin.base.data.response
  *
  * 分页数据
  */
-class Paging(val pageSize: Int, val totalPage: Int, val currentPage: Int, val totalSize: Int)
+class Paging(val pageSize: Int = 20, val totalPage: Int, val currentPage: Int, val totalSize: Int)

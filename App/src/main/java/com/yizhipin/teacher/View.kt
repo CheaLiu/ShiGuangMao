@@ -1,5 +1,6 @@
 package com.yizhipin.teacher
 
+import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.mvp.view.BaseView
@@ -38,6 +39,6 @@ interface ScheduleCalendarView : BaseView {
 }
 
 interface ScheduleListView : BaseView {
-    fun show(data: List<ScheduleItemBean>)
+    fun show(data: BasePagingResp<MutableList<ScheduleItemBean>>)
 }
 

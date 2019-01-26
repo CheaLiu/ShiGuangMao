@@ -2,15 +2,15 @@ package com.yizhipin.base.widgets
 
 import android.content.Context
 import android.os.Handler
+import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
-import android.widget.Button
 import com.yizhipin.base.R
 
 /**
  * 获取验证码按钮
  * 带倒计时
  */
-class VerifyButton(mContext: Context, attrs: AttributeSet) : Button(mContext, attrs) {
+class VerifyButton(mContext: Context, attrs: AttributeSet) : AppCompatButton(mContext, attrs) {
     private val mHandler: Handler
     private var mCount = 60
     private var mOnVerifyBtnClick: OnVerifyBtnClick? = null

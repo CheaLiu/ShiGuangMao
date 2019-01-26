@@ -13,7 +13,7 @@ class ScheduleItemBean(
         val id: String,
         val imgurl: String,
         val itemType: String,//子类型
-        nickname: String,
+        private val nickName: String,
         val remark: String,
         val scheduleDate: String,//日期
         val status: String,//状态(0待完成,1已完成,2休息)
@@ -24,10 +24,10 @@ class ScheduleItemBean(
         val uid: String//服务用户id
 ) {
 
-    var nickName = nickname
-
-    fun getNickname(): String {
-        return if (TextUtils.isEmpty(nickName)) "" else nickName
+    fun getNickName(): String {
+        return if (TextUtils.isEmpty(nickName)) {
+            ""
+        } else nickName
     }
 
     override fun equals(other: Any?): Boolean {

@@ -3,4 +3,4 @@ package com.yizhipin.base.data.protocol
 /**
  * Created by ${XiLei} on 2018/7/27.
  */
-class BaseResp<out T>(val code:String,val msg:String ,val data:T)
+open class BaseResp<out T>(open val code:String, open val msg:String, open val data:T)

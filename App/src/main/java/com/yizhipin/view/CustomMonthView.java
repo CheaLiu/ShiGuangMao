@@ -5,8 +5,6 @@ import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.view.View;
 
@@ -164,7 +162,7 @@ public class CustomMonthView extends MonthView {
                         calendar.isCurrentMonth() ? mCurMonthLunarTextPaint : mOtherMonthLunarTextPaint);
             } else {
                 //其它状态显示服务用户名称
-                canvas.drawText(itemBean.getNickname(), cx, mTextBaseLine + y + mItemHeight / 10,
+                canvas.drawText(itemBean.getNickName(), cx, mTextBaseLine + y + mItemHeight / 10,
                         calendar.isCurrentMonth() ? mCurMonthLunarTextPaint : mOtherMonthLunarTextPaint);
             }
         }

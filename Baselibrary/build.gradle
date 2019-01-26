@@ -26,6 +26,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -119,6 +123,11 @@ dependencies {
     api 'com.contrarywind:Android-PickerView:3.2.7'
     implementation 'com.android.support:design:28.0.0'
     api 'com.jcodecraeer:xrecyclerview:1.5.9'
+    testImplementation 'junit:junit:4.12'
+    implementation('com.android.support.test:runner:1.0.2') {
+
+    }
+
 }
 
 //Parcelable序列化插件

@@ -78,7 +78,7 @@ class ScheduleCalendarFragment : BaseMvpFragment<ScheduleCalendarPresenter>(), S
                 if (itemBean == null) {
                     //不接受预约
                     mBasePresenter.cancelSchedule(date, AppPrefsUtils.getString(KEY_SP_TOKEN))
-                } else if (TextUtils.isEmpty(itemBean.getNickname()) && "2" == itemBean.status) {
+                } else if (TextUtils.isEmpty(itemBean.getNickName()) && "2" == itemBean.status) {
                     //日程为休息状态且不存在服务用户，那么删除日程
                     mBasePresenter.deleteScheduleFromNet(itemBean)
                 }

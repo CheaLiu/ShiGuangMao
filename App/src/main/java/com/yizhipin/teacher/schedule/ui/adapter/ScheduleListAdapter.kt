@@ -16,7 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView
  */
 class ScheduleListAdapter : RecyclerView.Adapter<ViewHolder>() {
 
-    private val data = ArrayList<ScheduleItemBean>()
+    private val mData = ArrayList<ScheduleItemBean>()
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = View.inflate(p0.context, R.layout.item_schedule_list, null)
@@ -24,11 +24,11 @@ class ScheduleListAdapter : RecyclerView.Adapter<ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return mData.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val scheduleItemBean = data[position]
+        val scheduleItemBean = mData[position]
         GlideUtils.loadImage(holder.leftIcon.context, scheduleItemBean.imgurl, holder.leftIcon)
         holder.photographyType.text = scheduleItemBean.type
         holder.photographySubTitle.text = scheduleItemBean.itemType
@@ -42,20 +42,27 @@ class ScheduleListAdapter : RecyclerView.Adapter<ViewHolder>() {
         holder.dateView.text = scheduleItemBean.scheduleDate
     }
 
-    fun addData(data: List<ScheduleItemBean>) {
-        val size = this.data.size
-        this.data.addAll(data)
-        notifyItemChanged(size)
+    fun setData(data: MutableList<ScheduleItemBean>) {
+        data.clear()
+        mData.addAll(data)
+        notifyDataSetChanged()
+    }
+
+    fun addData(data: MutableList<ScheduleItemBean>) {
+        if (data.isEmpty()) return
+        val size = this.mData.size
+        mData.addAll(data)
+        notifyItemRangeInserted(size,data.size)
     }
 }
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val leftIcon = itemView.findViewById<ImageView>(R.id.leftIcon)//左边图标
-    val rightIcon = itemView.findViewById<CircleImageView>(R.id.rightIcon)//左边图标
-    val photographyType = itemView.findViewById<TextView>(R.id.photographyTitleView)//摄影标题
-    val photographySubTitle = itemView.findViewById<TextView>(R.id.photographySubTitleView)//摄影副标题
-    val price = itemView.findViewById<TextView>(R.id.priceView)//摄影价格
-    val phaseView = itemView.findViewById<TextView>(R.id.phaseView)//摄影阶段
-    val dateView = itemView.findViewById<TextView>(R.id.dateView)//摄影阶段
+    val leftIcon = itemView.findViewById<ImageView>(R.id.leftIcon)!!//左边图标
+    val rightIcon = itemView.findViewById<CircleImageView>(R.id.rightIcon)!!//左边图标
+    val photographyType = itemView.findViewById<TextView>(R.id.photographyTitleView)!!//摄影标题
+    val photographySubTitle = itemView.findViewById<TextView>(R.id.photographySubTitleView)!!//摄影副标题
+    val price = itemView.findViewById<TextView>(R.id.priceView)!!//摄影价格
+    val phaseView = itemView.findViewById<TextView>(R.id.phaseView)!!//摄影阶段
+    val dateView = itemView.findViewById<TextView>(R.id.dateView)!!//摄影阶段
 
 }

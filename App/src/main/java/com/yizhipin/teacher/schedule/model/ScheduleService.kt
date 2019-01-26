@@ -1,5 +1,6 @@
 package com.yizhipin.teacher.schedule.model
 
+import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.data.response.ScheduleItemBean
 import com.yizhipin.usercenter.data.api.Api
@@ -29,7 +30,7 @@ interface ScheduleService {
      * @param status 排期状态（0待完成,1已完成,2休息）
      */
     @GET(Api.SCHEDULE_LIST_PAGE)
-    fun getScheduleList(@Query("teacherId") teacherId: String, @Query("status") status: Int, @Query("currentPage") currentPage: Int): Observable<BaseResp<List<ScheduleItemBean>>>
+    fun getScheduleList(@Query("teacherId") teacherId: String, @Query("status") status: Int, @Query("currentPage") currentPage: Int): Observable<BasePagingResp<MutableList<ScheduleItemBean>>>
 
     /**删除日程*/
     @DELETE(Api.SCHEDULE_UPDATE)

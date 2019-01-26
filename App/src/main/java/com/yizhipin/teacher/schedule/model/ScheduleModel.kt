@@ -4,10 +4,13 @@ import com.yizhipin.base.data.net.RetrofitFactoryDelete
 import com.yizhipin.base.data.net.RetrofitFactoryGet
 import com.yizhipin.base.data.net.RetrofitFactoryPost
 import com.yizhipin.base.data.net.RetrofitFactoryPut
+import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.protocol.BaseResp
+import com.yizhipin.base.ext.convertPaging
 import com.yizhipin.base.mvp.model.BaseModel
 import com.yizhipin.data.response.ScheduleItemBean
 import io.reactivex.Observable
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -38,10 +41,6 @@ class ScheduleModel @Inject constructor() : BaseModel {
     fun updateSchedule(itemBean: ScheduleItemBean): Observable<BaseResp<ScheduleItemBean>> {
         val map = HashMap<String, String>()
         map["status"] = itemBean.status
-//        map["amount"] = itemBean.amount
-//        map["dateMoth"] = itemBean.dateMonth
-//        map["teacherId"] = itemBean.teacherId
-//        map["scheduleDate"] = itemBean.scheduleDate
         return RetrofitFactoryPut(map).create(ScheduleService::class.java).updateSchedule(itemBean.id)
     }
 
@@ -55,12 +54,12 @@ class ScheduleModel @Inject constructor() : BaseModel {
         return RetrofitFactoryDelete(map).create(ScheduleService::class.java).deleteSchedule(id)
     }
 
-    fun getScheduleList(teacherId: String, status: Int, currentPage: Int): Observable<BaseResp<List<ScheduleItemBean>>> {
+    fun getScheduleList(teacherId: String, status: Int, currentPage: Int): Observable<BasePagingResp<MutableList<ScheduleItemBean>>> {
         val map = HashMap<String, String>()
         map["teacherId"] = teacherId
         map["status"] = "" + status
         map["currentPage"] = "" + currentPage
-        return RetrofitFactoryGet.create(ScheduleService::class.java).getScheduleList(teacherId,status,currentPage)
+        return RetrofitFactoryGet.create(ScheduleService::class.java).getScheduleList(teacherId,status,currentPage).convertPaging()
     }
 
 }

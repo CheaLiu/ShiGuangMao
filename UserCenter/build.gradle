@@ -49,6 +49,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -57,6 +62,10 @@ dependencies {
     implementation project(':Baselibrary')
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+    testImplementation 'junit:junit:4.12'
+    implementation('com.android.support.test:runner:1.0.2') {
+
+    }
 }
 
 //Parcelable序列化插件
