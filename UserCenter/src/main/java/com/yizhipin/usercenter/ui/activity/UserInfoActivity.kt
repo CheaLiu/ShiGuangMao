@@ -1,5 +1,6 @@
 package com.yizhipin.usercenter.ui.activity
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import com.jph.takephoto.model.TResult
@@ -27,6 +28,10 @@ import java.io.File
  * 完善资料
  */
 class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoView, View.OnClickListener, UploadUtil.OnUploadProcessListener {
+
+    override fun getActivity(): Activity? {
+        return this
+    }
 
     override fun showWorkStatus(workStatusBean: WorkStatusBean) {
     }

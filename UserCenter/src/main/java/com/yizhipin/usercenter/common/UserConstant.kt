@@ -12,3 +12,6 @@ class UserConstant {
 
 
 }
+object IntentParams {
+    const val EXIST = "EXIST"//是否退出登录
+}

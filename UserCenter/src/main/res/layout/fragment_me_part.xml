@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/common_white"
@@ -100,172 +101,196 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/chargeSettingLayout"
+    <LinearLayout
+        android:id="@+id/secondLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin"
-        android:background="@color/common_white"
-        android:padding="@dimen/padding_content">
+        android:divider="@drawable/bg_divider_h05_paddingleft_50dp"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
-        <ImageView
-            android:id="@+id/leftIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_controller" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/chargeSettingView"
+        <RelativeLayout
+            android:id="@+id/chargeSettingLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/margin_views"
-            android:layout_toEndOf="@+id/leftIcon"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            android:text="@string/keyChargeSetting" />
-    </RelativeLayout>
+            android:layout_marginTop="@dimen/common_margin"
+            android:background="@color/common_white"
+            android:padding="@dimen/padding_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="50dp"
-        android:background="@color/bg_divider" />
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/leftIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_controller" />
 
-    <RelativeLayout
-        android:id="@+id/cashPledgeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/common_white"
-        android:padding="@dimen/padding_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/chargeSettingView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/leftIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/keyChargeSetting" />
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/cashPledgeIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/coin" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <RelativeLayout
+            android:id="@+id/cashPledgeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/margin_views"
-            android:layout_toEndOf="@+id/cashPledgeIcon"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            android:text="@string/keyCashPledge" />
-    </RelativeLayout>
+            android:background="@color/common_white">
 
-    <RelativeLayout
-        android:id="@+id/profileLayout"
+            <ImageView
+                android:id="@+id/cashPledgeIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:src="@drawable/coin" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/cashPledgeIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:paddingTop="@dimen/padding_content"
+                android:paddingEnd="@dimen/padding_content"
+                android:paddingBottom="@dimen/padding_content"
+                android:text="@string/keyCashPledge" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_views"
-        android:background="@color/common_white"
-        android:padding="@dimen/padding_content">
+        android:divider="@drawable/bg_divider_h05_paddingleft_50dp"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
-        <ImageView
-            android:id="@+id/cabinetIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_cabinet" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/dataView"
+        <RelativeLayout
+            android:id="@+id/profileLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/margin_views"
-            android:layout_toEndOf="@+id/cabinetIcon"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            android:text="@string/keyDataProduction" />
+            android:background="@color/common_white"
+            android:padding="@dimen/padding_content">
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/cabinetIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ic_cabinet" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="50dp"
-        android:background="@color/bg_divider" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/dataView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/cabinetIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/keyDataProduction" />
 
-    <RelativeLayout
-        android:id="@+id/attentionLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/common_white"
-        android:padding="@dimen/padding_content">
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/heartIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/heart2" />
-
-        <android.support.v7.widget.AppCompatTextView
+        <RelativeLayout
+            android:id="@+id/attentionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/margin_views"
-            android:layout_toEndOf="@+id/heartIcon"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            android:text="@string/keyAttention" />
-    </RelativeLayout>
+            android:background="@color/common_white"
+            android:padding="@dimen/padding_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="50dp"
-        android:background="@color/bg_divider" />
+            <ImageView
+                android:id="@+id/heartIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/heart2" />
 
-    <RelativeLayout
-        android:id="@+id/workNoteLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/common_white"
-        android:padding="@dimen/padding_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/heartIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/keyAttention" />
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/questionIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_question" />
-
-        <android.support.v7.widget.AppCompatTextView
+        <RelativeLayout
+            android:id="@+id/shareCodeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/margin_views"
-            android:layout_toEndOf="@+id/questionIcon"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            android:text="@string/keyWorkNotice" />
-    </RelativeLayout>
+            android:background="@color/common_white"
+            android:padding="@dimen/padding_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="50dp"
-        android:background="@color/bg_divider" />
+            <ImageView
+                android:id="@+id/shareCodeIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/share" />
 
-    <RelativeLayout
-        android:id="@+id/phoneLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/common_white"
-        android:padding="@dimen/padding_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/shareCodeIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/keyShareCode" />
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/telephoneIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/telephone" />
-
-        <android.support.v7.widget.AppCompatTextView
+        <RelativeLayout
+            android:id="@+id/workNoteLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/margin_views"
-            android:layout_toEndOf="@+id/telephoneIcon"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            android:text="@string/keyServiceTel" />
-    </RelativeLayout>
+            android:background="@color/common_white"
+            android:padding="@dimen/padding_content">
+
+            <ImageView
+                android:id="@+id/questionIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_question" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/questionIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/keyWorkNotice" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/phoneLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_white"
+            android:padding="@dimen/padding_content">
+
+            <ImageView
+                android:id="@+id/telephoneIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:src="@drawable/telephone" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_views"
+                android:layout_toEndOf="@+id/telephoneIcon"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/keyServiceTel" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/settingLayout"
@@ -279,6 +304,7 @@
             android:id="@+id/settingsIcon"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
+            android:layout_centerVertical="true"
             android:src="@drawable/settings" />
 
         <android.support.v7.widget.AppCompatTextView

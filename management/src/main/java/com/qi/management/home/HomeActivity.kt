@@ -1,5 +1,7 @@
 package com.qi.management.home
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -10,7 +12,9 @@ import com.qi.management.stores.mvp.HomeGridPresenterImpl
 import com.yizhipin.base.ui.activity.BaseActivity
 import com.yizhipin.message.home.MessageFragment
 import com.yizhipin.provider.router.RouterPath
+import com.yizhipin.usercenter.common.IntentParams.EXIST
 import com.yizhipin.usercenter.me.fragment.MeFragment
+import com.yizhipin.usercenter.ui.activity.LoginActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 @Route(path = RouterPath.Management.HOME)
@@ -23,6 +27,18 @@ class HomeActivity : BaseActivity() {
         setContentView(R.layout.activity_home)
         initFragment()
         initBottomNav()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent != null && intent.hasExtra(EXIST)) {//判断其他Activity启动本Activity时传递来的intent是否为空
+            val isExist = intent.getBooleanExtra(EXIST, false)
+            if (isExist) {
+                //如果为真则退出本Activity,跳转到登录页
+                LoginActivity.startActivity(this)
+//                this.finish()
+            }
+        }
     }
 
     private fun initBottomNav() {
@@ -118,6 +134,14 @@ class HomeActivity : BaseActivity() {
             0 -> storesFragment.changeStyle(HomeGridPresenterImpl.Style.Store)
             1 -> storesFragment.changeStyle(HomeGridPresenterImpl.Style.Person)
             3 -> storesFragment.changeStyle(HomeGridPresenterImpl.Style.Finance)
+        }
+    }
+
+    companion object {
+        fun startActivity(context: Context, isExistsLogin: Boolean) {
+            val intent = Intent(context, HomeActivity::class.java)
+            intent.putExtra(EXIST, isExistsLogin)
+            context.startActivity(intent)
         }
     }
 }

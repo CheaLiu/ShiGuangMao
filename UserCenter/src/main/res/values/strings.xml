@@ -8,4 +8,5 @@
     <string name="front">正面</string>
     <string name="titleBaseInfo">基本信息</string>
     <string name="employeeLogin">员工登录</string>
+    <string name="keyShareCode">我的分享码</string>
 </resources>

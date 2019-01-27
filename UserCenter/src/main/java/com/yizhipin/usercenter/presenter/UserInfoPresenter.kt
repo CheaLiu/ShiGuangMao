@@ -1,5 +1,6 @@
 package com.yizhipin.usercenter.presenter
 
+import com.alibaba.android.arouter.launcher.ARouter
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.execute
@@ -7,6 +8,7 @@ import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.BaseSubscriber
 import com.yizhipin.base.rx.CodeHandlerSubscriber
 import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.usercenter.R
 import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.presenter.view.UserInfoView
@@ -35,7 +37,13 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
     }
 
     fun getUserInfo() {
-        getUserInfo(mutableMapOf())
+        val userInfo = UserPrefsUtils.getUserInfo()
+        if (userInfo != null)
+            mView.getUserResult(userInfo)
+        else {
+            ARouter.getInstance().build(RouterPath.UserCenter.PATH_LOGIN).navigation()
+            mView.getActivity()?.finish()
+        }
     }
 
     /**

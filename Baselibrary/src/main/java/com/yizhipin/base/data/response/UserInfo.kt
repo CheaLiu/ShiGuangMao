@@ -21,7 +21,7 @@ class UserInfo(var id: String,
                var freezeAmount: String,
                var amount: String,
                var relatedUser: String,
-               var type: String,
+               var type: Int,
                var score: String,
                var credit: String,
                var requestCode: String,
@@ -32,7 +32,7 @@ class UserInfo(var id: String,
                var extraAmount: String,
                var teacherType: String,
                var shopId: String,
-               var level: String ="0",
+               var level: String = "0",
                var position: String,
                var openid: String,
                var qqid: String,
@@ -48,3 +48,12 @@ class UserInfo(var id: String,
                var hot: Boolean,
                var redPrompt: String
 ) : Parcelable
+
+object UserType {
+    /**0个人*/
+    const val Personal = 0
+    /**1老师*/
+    const val Teacher = 1
+    /**2管理人员*/
+    const val Management = 2
+}

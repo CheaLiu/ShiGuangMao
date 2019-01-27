@@ -2,15 +2,16 @@ package com.yizhipin.usercenter.me.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
+import com.yizhipin.base.data.response.UserType
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import com.yizhipin.base.utils.AppPrefsUtils
@@ -26,7 +27,6 @@ import com.yizhipin.usercenter.ui.activity.UserInfoActivity
 import com.yizhipin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.fragment_me.*
 import kotlinx.android.synthetic.main.fragment_me_part.*
-import java.util.*
 
 /**
  * Created by ${XiLei} on 2018/8/19.
@@ -54,22 +54,13 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
     }
 
     private fun initViews() {
-        val userInfo = Gson().fromJson<UserInfo>(AppPrefsUtils.getString(KEY_USER_INFO), object : TypeToken<UserInfo>() {
-        }.type) ?: return
-        updateViews(userInfo)
+        mBasePresenter.getUserInfo()
     }
 
     override fun injectComponent() {
         DaggerMeComponent.builder().activityComponent(mActivityComponent).userModule(UserModule()).build().inject(this)
         mBasePresenter.mView = this
     }
-
-    override fun onStart() {
-        super.onStart()
-//        mBasePresenter.getWorkStatusList()
-        mBasePresenter.getUserInfo()
-    }
-
 
     /**点击收费设置*/
     private fun onChargeSettingLayoutListener(view: View) {
@@ -122,6 +113,15 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
     }
 
     private fun updateViews(userInfo: UserInfo) {
+        if (userInfo.type == UserType.Management) {
+            topLayout.visibility = GONE
+            secondLayout.visibility = GONE
+            profileLayout.visibility = GONE
+            attentionLayout.visibility = GONE
+            shareCodeLayout.visibility = VISIBLE
+        } else if (userInfo.type == UserType.Teacher) {
+            shareCodeLayout.visibility = GONE
+        }
         userIconView.loadUrl(userInfo.imgurl)//头像
         nickNameView.text = userInfo.nickname//昵称
         professionView.text = userInfo.position//职位

@@ -98,9 +98,9 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     override fun onLoginSuccess(result: UserInfo) {
         Log.d("TAG", "access_token: " + result.token)
         UserPrefsUtils.putUserInfo(result)
-        if (result.type == "2")
+        if (result.type == 2)
             ARouter.getInstance().build(RouterPath.Management.HOME).navigation()
-        else if (result.type == "1")
+        else if (result.type == 1)
             startActivity<UserInfoActivity>()
         finish()
     }

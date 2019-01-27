@@ -1,6 +1,6 @@
 package com.yizhipin.usercenter.presenter.view
 
-import android.support.annotation.StringRes
+import android.app.Activity
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.mvp.view.BaseView
 import com.yizhipin.usercenter.bean.WorkStatusBean
@@ -13,4 +13,5 @@ interface UserInfoView : BaseView {
     fun onEditUserResult(result: UserInfo)
     fun onGetCartSuccess(result: Int)
     fun showWorkStatus(workStatusBean: WorkStatusBean)
+    fun getActivity(): Activity?
 }
