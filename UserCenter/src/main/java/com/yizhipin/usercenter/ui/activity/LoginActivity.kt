@@ -1,12 +1,14 @@
 package com.yizhipin.usercenter.ui.activity
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.enable
 import com.yizhipin.base.ext.onClick
@@ -28,11 +30,15 @@ import org.jetbrains.anko.startActivity
  */
 @Route(path = RouterPath.UserCenter.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
+    /**类型(0个人,1老师,2管理人员)*/
+    private var roleType: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var userInfo = UserPrefsUtils.getUserInfo()
+        if (userInfo != null)
+            onLoginSuccess(userInfo)
         setContentView(R.layout.activity_login)
-
         initView()
     }
 
@@ -41,8 +47,19 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         mRegistBtn.onClick(this)
         mLoginBtn.onClick(this)
         mRightTv.onClick(this)
-        mLoginBtn.enable(mMobileEt, { isBtnEnable() })
-        mLoginBtn.enable(mPswEt, { isBtnEnable() })
+        mLoginBtn.enable(mMobileEt) { isBtnEnable() }
+        mLoginBtn.enable(mPswEt) { isBtnEnable() }
+        roleCheckBox.setOnCheckedChangeListener { _, checked ->
+            if (checked) {
+                //员工
+                roleType = 2
+                mRegistBtn.visibility = GONE
+            } else {
+                //老师
+                roleType = 1
+                mRegistBtn.visibility = VISIBLE
+            }
+        }
     }
 
     override fun onClick(v: View) {
@@ -50,16 +67,16 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
             R.id.mBackIv -> finish()
             R.id.mRegistBtn -> startActivity<RegisterActivity>()
             R.id.mRightTv -> {
-                ResetPwdActivity.startActivity(this,resources.getString(R.string.forget_pwd))
+                ResetPwdActivity.startActivity(this, resources.getString(R.string.forget_pwd))
             }
 
             R.id.mLoginBtn -> {
-                var map = mutableMapOf<String, String>()
+                val map = mutableMapOf<String, String>()
                 map["mobile"] = mMobileEt.text.toString()
                 map["password"] = mPswEt.text.toString()
                 map["deviceToken"] = ""
                 map["deviceType"] = "android"
-                map["type"] = "0"
+                map["type"] = "$roleType"
                 mBasePresenter.login(map)
             }
         }
@@ -81,15 +98,18 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     override fun onLoginSuccess(result: UserInfo) {
         Log.d("TAG", "access_token: " + result.token)
         UserPrefsUtils.putUserInfo(result)
-        startActivity<UserInfoActivity>()
+        if (result.type == "2")
+            ARouter.getInstance().build(RouterPath.Management.HOME).navigation()
+        else if (result.type == "1")
+            startActivity<UserInfoActivity>()
         finish()
     }
 
     companion object {
-        fun startActivity(activity: Activity){
+        fun startActivity(activity: Activity) {
             UserPrefsUtils.putUserInfo(null)
             val intent = Intent()
-            intent.setClass(activity,LoginActivity::class.java)
+            intent.setClass(activity, LoginActivity::class.java)
             activity.startActivity(intent)
         }
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              style="@style/MatchMatch.Vertical"
-              android:background="@drawable/bg1">
+    style="@style/MatchMatch.Vertical"
+    android:background="@drawable/bg1">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/yPaddingSmall"
             android:paddingRight="@dimen/yPaddingSmall"
-            android:src="@drawable/ic_left_arrow_white"/>
+            android:src="@drawable/ic_left_arrow_white" />
 
         <TextView
             android:id="@+id/mTitleTv"
@@ -23,7 +23,7 @@
             android:layout_centerInParent="true"
             android:text="@string/login_acount"
             android:textColor="@color/yWhite"
-            android:textSize="@dimen/yTextLargeSize"/>
+            android:textSize="@dimen/yTextLargeSize" />
 
         <TextView
             android:id="@+id/mRightTv"
@@ -32,7 +32,7 @@
             android:layout_centerVertical="true"
             android:text="@string/forget_pwd"
             android:textColor="@color/yWhite"
-            android:textSize="@dimen/yTextBigSize"/>
+            android:textSize="@dimen/yTextBigSize" />
 
     </RelativeLayout>
 
@@ -48,7 +48,7 @@
         <ImageView
             style="@style/WrapWrap"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/telephonew"/>
+            android:src="@drawable/telephonew" />
 
         <EditText
             android:id="@+id/mMobileEt"
@@ -61,7 +61,7 @@
             android:maxLength="11"
             android:textColor="@color/yBlackLight"
             android:textColorHint="@color/yHint"
-            android:textSize="@dimen/yTextBigSize"/>
+            android:textSize="@dimen/yTextBigSize" />
     </LinearLayout>
 
     <LinearLayout
@@ -76,7 +76,7 @@
         <ImageView
             style="@style/WrapWrap"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/unlockw"/>
+            android:src="@drawable/unlockw" />
 
         <EditText
             android:id="@+id/mPswEt"
@@ -89,7 +89,7 @@
             android:maxLength="11"
             android:textColor="@color/yBlackLight"
             android:textColorHint="@color/yHint"
-            android:textSize="@dimen/yTextBigSize"/>
+            android:textSize="@dimen/yTextBigSize" />
     </LinearLayout>
 
     <Button
@@ -98,8 +98,7 @@
         android:layout_marginLeft="@dimen/yPadding"
         android:layout_marginTop="@dimen/yPadding"
         android:layout_marginRight="@dimen/yPadding"
-        android:text="@string/login"
-        />
+        android:text="@string/login" />
 
     <Button
         android:id="@+id/mRegistBtn"
@@ -107,28 +106,38 @@
         android:layout_marginLeft="@dimen/yPadding"
         android:layout_marginTop="@dimen/yPaddingMiddle"
         android:layout_marginRight="@dimen/yPadding"
-        android:text="@string/register"
-        />
+        android:text="@string/register" />
+
+    <CheckBox
+        android:id="@+id/roleCheckBox"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:button="@drawable/common_check_selector"
+        android:paddingStart="10dp"
+        android:layout_margin="@dimen/margin_views"
+        android:text="@string/employeeLogin"
+        android:textColor="@color/yRed" />
 
     <RelativeLayout
         style="@style/MatchWrap"
         android:layout_marginLeft="@dimen/yPaddingBigEven"
         android:layout_marginTop="@dimen/yPaddingBig"
-        android:layout_marginRight="@dimen/yPaddingBigEven"
-        >
+        android:layout_marginRight="@dimen/yPaddingBigEven">
 
         <ImageView
             style="@style/WrapWrap"
-            android:src="@drawable/qqw"/>
+            android:src="@drawable/qqw" />
 
         <ImageView
             style="@style/WrapWrap"
             android:layout_centerInParent="true"
-            android:src="@drawable/wechatw"/>
+            android:src="@drawable/wechatw" />
 
         <ImageView
             style="@style/WrapWrap"
             android:layout_alignParentRight="true"
-            android:src="@drawable/weibow"/>
+            android:src="@drawable/weibow" />
     </RelativeLayout>
 </LinearLayout>

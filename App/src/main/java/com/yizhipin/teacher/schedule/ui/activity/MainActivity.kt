@@ -13,7 +13,7 @@ import com.yizhipin.base.event.HomeIntentEvent
 import com.yizhipin.base.ui.activity.BaseActivity
 import com.yizhipin.generalizecenter.ui.fragment.GeneralizeFragment
 import com.yizhipin.teacher.schedule.ui.activity.IntentParams.EXIST
-import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
+import com.yizhipin.usercenter.me.fragment.MeFragment
 import com.yizhipin.teacher.schedule.ui.fragment.ScheduleFragment
 import com.yizhipin.usercenter.ui.activity.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*

@@ -1,8 +1,8 @@
-package com.yizhipin.teacher.dagger.component
+package com.yizhipin.usercenter.me.dagger
 
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
-import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
+import com.yizhipin.usercenter.me.fragment.MeFragment
 import com.yizhipin.usercenter.injection.module.UserModule
 import dagger.Component
 

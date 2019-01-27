@@ -1,35 +1,32 @@
-package com.yizhipin.teacher.schedule.ui.fragment
+package com.yizhipin.usercenter.me.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.yizhipin.R
+import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import com.yizhipin.base.utils.AppPrefsUtils
-import com.yizhipin.base.utils.ToastUtils
 import com.yizhipin.provider.common.ProviderConstant.Companion.KEY_USER_INFO
-import com.yizhipin.teacher.dagger.component.DaggerMeComponent
-import com.yizhipin.teacher.mine.attention.AttentionActivity
-import com.yizhipin.teacher.mine.cashpledge.DepositActivity
-import com.yizhipin.teacher.mine.chargingsetting.ChargingSettingActivity
-import com.yizhipin.teacher.mine.note.NoteActivity
-import com.yizhipin.teacher.mine.phone.PhoneActivity
-import com.yizhipin.teacher.mine.profile.ProfileActivity
-import com.yizhipin.teacher.mine.setting.SystemSettingActivity
+import com.yizhipin.provider.router.RouterPath
+import com.yizhipin.usercenter.R
 import com.yizhipin.usercenter.bean.WorkStatusBean
 import com.yizhipin.usercenter.injection.module.UserModule
+import com.yizhipin.usercenter.me.dagger.DaggerMeComponent
 import com.yizhipin.usercenter.presenter.UserInfoPresenter
 import com.yizhipin.usercenter.presenter.view.UserInfoView
 import com.yizhipin.usercenter.ui.activity.UserInfoActivity
 import com.yizhipin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.fragment_me.*
 import kotlinx.android.synthetic.main.fragment_me_part.*
+import java.util.*
 
 /**
  * Created by ${XiLei} on 2018/8/19.
@@ -76,7 +73,8 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
 
     /**点击收费设置*/
     private fun onChargeSettingLayoutListener(view: View) {
-        startActivity(Intent(context, ChargingSettingActivity::class.java))//跳转收费设置
+        //跳转收费设置
+        ARouter.getInstance().build(RouterPath.UserCenter.CHARGE_SETTING).navigation()
     }
 
     /**修改基本信息*/
@@ -86,32 +84,32 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
 
     //押金
     private fun onDepositLayoutClickListener(view: View) {
-        DepositActivity.startActivity(this)
+        ARouter.getInstance().build(RouterPath.UserCenter.DEPOSIT).navigation()
     }
 
     //我的资料、作品
     private fun onProfileLayoutClickListener(view: View) {
-        ProfileActivity.startActivity(this)
+        ARouter.getInstance().build(RouterPath.UserCenter.PROFILE).navigation()
     }
 
     //我的关注
     private fun onAttentionLayoutClickListener(view: View) {
-        AttentionActivity.startActivity(this)
+        ARouter.getInstance().build(RouterPath.UserCenter.ATTENTION).navigation()
     }
 
     //工作须知
     private fun onWorkNoteLayoutClickListener(view: View) {
-        NoteActivity.startActivity(this)
+        ARouter.getInstance().build(RouterPath.UserCenter.NOTE).navigation()
     }
 
     //客服电话
     private fun onPhoneLayoutListener(view: View) {
-        PhoneActivity.startActivity(this)
+        ARouter.getInstance().build(RouterPath.UserCenter.PHONE).navigation()
     }
 
     //系统设置
     private fun onSettingLayoutListener(view: View) {
-        SystemSettingActivity.startActivity(this)
+        ARouter.getInstance().build(RouterPath.UserCenter.SYSTEM_SETTING).navigation()
     }
 
     private fun onWorkStatusViewListener(view: View) {
@@ -145,7 +143,7 @@ class MeFragment : BaseMvpFragment<UserInfoPresenter>(), UserInfoView {
 
     override fun showWorkStatus(workStatusBean: WorkStatusBean) {
         val userInfo = UserPrefsUtils.getUserInfo()
-        userInfo.work = workStatusBean.work
+        userInfo?.work = workStatusBean.work
         UserPrefsUtils.putUserInfo(userInfo)
         workStatusView.setText(if (workStatusBean.work) R.string.onDuty else R.string.offDuty)
     }

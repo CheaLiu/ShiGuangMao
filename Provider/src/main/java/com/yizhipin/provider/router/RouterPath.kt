@@ -11,6 +11,20 @@ object RouterPath {
             const val SET_PAY_PWD = "/userCenter/setPayPwd" //设置支付密码
             const val UPDATE_PAY_PWD = "/userCenter/updatePayPwd" //修改支付密码
             const val RESET_PAY_PWD = "/userCenter/resetPayPwd" //重置支付密码
+            /**收费设置*/
+            const val CHARGE_SETTING = "/home/me/charge_setting"
+            /**押金*/
+            const val DEPOSIT = "/home/me/deposit"
+            /**个人资料*/
+            const val PROFILE = "/home/me/profile"
+            /**我的关注*/
+            const val ATTENTION = "/home/me/attention"
+            /**新手帮助*/
+            const val NOTE = "/home/me/note"
+            /**客服电话*/
+            const val PHONE = "/home/me/phone"
+            /**系统设置*/
+            const val SYSTEM_SETTING = "/home/me/system_setting"
         }
     }
 
@@ -21,6 +35,7 @@ object RouterPath {
             const val PATH_GOODS_COLLECT = "/goodsCenter/collect"
         }
     }
+
     //订单模块
     class OrderCenter {
         companion object {
@@ -44,5 +59,17 @@ object RouterPath {
             const val PATH_MESSAGE_PUSH = "/message/push"
             const val PATH_MESSAGE_ORDER = "/messageCenter/order"
         }
+    }
+
+    object Management {
+        const val HOME: String = "/management/home"
+        /**门店信息管理*/
+        const val STORE_INFORMATION_MANAGEMENT = "/management/store/information_management"
+        /**套餐管理*/
+        const val SET_MENU_MANAGEMENT: String = "/management/store/set_menu_management"
+        /**产品管理*/
+        const val PRODUCTION_MANAGEMENT: String = "/management/store/production_management"
+        /**服装管理*/
+        const val CLOTHING_MANAGEMENT: String = "/management/store/clothing_management"
     }
 }

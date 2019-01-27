@@ -1,8 +1,10 @@
 package com.yizhipin.teacher.mine.chargingsetting
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.yizhipin.R
 import com.yizhipin.base.ui.activity.BaseMvpActivity
+import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.teacher.mine.chargingsetting.dagger.DaggerComponent
 import com.yizhipin.teacher.mine.chargingsetting.dagger.Module
 
@@ -15,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_charging_setting.*
  * Date 2018/12/30
  * <p>收费设置</p>
  */
+@Route(path = RouterPath.UserCenter.CHARGE_SETTING)
 class ChargingSettingActivity : BaseMvpActivity<ChargingSettingPresenterImpl>(), ChargingSettingContract.IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {

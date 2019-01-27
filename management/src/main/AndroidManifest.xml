@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qi.management">
+
+    <application>
+        <activity android:name="com.qi.management.home.HomeActivity" />
+    </application>
+</manifest>

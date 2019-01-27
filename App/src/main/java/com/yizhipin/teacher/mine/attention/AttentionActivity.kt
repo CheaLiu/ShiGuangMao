@@ -2,12 +2,14 @@ package com.yizhipin.teacher.mine.attention
 
 import android.content.Intent
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.yizhipin.R
 import com.yizhipin.base.ui.activity.BaseActivity
+import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.teacher.mine.attention.teacher.TeacherFragment
 import com.yizhipin.teacher.mine.attention.user.UserFragment
 import com.yizhipin.teacher.mine.profile.adapter.ProfilePagerAdapter
-import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
+import com.yizhipin.usercenter.me.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_profile.*
 
 /**
@@ -15,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_profile.*
  * Date 2019/1/9
  * <p>我的关注</p>
  */
+@Route(path = RouterPath.UserCenter.ATTENTION)
 class AttentionActivity : BaseActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

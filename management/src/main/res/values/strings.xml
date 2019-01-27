@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Management</string>
+    <string name="navStore">门店</string>
+    <string name="navPerson">人员</string>
+    <string name="storeInformationManagement">门店信息管理</string>
+    <string name="setMenuManagement">套餐管理</string>
+    <string name="titleStoreManagement">门店管理</string>
+    <string name="titlePersonerManagement">人员管理</string>
+    <string name="titleFinanceManagement">财务管理</string>
+</resources>

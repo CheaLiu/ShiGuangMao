@@ -79,7 +79,9 @@ open class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>
 
     /***上下班打卡*/
     fun postWorkStatus() {
-        mUserServiceImpl.postUserWorkStatus(UserPrefsUtils.getUserId(), !UserPrefsUtils.getUserInfo().work).execute(object : CodeHandlerSubscriber<WorkStatusBean>(mView) {
+        if (UserPrefsUtils.getUserInfo() == null)
+            return
+        mUserServiceImpl.postUserWorkStatus(UserPrefsUtils.getUserId(), !UserPrefsUtils.getUserInfo()!!.work).execute(object : CodeHandlerSubscriber<WorkStatusBean>(mView) {
             override fun onSucceed(data: WorkStatusBean) {
                 mView.showWorkStatus(data)
                 mView.showMsg(R.string.toastSucceedInClockingIn)

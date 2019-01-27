@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.yizhipin.R
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.provider.common.ProviderConstant
+import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.teacher.mine.setting.mvp.SystemSettingContract
 import com.yizhipin.teacher.mine.setting.mvp.SystemSettingPresenterImpl
 import com.yizhipin.teacher.schedule.ui.activity.MainActivity
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_systemsetting.*
  * Date 2018/12/30
  * <p>系统设置</p>
  */
+@Route(path = RouterPath.UserCenter.SYSTEM_SETTING)
 class SystemSettingActivity : BaseMvpActivity<SystemSettingPresenterImpl>(), SystemSettingContract.IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -2,13 +2,15 @@ package com.yizhipin.teacher.mine.profile
 
 import android.content.Intent
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.yizhipin.R
 import com.yizhipin.base.ui.activity.BaseMvpActivity
+import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.teacher.mine.profile.adapter.ProfilePagerAdapter
 
 import com.yizhipin.teacher.mine.profile.mvp.ProfileContract
 import com.yizhipin.teacher.mine.profile.mvp.ProfilePresenterImpl
-import com.yizhipin.teacher.schedule.ui.fragment.MeFragment
+import com.yizhipin.usercenter.me.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_profile.*
 
 /**
@@ -16,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_profile.*
  * Date 2018/12/30
  * <P>我的资料</p>
  */
+@Route(path = RouterPath.UserCenter.PROFILE)
 class ProfileActivity : BaseMvpActivity<ProfilePresenterImpl>(), ProfileContract.IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {

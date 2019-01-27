@@ -26,7 +26,7 @@ object UserPrefsUtils {
         AppPrefsUtils.putString(ProviderConstant.KEY_USER_INFO, Gson().toJson(userInfo))
     }
 
-    fun getUserInfo(): UserInfo {
+    fun getUserInfo(): UserInfo? {
         return Gson().fromJson(AppPrefsUtils.getString(ProviderConstant.KEY_USER_INFO), object : TypeToken<UserInfo>() {}.type)
     }
 
