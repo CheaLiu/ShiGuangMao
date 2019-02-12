@@ -51,6 +51,17 @@ class AppManager private constructor() {
         mActivityStack.clear()
     }
 
+    fun finishAllExcludeCurrent() {
+        if (mActivityStack.empty())return
+        val iterator = mActivityStack.iterator()
+        iterator.next()
+        while (iterator.hasNext()) {
+            val activity = iterator.next()
+            iterator.remove()
+            activity.finish()
+        }
+    }
+
     /**
      * 退出App
      */

@@ -7,4 +7,8 @@
     <string name="titleStoreManagement">门店管理</string>
     <string name="titlePersonerManagement">人员管理</string>
     <string name="titleFinanceManagement">财务管理</string>
+    <string name="keyStoreIcon">门店头像</string>
+    <string name="keyStoreName">门店名称</string>
+    <string name="keyStoreProfile">门店介绍</string>
+    <string name="hintStoreProfile">请在电脑网站上登录后修改</string>
 </resources>

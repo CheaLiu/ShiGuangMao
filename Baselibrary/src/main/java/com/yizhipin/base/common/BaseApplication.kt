@@ -17,14 +17,14 @@ open class BaseApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
+        registerActivityLifecycleCallbacks(BaseActivityLifecycleCallbacks())
         initAppInjection()
         context = this
         app = this
 
-        ARouter.openLog();
-        ARouter.openDebug();
-        ARouter.init(this);
+        ARouter.openLog()
+        ARouter.openDebug()
+        ARouter.init(this)
     }
 
     private fun initAppInjection() {

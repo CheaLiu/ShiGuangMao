@@ -1,7 +1,8 @@
-package com.qi.management.stores.controler
+package com.qi.management.home.stores.controler
 
 import com.qi.management.R
-import com.qi.management.stores.mvp.HomeGridPresenterImpl
+import com.qi.management.home.stores.controler.HomeGridItem
+import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPresenterImpl
 import com.yizhipin.provider.router.RouterPath
 
 /**
@@ -12,9 +13,9 @@ class DataFactory {
     companion object {
         fun createItemList(style: Int): MutableList<HomeGridItem> {
             return when (style) {
-                HomeGridPresenterImpl.Style.Store -> createStoreItems()
-                HomeGridPresenterImpl.Style.Person -> createPersonItems()
-                HomeGridPresenterImpl.Style.Finance -> createFinanceItems()
+                StoreInfoManagementPresenterImpl.Style.Store -> createStoreItems()
+                StoreInfoManagementPresenterImpl.Style.Person -> createPersonItems()
+                StoreInfoManagementPresenterImpl.Style.Finance -> createFinanceItems()
                 else -> throw Exception("首页不存在该页面样式")
             }
         }

@@ -9,10 +9,14 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.enable
 import com.yizhipin.base.ext.onClick
 import com.yizhipin.base.ui.activity.BaseMvpActivity
+import com.yizhipin.base.utils.AppPrefsUtils
+import com.yizhipin.provider.common.ProviderConstant
 import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.usercenter.R
 import com.yizhipin.usercenter.injection.component.DaggerUserComponent
@@ -35,14 +39,17 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var userInfo = UserPrefsUtils.getUserInfo()
+        val userInfo = Gson().fromJson<UserInfo?>(AppPrefsUtils.getString(ProviderConstant.KEY_USER_INFO), object : TypeToken<UserInfo>() {}.type)
         if (userInfo != null)
             onLoginSuccess(userInfo)
-        setContentView(R.layout.activity_login)
-        initView()
     }
 
-    private fun initView() {
+    override fun onCreateView(): Int {
+        return R.layout.activity_login
+    }
+
+    override fun initView(savedInstanceState: Bundle?) {
+        super.initView(savedInstanceState)
         mBackIv.onClick(this)
         mRegistBtn.onClick(this)
         mLoginBtn.onClick(this)

@@ -1,4 +1,4 @@
-package com.qi.management.stores
+package com.qi.management.home.stores
 
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
 import com.qi.management.R
-import com.qi.management.stores.adapter.GridItemDecoration
-import com.qi.management.stores.adapter.HomeGridAdapter
-import com.qi.management.stores.dagger.DaggerComponent
-import com.qi.management.stores.dagger.Module
-import com.qi.management.stores.mvp.HomeGridPresenterImpl
-import com.qi.management.stores.mvp.StoresContract
+import com.qi.management.home.stores.adapter.GridItemDecoration
+import com.qi.management.home.stores.adapter.HomeGridAdapter
+import com.qi.management.home.stores.dagger.DaggerComponent
+import com.qi.management.home.stores.dagger.Module
+import com.qi.management.home.stores.mvp.HomeGridPresenterImpl
+import com.qi.management.home.stores.mvp.StoresContract
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 import kotlinx.android.synthetic.main.fragment_home_grid.*
 

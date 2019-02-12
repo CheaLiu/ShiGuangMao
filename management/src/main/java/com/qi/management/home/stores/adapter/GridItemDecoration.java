@@ -1,4 +1,4 @@
-package com.qi.management.stores.adapter;
+package com.qi.management.home.stores.adapter;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

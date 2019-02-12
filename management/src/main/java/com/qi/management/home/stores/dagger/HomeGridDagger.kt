@@ -1,7 +1,7 @@
-package com.qi.management.stores.dagger
+package com.qi.management.home.stores.dagger
 
-import com.qi.management.stores.HomeGridFragment
-import com.qi.management.stores.mvp.StoresContract
+import com.qi.management.home.stores.HomeGridFragment
+import com.qi.management.home.stores.mvp.StoresContract
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
 import dagger.Provides

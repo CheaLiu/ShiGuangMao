@@ -1,4 +1,4 @@
-package com.qi.management.stores.mvp
+package com.qi.management.home.stores.mvp
 
 import com.yizhipin.base.mvp.model.BaseModel
 import com.yizhipin.base.mvp.view.BaseView

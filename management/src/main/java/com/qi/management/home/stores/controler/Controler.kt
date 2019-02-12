@@ -1,4 +1,4 @@
-package com.qi.management.stores.controler
+package com.qi.management.home.stores.controler
 
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes

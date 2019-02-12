@@ -7,8 +7,8 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.qi.management.R
-import com.qi.management.stores.HomeGridFragment
-import com.qi.management.stores.mvp.HomeGridPresenterImpl
+import com.qi.management.home.stores.HomeGridFragment
+import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPresenterImpl
 import com.yizhipin.base.ui.activity.BaseActivity
 import com.yizhipin.message.home.MessageFragment
 import com.yizhipin.provider.router.RouterPath
@@ -131,9 +131,9 @@ class HomeActivity : BaseActivity() {
         }
         beginTransaction.commit()
         when (index) {
-            0 -> storesFragment.changeStyle(HomeGridPresenterImpl.Style.Store)
-            1 -> storesFragment.changeStyle(HomeGridPresenterImpl.Style.Person)
-            3 -> storesFragment.changeStyle(HomeGridPresenterImpl.Style.Finance)
+            0 -> storesFragment.changeStyle(StoreInfoManagementPresenterImpl.Style.Store)
+            1 -> storesFragment.changeStyle(StoreInfoManagementPresenterImpl.Style.Person)
+            3 -> storesFragment.changeStyle(StoreInfoManagementPresenterImpl.Style.Finance)
         }
     }
 

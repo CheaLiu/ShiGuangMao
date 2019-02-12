@@ -1,5 +1,7 @@
-package com.qi.management.stores.mvp
+package com.qi.management.home.stores.mvp
 
+import com.qi.management.home.stores.mvp.StoresContract
+import com.qi.management.home.stores.mvp.StoresModelImpl
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import javax.inject.Inject
 
