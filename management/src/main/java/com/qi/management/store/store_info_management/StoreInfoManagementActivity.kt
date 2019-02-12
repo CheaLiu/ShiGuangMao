@@ -31,6 +31,7 @@ class StoreInfoManagementActivity : BaseMvpActivity<StoreInfoManagementPresenter
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
+        titleView.setOnLeftIconClickListener { onBackPressed() }
     }
 
     override fun initData(savedInstanceState: Bundle?) {

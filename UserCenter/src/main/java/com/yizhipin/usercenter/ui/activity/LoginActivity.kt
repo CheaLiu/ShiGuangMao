@@ -37,13 +37,6 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     /**类型(0个人,1老师,2管理人员)*/
     private var roleType: Int = 1
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val userInfo = Gson().fromJson<UserInfo?>(AppPrefsUtils.getString(ProviderConstant.KEY_USER_INFO), object : TypeToken<UserInfo>() {}.type)
-        if (userInfo != null)
-            onLoginSuccess(userInfo)
-    }
-
     override fun onCreateView(): Int {
         return R.layout.activity_login
     }
@@ -67,6 +60,14 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
                 mRegistBtn.visibility = VISIBLE
             }
         }
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
+        super.initData(savedInstanceState)
+        mBasePresenter.getOssAddress()
+        val userInfo = Gson().fromJson<UserInfo?>(AppPrefsUtils.getString(ProviderConstant.KEY_USER_INFO), object : TypeToken<UserInfo>() {}.type)
+        if (userInfo != null)
+            onLoginSuccess(userInfo)
     }
 
     override fun onClick(v: View) {

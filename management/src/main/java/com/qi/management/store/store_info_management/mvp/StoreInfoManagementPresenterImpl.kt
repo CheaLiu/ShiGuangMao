@@ -3,17 +3,18 @@ package com.qi.management.store.store_info_management.mvp
 import com.qi.management.bean.StoreBean
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.UserInfo
+import com.yizhipin.base.ext.execute
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import com.yizhipin.base.rx.CodeHandlerSubscriber
 import com.yizhipin.usercenter.utils.UserPrefsUtils
-import javax.inject.Inject
-import com.yizhipin.base.ext.execute
 import io.reactivex.Observable
+import javax.inject.Inject
 
 /**
  * Creator Qi
  * Date 2018/12/30
  * <br/>
+ * 门店信息管理Presenter
  */
 class StoreInfoManagementPresenterImpl @Inject constructor(val model: StoresModelImpl, view: StoresContract.IView) : BasePresenter<StoresContract.IView>(view), StoresContract.IPresenter {
     object Style {

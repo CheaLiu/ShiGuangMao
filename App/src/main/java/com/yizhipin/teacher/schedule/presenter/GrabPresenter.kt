@@ -17,11 +17,11 @@ class GrabPresenter @Inject constructor() : BasePresenter<GrabView>() {
     @Inject
     lateinit var mServiceImpl: MainServiceImpl
 
-    fun getOrderList() {
+/*    fun getOrderList() {
         mServiceImpl.getOrderList().execute(object : BaseSubscriber<MutableList<ScheduleItemBean>>(mView) {
             override fun onNext(t: MutableList<ScheduleItemBean>) {
                 mView.showData(t)
             }
         }, mLifecycleProvider)
-    }
+    }*/
 }

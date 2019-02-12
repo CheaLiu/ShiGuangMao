@@ -4,7 +4,7 @@ import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
 import com.yizhipin.base.mvp.view.BaseView
-import com.yizhipin.data.response.Banner
+import com.yizhipin.usercenter.bean.Banner
 import com.yizhipin.data.response.ScheduleItemBean
 
 /**

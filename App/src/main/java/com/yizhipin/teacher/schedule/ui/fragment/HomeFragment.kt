@@ -18,7 +18,7 @@ import com.yizhipin.base.ui.web.WebViewActivity
 import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.base.utils.BasePrefsUtils
 import com.yizhipin.base.widgets.BannerImageLoader
-import com.yizhipin.data.response.Banner
+import com.yizhipin.usercenter.bean.Banner
 import com.yizhipin.data.response.CategoryHome
 import com.yizhipin.goods.common.GoodsConstant
 import com.yizhipin.goods.ui.activity.GoodsDetailActivity

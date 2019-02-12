@@ -4,9 +4,8 @@ import com.yizhipin.base.data.net.RetrofitFactoryGet
 import com.yizhipin.base.data.protocol.BaseResp
 import com.yizhipin.base.data.response.Goods
 import com.yizhipin.base.data.response.OssAddress
-import com.yizhipin.data.api.MainApi
-import com.yizhipin.data.response.Banner
-import com.yizhipin.data.response.ScheduleItemBean
+import com.yizhipin.usercenter.api.MainApi
+import com.yizhipin.usercenter.bean.Banner
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -32,8 +31,8 @@ class MainRepository @Inject constructor() {
                 .getOssAddress()
     }
 
-    fun getOrderList(): Observable<MutableList<ScheduleItemBean>> {
+ /*   fun getOrderList(): Observable<MutableList<ScheduleItemBean>> {
         return RetrofitFactoryGet.create(MainApi::class.java).getOrderList()
-    }
+    }*/
 
 }

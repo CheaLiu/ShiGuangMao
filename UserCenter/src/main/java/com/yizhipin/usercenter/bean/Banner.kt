@@ -1,4 +1,4 @@
-package com.yizhipin.data.response
+package com.yizhipin.usercenter.bean
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

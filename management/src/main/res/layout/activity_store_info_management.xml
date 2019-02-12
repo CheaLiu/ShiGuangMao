@@ -8,6 +8,7 @@
         android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/common_white"
         app:leftIcon="@drawable/leftarrow"
         app:titleText="@string/storeInformationManagement" />
 
@@ -25,11 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_views"
             android:layout_marginLeft="@dimen/margin_views"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
             android:background="@drawable/bg_rect_solid_white_bottom_divider"
-            android:paddingTop="@dimen/padding_content"
             android:paddingEnd="@dimen/padding_content"
-            android:paddingRight="@dimen/padding_content"
-            android:paddingBottom="@dimen/padding_content">
+            android:paddingRight="@dimen/padding_content">
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,8 +50,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/storeIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/margin_views"
                 android:layout_marginRight="@dimen/margin_views"
