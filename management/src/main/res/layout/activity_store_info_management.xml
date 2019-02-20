@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:layout_height="match_parent">
 
     <com.qi.commonview.view.title.TitleView
@@ -10,7 +12,17 @@
         android:layout_height="wrap_content"
         android:background="@color/common_white"
         app:leftIcon="@drawable/leftarrow"
-        app:titleText="@string/storeInformationManagement" />
+        app:titleText="@string/storeInformationManagement">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/saveText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:padding="@dimen/padding_content"
+            android:text="@string/save"
+            android:textColor="@color/common_blue_light" />
+    </com.qi.commonview.view.title.TitleView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,11 +38,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_views"
             android:layout_marginLeft="@dimen/margin_views"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
             android:background="@drawable/bg_rect_solid_white_bottom_divider"
+            android:paddingTop="3dp"
             android:paddingEnd="@dimen/padding_content"
-            android:paddingRight="@dimen/padding_content">
+            android:paddingRight="@dimen/padding_content"
+            android:paddingBottom="3dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,6 +69,7 @@
                 android:layout_marginRight="@dimen/margin_views"
                 android:layout_toStartOf="@+id/arrowIcon"
                 android:layout_toLeftOf="@+id/arrowIcon"
+                android:scaleType="centerCrop"
                 android:src="@drawable/mainicon2" />
         </RelativeLayout>
 
@@ -75,14 +88,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/keyStoreName" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/storeNameText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/transparent"
                 android:drawableEnd="@drawable/ic_right_arrow"
                 android:drawableRight="@drawable/ic_right_arrow"
-                android:padding="@dimen/padding_content" />
+                android:padding="@dimen/padding_content"
+                android:textSize="@dimen/text_middle_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -125,14 +140,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/keyDetailAddress" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/storeAddressText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/transparent"
                 android:drawableEnd="@drawable/ic_right_arrow"
                 android:drawableRight="@drawable/ic_right_arrow"
-                android:padding="@dimen/padding_content" />
+                android:padding="@dimen/padding_content"
+                android:textSize="@dimen/text_middle_size" />
         </LinearLayout>
 
         <LinearLayout

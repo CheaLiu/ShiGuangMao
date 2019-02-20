@@ -21,6 +21,7 @@ class UserInfo(var id: String,
                var freezeAmount: String,
                var amount: String,
                var relatedUser: String,
+               /**类型(0个人,1老师,2管理人员)*/
                var type: Int,
                var score: String,
                var credit: String,

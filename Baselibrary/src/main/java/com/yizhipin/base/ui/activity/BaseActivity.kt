@@ -1,5 +1,6 @@
 package com.yizhipin.base.ui.activity
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -9,6 +10,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.PermissionChecker
 import android.support.v7.app.AlertDialog
 import android.view.View
+import android.view.inputmethod.InputMethod
+import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import com.alibaba.android.arouter.launcher.ARouter
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
@@ -86,5 +89,10 @@ open class BaseActivity : RxAppCompatActivity() {
                 AlertDialog.Builder(this).setMessage(this.permissionMap[s]).setPositiveButton(R.string.confirm) { _, _ -> startAppSettings() }.setNegativeButton(R.string.cancel, null).show()
             }
         }
+    }
+
+    fun hideSoftInput(){
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(window.decorView.windowToken,0)
     }
 }

@@ -11,4 +11,5 @@
     <string name="keyStoreName">门店名称</string>
     <string name="keyStoreProfile">门店介绍</string>
     <string name="hintStoreProfile">请在电脑网站上登录后修改</string>
+    <string name="errorUploadIcon">请上传头像</string>
 </resources>

@@ -355,4 +355,7 @@
     <string name="offDuty">下班</string>
     <string name="hintRechargeAmount">请添加充值金额</string>
     <string name="hintPayType">请选择支付方式</string>
+    <string name="pickIcon">选择图像</string>
+    <string name="takePhoto">拍照</string>
+    <string name="choicePhotoFromGallery">从相册选择</string>
 </resources>

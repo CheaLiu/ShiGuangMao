@@ -4,26 +4,26 @@ package com.qi.management.bean
  * Creator Qi
  * Date 2019/1/29
  */
-data class StoreBean(
-    val attention: Boolean,
-    val city: String,
-    /***门店描述*/
-    val content: String,
-    val createTime: String,
-    /***详细地址*/
-    val detail: String,
-    val hot: Boolean,
-    val id: Int,
-    val imgurl: String,
-    val lat: Double,
-    val lng: Double,
-    val loginUid: Int,
-    val province: String,
-    val redMax: Int,
-    val redMin: Int,
-    val serviceCount: Int,
-    val starCount: Int,
-    val storeName: String,
-    val tel: String,
-    val uid: Int
+class StoreBean(
+        var attention: Boolean,
+        var city: String,
+        /***门店描述*/
+        var content: String,
+        var createTime: String,
+        /***详细地址*/
+        var detail: String,
+        var hot: Boolean,
+        var id: String,
+        var imgurl: String,
+        var lat: Double,
+        var lng: Double,
+        var loginUid: String,
+        var province: String,
+        var redMax: Int,
+        var redMin: Int,
+        var serviceCount: Int,
+        var starCount: Int,
+        var storeName: String,
+        var tel: String,
+        var uid: Int
 )

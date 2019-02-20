@@ -5,7 +5,7 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bigkoo.pickerview.TimePickerView
+import com.bigkoo.pickerview.listener.OnTimeSelectListener
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.yizhipin.R
@@ -48,7 +48,7 @@ class ScheduleCalendarFragment : BaseMvpFragment<ScheduleCalendarPresenter>(), S
             val calendar = java.util.Calendar.getInstance()
             var dateFormat = SimpleDateFormat("yyyy年MM", Locale.getDefault())
             calendar.time = dateFormat.parse(calendarTitleView.text.toString())
-            TimeUtils.showYMDialog(it.context, TimePickerView.OnTimeSelectListener { date, _ ->
+            TimeUtils.showYMDialog(it.context, OnTimeSelectListener { date, _ ->
                 val selectedCalendar = java.util.Calendar.getInstance()
                 selectedCalendar.time = date
                 val year = selectedCalendar.get(java.util.Calendar.YEAR)
