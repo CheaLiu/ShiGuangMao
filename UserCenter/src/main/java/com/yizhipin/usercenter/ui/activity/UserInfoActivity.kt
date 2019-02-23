@@ -3,7 +3,6 @@ package com.yizhipin.usercenter.ui.activity
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
-import com.jph.takephoto.model.TResult
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.UserInfo
 import com.yizhipin.base.ext.enable
@@ -20,6 +19,7 @@ import com.yizhipin.usercenter.presenter.UserInfoPresenter
 import com.yizhipin.usercenter.presenter.view.UserInfoView
 import com.yizhipin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_user_info.*
+import org.devio.takephoto.model.TResult
 import org.jetbrains.anko.toast
 import java.io.File
 

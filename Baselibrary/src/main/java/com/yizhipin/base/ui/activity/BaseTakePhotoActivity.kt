@@ -9,10 +9,6 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.bigkoo.alertview.AlertView
 import com.bigkoo.alertview.OnDismissListener
 import com.bigkoo.alertview.OnItemClickListener
-import com.jph.takephoto.app.TakePhoto
-import com.jph.takephoto.app.TakePhotoImpl
-import com.jph.takephoto.compress.CompressConfig
-import com.jph.takephoto.model.TResult
 import com.yizhipin.base.R
 import com.yizhipin.base.common.BaseApplication
 import com.yizhipin.base.injection.component.ActivityComponent
@@ -25,6 +21,10 @@ import com.yizhipin.base.utils.DateUtils
 import com.yizhipin.base.utils.PermissionRequestCode.CAMERA
 import com.yizhipin.base.utils.ToastUtils
 import com.yizhipin.base.widgets.ProgressLoading
+import org.devio.takephoto.app.TakePhoto
+import org.devio.takephoto.app.TakePhotoImpl
+import org.devio.takephoto.compress.CompressConfig
+import org.devio.takephoto.model.TResult
 import org.jetbrains.anko.toast
 import java.io.File
 import javax.inject.Inject

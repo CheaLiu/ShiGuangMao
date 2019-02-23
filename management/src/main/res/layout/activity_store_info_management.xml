@@ -116,6 +116,7 @@
                 android:text="@string/keyCity" />
 
             <android.support.v7.widget.AppCompatTextView
+                android:textColor="@color/text_light_dark"
                 android:id="@+id/storeCityText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -175,6 +176,7 @@
                 android:drawableEnd="@drawable/ic_right_arrow"
                 android:drawableRight="@drawable/ic_right_arrow"
                 android:hint="@string/hintStoreProfile"
+                android:textColor="@color/text_light_dark"
                 android:padding="@dimen/padding_content" />
         </LinearLayout>
 

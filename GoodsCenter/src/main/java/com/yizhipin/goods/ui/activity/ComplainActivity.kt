@@ -6,7 +6,6 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
-import com.jph.takephoto.model.TResult
 import com.yizhipin.base.common.BaseConstant
 import com.yizhipin.base.data.response.Collect
 import com.yizhipin.base.data.response.Shop
@@ -14,8 +13,8 @@ import com.yizhipin.base.ext.enable
 import com.yizhipin.base.ext.onClick
 import com.yizhipin.base.ui.activity.BaseTakePhotoActivity
 import com.yizhipin.base.utils.AppPrefsUtils
-import com.yizhipin.base.utils.UploadUtil
 import com.yizhipin.base.utils.ToastUtils
+import com.yizhipin.base.utils.UploadUtil
 import com.yizhipin.goods.R
 import com.yizhipin.goods.common.GoodsConstant
 import com.yizhipin.goods.data.response.Complain
@@ -26,6 +25,7 @@ import com.yizhipin.goods.presenter.ShopPresenter
 import com.yizhipin.goods.presenter.view.ShopView
 import com.yizhipin.goods.ui.adapter.ComplainImageAdapter
 import kotlinx.android.synthetic.main.activity_complain.*
+import org.devio.takephoto.model.TResult
 import org.jetbrains.anko.toast
 import java.io.File
 

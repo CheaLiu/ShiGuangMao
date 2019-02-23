@@ -1,2 +1,3 @@
 include ':App', ':Baselibrary', ':Provider', ':UserCenter', ':MessageCenter', ':GoodsCenter', ':OrderCenter', ':PayCenter', ':GeneralizeCenter', ':management'
 include ':calendarview'
+include '::takephoto_library'

@@ -4,6 +4,7 @@ import android.content.Context
 import com.qi.management.bean.StoreBean
 import com.yizhipin.base.mvp.model.BaseModel
 import com.yizhipin.base.mvp.view.BaseView
+import com.yizhipin.base.mvp.view.PhotoView
 
 /**
  * Creator Qi
@@ -11,10 +12,12 @@ import com.yizhipin.base.mvp.view.BaseView
  */
 interface StoresContract {
     interface IModel : BaseModel
-    interface IPresenter
-    interface IView : BaseView {
+    interface IPresenter {
+        fun setImageUrl(imageUrl: String?)
+    }
+
+    interface IView : BaseView, PhotoView {
         fun showData(store: StoreBean)
-        fun getImageUrl(): String
         /**
          * 门店名称
          */

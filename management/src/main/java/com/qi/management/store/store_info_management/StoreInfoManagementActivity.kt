@@ -1,13 +1,10 @@
 package com.qi.management.store.store_info_management
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.GlideDrawable
-import com.bumptech.glide.request.animation.GlideAnimation
-import com.bumptech.glide.request.target.SimpleTarget
 import com.qi.management.R
 import com.qi.management.bean.StoreBean
 import com.qi.management.store.store_info_management.dagger.DaggerComponent
@@ -16,11 +13,11 @@ import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPres
 import com.qi.management.store.store_info_management.mvp.StoresContract
 import com.qi.management.store.store_info_management.pop.IconPop
 import com.yizhipin.base.common.BaseConstant
-import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.base.utils.AppPrefsUtils
 import com.yizhipin.base.utils.CityUtil
-import com.yizhipin.base.utils.GlideUtils
+import com.yizhipin.base.utils.PermissionRequestCode.CAMERA
+import com.yizhipin.base.utils.TakePhotoListenerImpl
 import com.yizhipin.provider.router.RouterPath
 import kotlinx.android.synthetic.main.activity_store_info_management.*
 
@@ -32,6 +29,15 @@ import kotlinx.android.synthetic.main.activity_store_info_management.*
 @Route(path = RouterPath.Management.STORE_INFORMATION_MANAGEMENT)
 class StoreInfoManagementActivity : BaseMvpActivity<StoreInfoManagementPresenterImpl>(), StoresContract.IView {
 
+    private var iconPop: IconPop? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val permissions = HashMap<String, String>()
+        permissions[android.Manifest.permission.CAMERA] = resources.getString(R.string.hintTakePhoto)
+        permissions[android.Manifest.permission.WRITE_EXTERNAL_STORAGE] = resources.getString(R.string.hintTakePhotoWrite)
+        checkPermission(permissions, CAMERA)
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(): Int {
         return R.layout.activity_store_info_management
     }
@@ -42,47 +48,45 @@ class StoreInfoManagementActivity : BaseMvpActivity<StoreInfoManagementPresenter
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
+        iconPop = IconPop(this, TakePhotoListenerImpl(this))
         titleView.setOnLeftIconClickListener { onBackPressed() }
-        storeIconLayout.setOnClickListener(this::showIconPop)
+        saveText.setOnClickListener { mBasePresenter.saveStoreInfo() }
+        storeIconLayout.setOnClickListener { showIconPop() }
         cityLayout.setOnClickListener {
             hideSoftInput()
-            CityUtil.getInstance(this).showPickerView(this) { province, city, district -> storeCityText.text = "${province} ${city} ${district}" }
+            CityUtil.getInstance(this).showPickerView(this) { province, city, district -> storeCityText.text = "$province  $city  $district" }
         }
     }
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
-        mBasePresenter.getStore()
+        mBasePresenter.getStoreInfo()
     }
 
     override fun showData(store: StoreBean) {
-        Glide.with(storeIcon.context)
-                .load(AppPrefsUtils.getString(BaseConstant.IMAGE_ADDRESS) + store.imgurl)
-                .centerCrop()
-                .override((resources.displayMetrics.density*50).toInt(), (resources.displayMetrics.density*50).toInt())
-                .placeholder(com.yizhipin.base.R.drawable.default_loading)
-                .error(com.yizhipin.base.R.drawable.default_loading)
-                .into(object : SimpleTarget<GlideDrawable>() {
-                    override fun onResourceReady(resource: GlideDrawable, glideAnimation: GlideAnimation<in GlideDrawable>) {
-                        storeIcon.setImageDrawable(resource)
-                    }
-                })
+        showIcon(store.imgurl)
         storeNameText.setText(store.storeName)
         storeCityText.text = store.city
         storeAddressText.setText(store.detail)
         storeProfileText.text = store.content
     }
 
+    override fun showIcon(imageUrl: String?) {
+        mBasePresenter.setImageUrl(imageUrl)
+        runOnUiThread {
+            Glide.with(storeIcon.context)
+                    .load(AppPrefsUtils.getString(BaseConstant.IMAGE_ADDRESS) + imageUrl)
+                    .into(storeIcon)
+        }
+
+    }
+
     /**
      * 更换头像
      */
-    private fun showIconPop(v: View) {
+    private fun showIconPop() {
         hideLoading()
-        IconPop.getInstance(this).show()
-    }
-
-    override fun getImageUrl(): String {
-        return ""
+        iconPop?.show()
     }
 
     override fun getStoreName(): String {
@@ -105,8 +109,19 @@ class StoreInfoManagementActivity : BaseMvpActivity<StoreInfoManagementPresenter
         return this
     }
 
+
     override fun onDestroy() {
-        IconPop.getInstance(this).destory()
+        if (iconPop != null) {
+            iconPop!!.destroy()
+            iconPop = null
+        }
         super.onDestroy()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (iconPop != null) {
+            iconPop!!.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }

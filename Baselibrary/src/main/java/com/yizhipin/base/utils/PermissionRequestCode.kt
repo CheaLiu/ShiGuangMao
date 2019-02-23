@@ -6,4 +6,5 @@ package com.yizhipin.base.utils
  */
 object PermissionRequestCode{
     const val CAMERA = 1
+    const val WRITE_EXTERNAL_STORAGE = 2
 }

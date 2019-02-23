@@ -84,8 +84,8 @@ dependencies {
     api "de.hdodenhof:circleimageview:${circle_imageView_version}"
 
     //Take Photo
-    api "com.jph.takephoto:takephoto_library:${take_photo_version}"
-
+//    api "com.jph.takephoto:takephoto_library:${take_photo_version}"
+    api project(':takephoto_library')
     //Alert View
     api "com.bigkoo:alertview:${alert_view_version}"
 

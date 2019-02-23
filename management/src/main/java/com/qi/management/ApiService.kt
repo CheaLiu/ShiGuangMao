@@ -2,11 +2,8 @@ package com.qi.management
 
 import com.qi.management.bean.StoreBean
 import com.yizhipin.base.data.protocol.BaseResp
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.PUT
-import retrofit2.http.Path
 import io.reactivex.Observable
+import retrofit2.http.*
 
 /**
  * 管理层模块接口
@@ -32,4 +29,7 @@ interface ApiService {
      */
     @DELETE("api/Store/{id}")
     fun deleteStore(@Path("id") id: String): Observable<BaseResp<StoreBean>>
+
+    @PUT("api/Store/{id}")
+    fun saveStoreInfo(@Path("id") id: String): Observable<BaseResp<StoreBean>>
 }
