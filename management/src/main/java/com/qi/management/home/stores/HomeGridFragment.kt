@@ -29,7 +29,7 @@ class HomeGridFragment : BaseMvpFragment<HomeGridPresenterImpl>(), StoresContrac
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView.addItemDecoration(GridItemDecoration(resources.getColor(R.color.bg_divider), (resources.displayMetrics.density * 1).toInt()))
+        recyclerView.addItemDecoration(GridItemDecoration(context))
         recyclerView.layoutManager = GridLayoutManager(context, 3, GridLayout.VERTICAL, false)
         recyclerView.adapter = homeGridAdapter
         changeStyle(HomeGridPresenterImpl.Style.Store)
