@@ -3,7 +3,8 @@
     package="com.qi.management">
 
     <application>
-        <activity android:name=".store.wedding_photography.comboslist.view.CombosListActivity"></activity>
+        <activity android:name=".store.wedding_photography_detail.view.CombosDetailActivity"></activity>
+        <activity android:name=".store.wedding_photography.comboslist.view.CombosListActivity" />
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".store.store_info_management.StoreInfoManagementActivity" />
     </application>

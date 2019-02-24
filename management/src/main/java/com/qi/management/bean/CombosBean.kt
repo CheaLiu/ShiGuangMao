@@ -1,5 +1,7 @@
 package com.qi.management.bean
 
+import java.io.Serializable
+
 /**
  * 套餐bean类
  * Creator Qi
@@ -30,7 +32,7 @@ data class CombosBean(
          */
         var loginUid: Long,
         /**原价*/
-        var marketPrice: Int,
+        var marketPrice: Double,
         /**
          * 拍摄类型(0景点,1大定制,2小定制)
          */
@@ -40,13 +42,14 @@ data class CombosBean(
          */
         var packageType: Int,
         /**价格*/
-        var price: Int,
+        var price: Double,
         /**入册数量*/
         var rucheCount: Int,
         /**销售量*/
         var sellCount: Int,
         /**门店ID*/
         var storeId: Int,
+        /**门店图标*/
         var storeImgurl: String,
         var storeName: String,
         var tel: String,
@@ -56,4 +59,4 @@ data class CombosBean(
          * 类型(拍摄类型 wedding-婚纱摄影,photo-写真摄影,baby-宝宝摄影)
          */
         var type: String
-)
+) : Serializable

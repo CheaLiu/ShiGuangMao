@@ -10,7 +10,7 @@
         android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/common_white"
+        android:background="@drawable/bg_rect_solid_white_bottom_divider"
         app:leftIcon="@drawable/ic_back_red"
         app:titleText="@string/choiceCombos">
 

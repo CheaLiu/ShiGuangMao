@@ -22,4 +22,9 @@
     <string name="personalTailor">私人定制</string>
     <string name="combos">套餐</string>
     <string name="sellCount">已售:%1$d次</string>
+    <string name="clothNum">%1$d套\n服饰</string>
+    <string name="negativeNum">%1$d张\n底片</string>
+    <string name="enterNum">%1$d张\n入册</string>
+    <string name="time_leave_word_the_latest_evaluation">时光留言-最新评价</string>
+    <string name="take_photos_first_and_pay_when_you_are_satisfied">先拍照-满意再付款</string>
 </resources>

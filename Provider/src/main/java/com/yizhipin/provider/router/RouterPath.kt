@@ -67,6 +67,8 @@ object RouterPath {
         const val STORE_INFORMATION_MANAGEMENT = "/management/store/information_management"
         /**套餐管理*/
         const val SET_MENU_MANAGEMENT: String = "/management/store/set_menu_management"
+        /**套餐详情*/
+        const val Combos_Detail: String = "/management/store/combos/combos_detail"
         /**产品管理*/
         const val PRODUCTION_MANAGEMENT: String = "/management/store/production_management"
         /**服装管理*/

@@ -47,4 +47,12 @@ interface ApiService {
      */
     @GET("api/PhotoPackage/Page")
     fun getCombosList(@Query("loginUid") loginUid: String, @Query("storeId") storeId: String, @Query("packageType") combosType: Int?, @Query("currentPage") currentPage: Int): Observable<BasePagingResp<MutableList<CombosBean>>>
+
+    /**
+     * 获取套餐分页列表
+     * @param id 套餐id
+     * @param loginUid 当前登录用户ID
+     */
+    @GET("api/PhotoPackage/{id}")
+    fun getCombosDetail(@Path("id") id: String, @Query("loginUid") loginUid: String): Observable<BaseResp<CombosBean>>
 }
