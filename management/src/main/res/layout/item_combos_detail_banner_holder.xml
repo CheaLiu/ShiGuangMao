@@ -9,21 +9,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
-
-            <LinearLayout
-                android:id="@+id/dotLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-        </FrameLayout>
+            android:layout_height="150dp" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/titleText"
@@ -72,11 +61,14 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_views"
+            android:background="@color/common_background" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_views"
-            android:layout_marginBottom="@dimen/margin_views"
             android:orientation="horizontal"
             android:padding="@dimen/padding_content_middle">
 
@@ -97,10 +89,16 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_views"
+            android:background="@color/common_background" />
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_content_middle" />
+            android:padding="@dimen/padding_content_middle"
+            android:text="@string/combosInfo" />
 
         <View
             android:layout_width="wrap_content"

@@ -6,4 +6,5 @@ import com.yizhipin.base.mvp.view.BaseView
  * Creator Qi
  * Date 2019/2/24
  */
-interface CombosDetailView : BaseView
+interface CombosDetailView : BaseView {
+}

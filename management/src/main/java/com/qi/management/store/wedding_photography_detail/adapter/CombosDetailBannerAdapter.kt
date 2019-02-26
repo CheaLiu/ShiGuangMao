@@ -11,10 +11,11 @@ import com.yizhipin.base.ext.loadUrl
  * Creator Qi
  * Date 2019/2/24
  */
-class CombosDetailBannerAdapter(private val urls: List<String>) : PagerAdapter() {
+class CombosDetailBannerAdapter(private val urls: MutableList<String>) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val imageView = ImageView(container.context)
+        imageView.scaleType = ImageView.ScaleType.FIT_XY
         imageView.layoutParams = ViewGroup.LayoutParams(-1, -1)
         imageView.loadUrl(urls[position])
         container.addView(imageView)
@@ -32,5 +33,6 @@ class CombosDetailBannerAdapter(private val urls: List<String>) : PagerAdapter()
 
     override fun getCount(): Int {
         return urls.size
+
     }
 }

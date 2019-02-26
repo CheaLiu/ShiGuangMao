@@ -1,6 +1,6 @@
 package com.qi.management.store.wedding_photography_detail.dagger
 
-import com.qi.management.store.wedding_photography_detail.view.CombosDetailActivity
+import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
 import dagger.Component
@@ -12,5 +12,5 @@ import dagger.Component
 @PerComponentScope
 @Component(modules = [CombosDetailModule::class], dependencies = [ActivityComponent::class])
 interface CombosDetailComponent {
-    fun inject(activity: CombosDetailActivity)
+    fun inject(activity: CommonDetailActivity)
 }

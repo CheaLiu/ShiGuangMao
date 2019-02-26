@@ -8,7 +8,7 @@ import android.widget.TextView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
-import com.qi.management.store.wedding_photography_detail.view.CombosDetailActivity.Companion.PARAM_COMBOS_BEAN
+import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity.Companion.PARAM_COMBOS_BEAN
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.provider.router.RouterPath
 
