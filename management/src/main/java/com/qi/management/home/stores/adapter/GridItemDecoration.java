@@ -11,12 +11,18 @@ import android.view.View;
 
 public class GridItemDecoration extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
-    private Drawable mDivider;
+    private Drawable mHorizontalDrawable;
+    private Drawable mVerticalDrawable;
 
     public GridItemDecoration(Context context) {
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
-        mDivider = a.getDrawable(0);
+        mHorizontalDrawable = mVerticalDrawable = a.getDrawable(0);
         a.recycle();
+    }
+
+    public GridItemDecoration(Drawable horizontalDrawable,Drawable verticalDrawable){
+        this.mHorizontalDrawable = horizontalDrawable;
+        this.mVerticalDrawable = verticalDrawable;
     }
 
     @Override
@@ -43,11 +49,11 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
                     .getLayoutParams();
             final int left = child.getLeft() - params.leftMargin;
             final int right = child.getRight() + params.rightMargin
-                    + mDivider.getIntrinsicWidth();
+                    + mHorizontalDrawable.getIntrinsicWidth();
             final int top = child.getBottom() + params.bottomMargin;
-            final int bottom = top + mDivider.getIntrinsicHeight();
-            mDivider.setBounds(left, top, right, bottom);
-            mDivider.draw(c);
+            final int bottom = top + mHorizontalDrawable.getIntrinsicHeight();
+            mHorizontalDrawable.setBounds(left, top, right, bottom);
+            mHorizontalDrawable.draw(c);
         }
     }
 
@@ -61,10 +67,10 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
             final int top = child.getTop() - params.topMargin;
             final int bottom = child.getBottom() + params.bottomMargin;
             final int left = child.getRight() + params.rightMargin;
-            final int right = left + mDivider.getIntrinsicWidth();
+            final int right = left + mVerticalDrawable.getIntrinsicWidth();
 
-            mDivider.setBounds(left, top, right, bottom);
-            mDivider.draw(c);
+            mVerticalDrawable.setBounds(left, top, right, bottom);
+            mVerticalDrawable.draw(c);
         }
     }
 
@@ -106,19 +112,18 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State
-            state) {
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
 //        LogUtil.out("++++++++++++++条目，" + parent.getChildLayoutPosition(view) + "是否最后一行" + isLastRow(parent.getChildLayoutPosition(view), parent));
 //        LogUtil.out("++++++++++++++条目，" + parent.getChildLayoutPosition(view) + "是否最后一列" + isLastColum(parent.getChildLayoutPosition(view), parent));
         if (isLastRow(parent.getChildLayoutPosition(view), parent))// 如果是最后一行，则不需要绘制底部
         {
-            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+            outRect.set(0, 0, 0, mHorizontalDrawable.getIntrinsicHeight());
         }
 
         if (isLastColum(parent.getChildLayoutPosition(view), parent))// 如果是最后一列，则不需要绘制右边
         {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
+            outRect.set(0, 0, mVerticalDrawable.getIntrinsicWidth(), 0);
         }
     }
 }

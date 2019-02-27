@@ -1,7 +1,6 @@
 package com.qi.management.home.stores.controler
 
 import com.qi.management.R
-import com.qi.management.home.stores.controler.HomeGridItem
 import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPresenterImpl
 import com.yizhipin.provider.router.RouterPath
 
@@ -9,7 +8,7 @@ import com.yizhipin.provider.router.RouterPath
  * Creator Qi
  * Date 2019/1/27
  */
-class DataFactory {
+class HomeConfig {
     companion object {
         fun createItemList(style: Int): MutableList<HomeGridItem> {
             return when (style) {
@@ -30,12 +29,17 @@ class DataFactory {
             return list
         }
 
+        /**
+         * 创建门店首页九宫格Item
+         */
         private fun createStoreItems(): MutableList<HomeGridItem> {
             val list = mutableListOf<HomeGridItem>()
             list.add(HomeGridItem(R.string.storeInformationManagement, R.drawable.online_store, RouterPath.Management.STORE_INFORMATION_MANAGEMENT))
-            list.add(HomeGridItem(R.string.setMenuManagement, R.drawable.ic_homework, RouterPath.Management.SET_MENU_MANAGEMENT))
-            list.add(HomeGridItem(R.string.storeInformationManagement, R.drawable.ic_product, RouterPath.Management.PRODUCTION_MANAGEMENT))
-            list.add(HomeGridItem(R.string.storeInformationManagement, R.drawable.ic_ballgown, RouterPath.Management.CLOTHING_MANAGEMENT))
+            list.add(HomeGridItem(R.string.wedding_photo_studio, R.drawable.ic_homework, RouterPath.Management.SET_MENU_MANAGEMENT))
+            list.add(HomeGridItem(R.string.title_production_manage, R.drawable.ic_product, RouterPath.Management.PRODUCTION_MANAGEMENT))
+            list.add(HomeGridItem(R.string.title_costume_manage, R.drawable.ic_ballgown, RouterPath.Management.COSTUME_MANAGE))
+            list.add(HomeGridItem(R.string.title_baby_photography, R.drawable.ic_ballgown, RouterPath.Management.BABY_PHOTOGRAPHY))
+            list.add(HomeGridItem(R.string.title_portrait_photography, R.drawable.ic_ballgown, RouterPath.Management.PORTRAIT_PHOTOGRAPHY))
             return list
         }
     }

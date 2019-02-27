@@ -72,6 +72,10 @@ object RouterPath {
         /**产品管理*/
         const val PRODUCTION_MANAGEMENT: String = "/management/store/production_management"
         /**服装管理*/
-        const val CLOTHING_MANAGEMENT: String = "/management/store/clothing_management"
+        const val COSTUME_MANAGE: String = "/management/store/clothing_management"
+        /**宝宝摄影*/
+        const val BABY_PHOTOGRAPHY: String = "/management/store/baby_photography"
+        /**写真摄影*/
+        const val PORTRAIT_PHOTOGRAPHY: String = "/management/store/portrait_photography"
     }
 }

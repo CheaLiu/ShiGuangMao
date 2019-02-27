@@ -10,7 +10,7 @@ import com.qi.management.store.wedding_photography.comboslist.view.CombosListFra
  * Date 2019/2/24
  *
  */
-class CombosPagerAdapter(fm: FragmentManager, private val items: ArrayList<CombosPagerItem>) : FragmentPagerAdapter(fm) {
+class CombosPagerAdapter(fm: FragmentManager, private val items: MutableList<CombosPagerItem>) : FragmentPagerAdapter(fm) {
 
     override fun getItem(p0: Int): Fragment {
         return items[p0].fragment
@@ -25,7 +25,7 @@ class CombosPagerAdapter(fm: FragmentManager, private val items: ArrayList<Combo
     }
 
     data class CombosPagerItem(
-            var fragment: CombosListFragment,
+            var fragment: Fragment,
             var title: String
     )
 

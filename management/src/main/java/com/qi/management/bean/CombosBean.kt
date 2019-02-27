@@ -58,5 +58,15 @@ data class CombosBean(
         /**
          * 类型(拍摄类型 wedding-婚纱摄影,photo-写真摄影,baby-宝宝摄影)
          */
-        var type: String
+        var type: String,
+        /**是否热门*/
+        var hot: Boolean,
+        /**邮费*/
+        var postage: Double,
+        /**配送方式*/
+        var sendtype: String,
+        /**是否推荐*/
+        var recommend: Boolean,
+        /**分类ID*/
+        var catagory: Int
 ) : Serializable

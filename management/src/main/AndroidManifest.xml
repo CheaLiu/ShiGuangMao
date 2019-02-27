@@ -3,10 +3,13 @@
     package="com.qi.management">
 
     <application>
-        <activity android:name=".store.wedding_photography_detail.view.CommonDetailActivity"></activity>
-        <activity android:name=".store.wedding_photography.comboslist.view.CombosListActivity" />
+        <activity android:name=".store.wedding_photography_detail.view.CommonDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".store.wedding_photography.comboslist.view.CombosListActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".store.store_info_management.StoreInfoManagementActivity" />
+        <activity android:name=".store.production_management.view.ProductionListActivity"/>
     </application>
 
 </manifest>

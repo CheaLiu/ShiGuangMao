@@ -3,9 +3,7 @@ package com.qi.management.store.wedding_photography_detail.view
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LevelListDrawable
 import android.os.Bundle
-import android.support.v4.view.ViewPager
 import android.text.Html
-import android.widget.CheckBox
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.bumptech.glide.Glide
@@ -13,7 +11,6 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
-import com.qi.management.store.wedding_photography_detail.adapter.CombosDetailBannerAdapter
 import com.qi.management.store.wedding_photography_detail.dagger.CombosDetailModule
 import com.qi.management.store.wedding_photography_detail.dagger.DaggerCombosDetailComponent
 import com.qi.management.store.wedding_photography_detail.presenter.CombosDetailPresenterImpl
@@ -33,6 +30,7 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
 
     companion object {
         const val PARAM_COMBOS_BEAN = "PARAM_COMBOS_BEAN"
+        const val PARAM_TITLE = "PARAM_TITLE"
     }
 
     override fun injectComponent() {
@@ -44,12 +42,14 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        backBtn.setOnClickListener { onBackPressed() }
+        titleDetailView.setOnLeftIconClickListener { onBackPressed() }
     }
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
         val bean = intent.getSerializableExtra(PARAM_COMBOS_BEAN) as CombosBean
+        val title = intent.getStringExtra(PARAM_TITLE)
+        titleDetailView.setTitle(title)
         titleText.text = bean.title
         countText.text = String.format(resources.getString(R.string.sellCount), bean.sellCount)
         priceText.text = "￥ " + bean.price
@@ -80,7 +80,6 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
         //设置指示器位置（当banner模式中有指示器时）
         banner.setIndicatorGravity(BannerConfig.CENTER)
     }
-
 
 
     /**

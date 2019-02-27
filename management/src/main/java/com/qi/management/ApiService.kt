@@ -1,6 +1,7 @@
 package com.qi.management
 
 import com.qi.management.bean.CombosBean
+import com.qi.management.bean.ProductionCategoryBean
 import com.qi.management.bean.StoreBean
 import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.protocol.BaseResp
@@ -55,4 +56,20 @@ interface ApiService {
      */
     @GET("api/PhotoPackage/{id}")
     fun getCombosDetail(@Path("id") id: String, @Query("loginUid") loginUid: String): Observable<BaseResp<CombosBean>>
+
+    /**
+     * 获取产品分类
+     */
+    @GET("api/MarkerProductCatagory/List")
+    fun getProductionCategory(): Observable<BaseResp<MutableList<ProductionCategoryBean>>>
+
+    /**
+     * 获取时光超市产品列表(分页)
+     * @param loginUid 当前登录用户ID
+     * @param storeId 门店id
+     * @param catagory 分类ID
+     * @param currentPage 当前分页数
+     */
+    @GET("api/MarkerProduct/Page")
+    fun getProductionList(@Query("loginUid") loginUid: String?, @Query("storeId") storeId: String?, @Query("catagory") catagory: Long?, @Query("currentPage") currentPage: Int):  Observable<BasePagingResp<MutableList<CombosBean>>>?
 }

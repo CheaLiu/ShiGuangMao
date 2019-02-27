@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.qi.management.R
-import com.qi.management.home.stores.controler.DataFactory
+import com.qi.management.home.stores.controler.HomeConfig
 import com.qi.management.home.stores.controler.HomeGridItem
 import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPresenterImpl
 
@@ -16,20 +16,13 @@ import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPres
  */
 class HomeGridAdapter : RecyclerView.Adapter<HomeGridViewHolder>() {
 
-    private val storeData: MutableList<HomeGridItem> = DataFactory.createItemList(StoreInfoManagementPresenterImpl.Style.Store)
-    private val financeData: MutableList<HomeGridItem> = DataFactory.createItemList(StoreInfoManagementPresenterImpl.Style.Finance)
-    private val personData: MutableList<HomeGridItem> = DataFactory.createItemList(StoreInfoManagementPresenterImpl.Style.Person)
     private val data: MutableList<HomeGridItem> = mutableListOf()
     private var style = StoreInfoManagementPresenterImpl.Style.Store
 
     fun setStyle(style: Int) {
         this.style = style
         data.clear()
-        when (style) {
-            StoreInfoManagementPresenterImpl.Style.Store -> data.addAll(storeData)
-            StoreInfoManagementPresenterImpl.Style.Finance -> data.addAll(financeData)
-            StoreInfoManagementPresenterImpl.Style.Person -> data.addAll(personData)
-        }
+        data.addAll(HomeConfig.createItemList(style))
         notifyDataSetChanged()
     }
 

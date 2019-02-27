@@ -28,4 +28,11 @@
     <string name="time_leave_word_the_latest_evaluation">时光留言-最新评价</string>
     <string name="take_photos_first_and_pay_when_you_are_satisfied">先拍照-满意再付款</string>
     <string name="combosInfo">套餐信息</string>
+    <string name="title_production_manage">产品管理</string>
+    <string name="title_production_detail">产品详情</string>
+    <string name="title_combos_detail">套餐详情</string>
+    <string name="wedding_photo_studio">婚纱摄影</string>
+    <string name="title_costume_manage">服装管理</string>
+    <string name="title_baby_photography">宝宝摄影</string>
+    <string name="title_portrait_photography">写真摄影</string>
 </resources>
