@@ -4,8 +4,10 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.LevelListDrawable
 import android.os.Bundle
 import android.text.Html
+import android.view.View.GONE
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
@@ -17,20 +19,41 @@ import com.qi.management.store.wedding_photography_detail.presenter.CombosDetail
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.base.widgets.BannerImageLoader
+import com.yizhipin.provider.router.RouterPath
 import com.yizhipin.provider.router.RouterPath.Management.Combos_Detail
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.activity_combos_detail.*
 import kotlinx.android.synthetic.main.item_combos_detail_banner_holder.*
+import kotlinx.android.synthetic.main.item_detail_package_info.*
 import java.math.BigDecimal
 import java.math.RoundingMode
 
+/**
+ * 详情页（套餐、产品）
+ */
 @Route(path = Combos_Detail)
 class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), CombosDetailView {
 
     companion object {
         const val PARAM_COMBOS_BEAN = "PARAM_COMBOS_BEAN"
-        const val PARAM_TITLE = "PARAM_TITLE"
+        const val PAGE_TYPE = "PAGE_TYPE"
+
+        fun navigation(bean: CombosBean, pageType: PageType) {
+            ARouter.getInstance().build(RouterPath.Management.Combos_Detail)
+                    .withSerializable(CommonDetailActivity.PARAM_COMBOS_BEAN, bean)
+                    .withInt(PAGE_TYPE, pageType.ordinal)
+                    .navigation()
+        }
+    }
+
+    enum class PageType {
+        /**套餐*/
+        Combos,
+        /**产品*/
+        Production,
+        /**服装*/
+        Costume
     }
 
     override fun injectComponent() {
@@ -48,13 +71,37 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
         val bean = intent.getSerializableExtra(PARAM_COMBOS_BEAN) as CombosBean
-        val title = intent.getStringExtra(PARAM_TITLE)
-        titleDetailView.setTitle(title)
+        val pageType = intent.getIntExtra(PAGE_TYPE, -1)
+        when (pageType) {
+            PageType.Combos.ordinal -> {//套餐详情
+                titleDetailView.setTitle(R.string.title_combos_detail)
+                costumesLayout.visibility = GONE//隐藏服装推荐View
+            }
+            PageType.Production.ordinal -> {
+                //产品详情
+                titleDetailView.setTitle(R.string.title_production_detail)
+                combosInfoLayout.visibility = GONE//隐藏套餐信息View
+                costumesLayout.visibility = GONE//隐藏服装推荐View
+                evaluationLayout.visibility = GONE//隐藏评价View
+                paymentLayout.visibility = GONE//隐藏拍照支付View
+            }
+            PageType.Costume.ordinal -> {
+                //服装详情
+                titleDetailView.setTitle(R.string.title_comtume_detail)
+                costumesLayout.visibility = GONE//隐藏服装推荐View
+                combosInfoLayout.visibility = GONE//隐藏套餐信息View
+                costumesLayout.visibility = GONE//隐藏服装推荐View
+                evaluationLayout.visibility = GONE//隐藏评价View
+                paymentLayout.visibility = GONE//隐藏拍照支付View
+            }
+            //设置图片集合
+            //banner设置方法全部调用完毕时最后调用
+        }
         titleText.text = bean.title
         countText.text = String.format(resources.getString(R.string.sellCount), bean.sellCount)
         priceText.text = "￥ " + bean.price
         marketPriceText.text = "￥ " + bean.marketPrice
-        storeIcon.loadUrl(bean.imgurl)
+        storeIcon.loadUrl(bean.storeImgurl)
         storeNameText.text = bean.storeName
         clothNumText.text = String.format(resources.getString(R.string.clothNum), bean.clothCount)
         negativeNumText.text = String.format(resources.getString(R.string.negativeNum), bean.filmCount)

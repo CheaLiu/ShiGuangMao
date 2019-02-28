@@ -5,13 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.alibaba.android.arouter.launcher.ARouter
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
 import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity
-import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity.Companion.PARAM_TITLE
 import com.yizhipin.base.ext.loadUrl
-import com.yizhipin.provider.router.RouterPath
 
 /**
  * 产品列表
@@ -54,7 +51,7 @@ class ProductionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         imageView.loadUrl(combosBean.imgurl)
         titleText.text = combosBean.title
         priceText.text = "￥ ${combosBean.price}"
-        itemView.setOnClickListener { ARouter.getInstance().build(RouterPath.Management.Combos_Detail).withSerializable(CommonDetailActivity.PARAM_COMBOS_BEAN, combosBean).withString(PARAM_TITLE, itemView.resources.getString(R.string.title_production_detail)).navigation() }
+        itemView.setOnClickListener { CommonDetailActivity.navigation(combosBean, CommonDetailActivity.PageType.Production) }
     }
 
 }

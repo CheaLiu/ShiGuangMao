@@ -5,13 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.alibaba.android.arouter.launcher.ARouter
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
-import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity.Companion.PARAM_COMBOS_BEAN
-import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity.Companion.PARAM_TITLE
+import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity
 import com.yizhipin.base.ext.loadUrl
-import com.yizhipin.provider.router.RouterPath
 
 class CombosListAdapter : RecyclerView.Adapter<CombosItemViewHolder>() {
 
@@ -51,7 +48,7 @@ class CombosItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         titleText.text = combosBean.title
         priceText.text = "￥ ${combosBean.price}"
         countText.text = String.format(itemView.context.resources.getString(R.string.sellCount), combosBean.sellCount)
-        itemView.setOnClickListener { ARouter.getInstance().build(RouterPath.Management.Combos_Detail).withSerializable(PARAM_COMBOS_BEAN, combosBean).withString(PARAM_TITLE, itemView.context.resources.getString(R.string.title_combos_detail)).navigation() }
+        itemView.setOnClickListener { CommonDetailActivity.navigation(combosBean, CommonDetailActivity.PageType.Costume) }
     }
 
 
