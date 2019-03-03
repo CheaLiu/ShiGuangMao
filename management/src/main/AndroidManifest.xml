@@ -3,13 +3,17 @@
     package="com.qi.management">
 
     <application>
-        <activity android:name=".store.wedding_photography_detail.view.CommonDetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".store.wedding_photography.comboslist.view.CombosListActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".store.common_detail.view.CommonDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".store.wedding_photography.comboslist.view.CombosListActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".store.store_info_management.StoreInfoManagementActivity" />
-        <activity android:name=".store.production_management.view.ProductionListActivity"/>
+        <activity android:name=".store.production_management.view.ProductionListActivity" />
+        <activity android:name=".store.costume.list.view.CostumeListActivity" />
+        <activity android:name=".store.costume.CostumePavilionActivity"/>
     </application>
 
 </manifest>

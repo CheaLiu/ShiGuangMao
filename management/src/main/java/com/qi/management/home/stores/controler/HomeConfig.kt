@@ -37,7 +37,7 @@ class HomeConfig {
             list.add(HomeGridItem(R.string.storeInformationManagement, R.drawable.online_store, RouterPath.Management.STORE_INFORMATION_MANAGEMENT))
             list.add(HomeGridItem(R.string.wedding_photo_studio, R.drawable.ic_homework, RouterPath.Management.SET_MENU_MANAGEMENT))
             list.add(HomeGridItem(R.string.title_production_manage, R.drawable.ic_product, RouterPath.Management.PRODUCTION_MANAGEMENT))
-            list.add(HomeGridItem(R.string.title_costume_manage, R.drawable.ic_ballgown, RouterPath.Management.COSTUME_MANAGE))
+            list.add(HomeGridItem(R.string.title_costume_manage, R.drawable.ic_ballgown, RouterPath.Management.COSTUME_PAVILION))
             list.add(HomeGridItem(R.string.title_baby_photography, R.drawable.ic_ballgown, RouterPath.Management.BABY_PHOTOGRAPHY))
             list.add(HomeGridItem(R.string.title_portrait_photography, R.drawable.ic_ballgown, RouterPath.Management.PORTRAIT_PHOTOGRAPHY))
             return list

@@ -68,5 +68,14 @@ data class CombosBean(
         /**是否推荐*/
         var recommend: Boolean,
         /**分类ID*/
-        var catagory: Int
+        var catagory: Int,
+        /**
+         * 拍价格(仅当sell_type为1是有值)
+         */
+        var paiAmount: Int,
+        /**
+         * 售卖类型(0售卖,1共享)
+         */
+        var sellType: Int
+
 ) : Serializable

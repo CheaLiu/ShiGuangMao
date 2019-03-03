@@ -36,4 +36,7 @@
     <string name="title_baby_photography">宝宝摄影</string>
     <string name="title_portrait_photography">写真摄影</string>
     <string name="title_comtume_detail">服装详情</string>
+    <string name="title_costume_pavilion">服装馆</string>
+    <string name="man">男人</string>
+    <string name="woman">女人</string>
 </resources>

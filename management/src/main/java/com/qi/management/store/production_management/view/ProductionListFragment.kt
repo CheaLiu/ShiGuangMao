@@ -9,12 +9,12 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
 import com.qi.management.bean.ProductionCategoryBean
-import com.qi.management.home.stores.adapter.GridItemDecoration
 import com.qi.management.store.production_management.ProductionListAdapter
 import com.qi.management.store.production_management.dagger.DaggerProductionListComponent
 import com.qi.management.store.production_management.dagger.ProductionListModule
 import com.qi.management.store.production_management.presenter.ProductionListPresenterImpl
 import com.yizhipin.base.data.protocol.BasePagingResp
+import com.yizhipin.base.recyclerview.XGridItemDecoration
 import com.yizhipin.base.ui.fragment.BaseMvpFragment
 
 /**
@@ -46,7 +46,7 @@ class ProductionListFragment : BaseMvpFragment<ProductionListPresenterImpl>(), P
         (view as XRecyclerView).setPullRefreshEnabled(true)
         (view as XRecyclerView).setLoadingMoreEnabled(true)
         (view as XRecyclerView).layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-        (view as XRecyclerView).addItemDecoration(GridItemDecoration(context!!.resources.getDrawable(R.drawable.bg_rect_w10dp_solid_bg), context!!.resources.getDrawable(R.drawable.bg_rect_h10dp_solid_bg)))
+        (view as XRecyclerView).addItemDecoration(XGridItemDecoration(context!!.resources.getDrawable(R.drawable.bg_rect_w5dp_solid_bg), context!!.resources.getDrawable(R.drawable.bg_rect_h5dp_solid_bg)))
         (view as XRecyclerView).adapter = adapter
         mBasePresenter.categoryID = arguments!!.getLong(ARG_PAGE_TYPE)
         mBasePresenter.getProductionList()

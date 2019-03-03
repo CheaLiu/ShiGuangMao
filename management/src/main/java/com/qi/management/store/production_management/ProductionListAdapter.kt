@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
-import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity
+import com.qi.management.store.common_detail.view.CommonDetailActivity
 import com.yizhipin.base.ext.loadUrl
 
 /**

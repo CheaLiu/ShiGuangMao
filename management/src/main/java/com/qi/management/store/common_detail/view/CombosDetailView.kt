@@ -1,4 +1,4 @@
-package com.qi.management.store.wedding_photography_detail.view
+package com.qi.management.store.common_detail.view
 
 import com.yizhipin.base.mvp.view.BaseView
 

@@ -55,6 +55,8 @@
     <dimen name="padding_content_small">5dp</dimen>
     <dimen name="icon_size">18dp</dimen>
     <dimen name="margin_views">16dp</dimen>
+    <dimen name="margin_views_middle">10dp</dimen>
+    <dimen name="margin_views_small">5dp</dimen>
     <dimen name="padding_drawable">10dp</dimen>
     <dimen name="padding_drawable_middle">10dp</dimen>
     <dimen name="padding_drawable_little">5dp</dimen>

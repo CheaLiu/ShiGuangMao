@@ -1,4 +1,4 @@
-package com.qi.management.home.stores.adapter;
+package com.yizhipin.base.recyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,18 +9,21 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-public class GridItemDecoration extends RecyclerView.ItemDecoration {
+import com.jcodecraeer.xrecyclerview.ArrowRefreshHeader;
+import com.jcodecraeer.xrecyclerview.LoadingMoreFooter;
+
+public class XGridItemDecoration extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
     private Drawable mHorizontalDrawable;
     private Drawable mVerticalDrawable;
 
-    public GridItemDecoration(Context context) {
+    public XGridItemDecoration(Context context) {
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
         mHorizontalDrawable = mVerticalDrawable = a.getDrawable(0);
         a.recycle();
     }
 
-    public GridItemDecoration(Drawable horizontalDrawable,Drawable verticalDrawable){
+    public XGridItemDecoration(Drawable horizontalDrawable, Drawable verticalDrawable) {
         this.mHorizontalDrawable = horizontalDrawable;
         this.mVerticalDrawable = verticalDrawable;
     }
@@ -44,6 +47,8 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     public void drawHorizontal(Canvas c, RecyclerView parent) {
         int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
+            if (i == 0 || i == childCount - 1)
+                continue;
             final View child = parent.getChildAt(i);
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                     .getLayoutParams();
@@ -60,12 +65,14 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     public void drawVertical(Canvas c, RecyclerView parent) {
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
+            if (i == 0 || i == childCount - 1)
+                continue;
             final View child = parent.getChildAt(i);
 
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                     .getLayoutParams();
             final int top = child.getTop() - params.topMargin;
-            final int bottom = child.getBottom() + params.bottomMargin;
+            final int bottom = child.getBottom() + params.bottomMargin + mHorizontalDrawable.getIntrinsicHeight();//加上水平分割线的高度
             final int left = child.getRight() + params.rightMargin;
             final int right = left + mVerticalDrawable.getIntrinsicWidth();
 
@@ -114,16 +121,14 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-//        LogUtil.out("++++++++++++++条目，" + parent.getChildLayoutPosition(view) + "是否最后一行" + isLastRow(parent.getChildLayoutPosition(view), parent));
-//        LogUtil.out("++++++++++++++条目，" + parent.getChildLayoutPosition(view) + "是否最后一列" + isLastColum(parent.getChildLayoutPosition(view), parent));
-        if (isLastRow(parent.getChildLayoutPosition(view), parent))// 如果是最后一行，则不需要绘制底部
+        if (view instanceof ArrowRefreshHeader || view instanceof LoadingMoreFooter){
+            return;
+        }
+        if (isLastColum(parent.getChildLayoutPosition(view)-1, parent))// 如果是最后一列，则不需要绘制右边
         {
             outRect.set(0, 0, 0, mHorizontalDrawable.getIntrinsicHeight());
-        }
-
-        if (isLastColum(parent.getChildLayoutPosition(view), parent))// 如果是最后一列，则不需要绘制右边
-        {
-            outRect.set(0, 0, mVerticalDrawable.getIntrinsicWidth(), 0);
+        }else {
+            outRect.set(0, 0, mVerticalDrawable.getIntrinsicWidth(), mHorizontalDrawable.getIntrinsicHeight());
         }
     }
 }

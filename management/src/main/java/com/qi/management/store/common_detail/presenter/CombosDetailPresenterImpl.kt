@@ -1,7 +1,7 @@
-package com.qi.management.store.wedding_photography_detail.presenter
+package com.qi.management.store.common_detail.presenter
 
-import com.qi.management.store.wedding_photography_detail.model.CombosDetailModelImpl
-import com.qi.management.store.wedding_photography_detail.view.CombosDetailView
+import com.qi.management.store.common_detail.model.CombosDetailModelImpl
+import com.qi.management.store.common_detail.view.CombosDetailView
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.mvp.presenter.BasePresenter
 import java.util.*

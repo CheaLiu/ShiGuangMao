@@ -1,4 +1,4 @@
-package com.qi.management.store.wedding_photography_detail.view
+package com.qi.management.store.common_detail.view
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LevelListDrawable
@@ -13,9 +13,9 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.qi.management.R
 import com.qi.management.bean.CombosBean
-import com.qi.management.store.wedding_photography_detail.dagger.CombosDetailModule
-import com.qi.management.store.wedding_photography_detail.dagger.DaggerCombosDetailComponent
-import com.qi.management.store.wedding_photography_detail.presenter.CombosDetailPresenterImpl
+import com.qi.management.store.common_detail.dagger.CombosDetailModule
+import com.qi.management.store.common_detail.dagger.DaggerCombosDetailComponent
+import com.qi.management.store.common_detail.presenter.CombosDetailPresenterImpl
 import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.base.widgets.BannerImageLoader

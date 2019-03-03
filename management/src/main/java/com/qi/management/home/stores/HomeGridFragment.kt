@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
 import com.qi.management.R
-import com.qi.management.home.stores.adapter.GridItemDecoration
+import com.yizhipin.base.recyclerview.GridItemDecoration
 import com.qi.management.home.stores.adapter.HomeGridAdapter
 import com.qi.management.home.stores.dagger.DaggerComponent
 import com.qi.management.home.stores.dagger.Module

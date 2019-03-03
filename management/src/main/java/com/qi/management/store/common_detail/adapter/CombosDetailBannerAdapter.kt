@@ -1,4 +1,4 @@
-package com.qi.management.store.wedding_photography_detail.adapter
+package com.qi.management.store.common_detail.adapter
 
 import android.support.v4.view.PagerAdapter
 import android.view.View

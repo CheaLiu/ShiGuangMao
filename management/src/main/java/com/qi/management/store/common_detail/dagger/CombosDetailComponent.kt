@@ -1,6 +1,6 @@
-package com.qi.management.store.wedding_photography_detail.dagger
+package com.qi.management.store.common_detail.dagger
 
-import com.qi.management.store.wedding_photography_detail.view.CommonDetailActivity
+import com.qi.management.store.common_detail.view.CommonDetailActivity
 import com.yizhipin.base.injection.PerComponentScope
 import com.yizhipin.base.injection.component.ActivityComponent
 import dagger.Component

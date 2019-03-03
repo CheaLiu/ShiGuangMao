@@ -1,4 +1,4 @@
-package com.qi.management.store.wedding_photography_detail.model
+package com.qi.management.store.common_detail.model
 
 import com.qi.management.bean.CombosBean
 import com.yizhipin.base.data.protocol.BaseResp

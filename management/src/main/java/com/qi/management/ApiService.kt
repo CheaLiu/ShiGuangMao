@@ -1,6 +1,7 @@
 package com.qi.management
 
 import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CostumeCategoryBean
 import com.qi.management.bean.ProductionCategoryBean
 import com.qi.management.bean.StoreBean
 import com.yizhipin.base.data.protocol.BasePagingResp
@@ -71,5 +72,23 @@ interface ApiService {
      * @param currentPage 当前分页数
      */
     @GET("api/MarkerProduct/Page")
-    fun getProductionList(@Query("loginUid") loginUid: String?, @Query("storeId") storeId: String?, @Query("catagory") catagory: Long?, @Query("currentPage") currentPage: Int):  Observable<BasePagingResp<MutableList<CombosBean>>>?
+    fun getProductionList(@Query("loginUid") loginUid: String?, @Query("storeId") storeId: String?, @Query("catagory") catagory: Long?, @Query("currentPage") currentPage: Int): Observable<BasePagingResp<MutableList<CombosBean>>>?
+
+    /**
+     * 获取服装类型
+     * @param sex 性别0，男性；1，女性
+     * @param sellType 场馆类型
+     */
+    @GET("api/ClothesCatagory/List")
+    fun getCostumeCategoryList(@Query("sex") sex: Int, @Query("type") sellType: Int): Observable<BaseResp<List<CostumeCategoryBean>>>
+
+    /**
+     * 获取服装分页列表
+     * @param category 类型
+     * @param currentPage 页面
+     * @param sellType 场馆类型
+     * @param sex 性别
+     */
+    @GET("api/Clothes/Page")
+    fun getCostumeList(@Query("catagory") category: Int, @Query("currentPage") currentPage: Int, @Query("SellType") sellType: Int, @Query("sex") sex: Int): Observable<BasePagingResp<MutableList<CombosBean>>>?
 }
