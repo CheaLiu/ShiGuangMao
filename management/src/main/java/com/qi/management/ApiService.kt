@@ -48,7 +48,7 @@ interface ApiService {
      * @param currentPage 当前分页数
      */
     @GET("api/PhotoPackage/Page")
-    fun getCombosList(@Query("loginUid") loginUid: String, @Query("storeId") storeId: String, @Query("packageType") combosType: Int?, @Query("currentPage") currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>
+    fun getCombosList(@Query("loginUid") loginUid: String, @Query("storeId") storeId: String, @Query("packageType") combosType: Int?, @Query("type") photoType: String, @Query("currentPage") currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>
 
     /**
      * 获取详情
@@ -99,11 +99,11 @@ interface ApiService {
     fun getClothesSuggest(@Path("id") clothID: Long): Observable<BaseResp<MutableList<CommonDetailBean>>>?
 
     @GET("api/Clothes/{id}")
-    fun getClothDetail(@Path("id") id:Long) :Observable<BaseResp<CommonDetailBean>>?
+    fun getClothDetail(@Path("id") id: Long): Observable<BaseResp<CommonDetailBean>>?
 
     /**
      * 获取产品详情
      */
     @GET("api/MarkerProduct/{id}")
-    fun getProductionDetail(@Path("id") id:Long): Observable<BaseResp<CommonDetailBean>>?
+    fun getProductionDetail(@Path("id") id: Long): Observable<BaseResp<CommonDetailBean>>?
 }

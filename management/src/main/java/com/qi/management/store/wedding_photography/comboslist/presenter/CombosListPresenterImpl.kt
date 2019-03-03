@@ -16,8 +16,8 @@ class CombosListPresenterImpl
 
     var currentPage = 0
 
-    fun getCombosList(combosType: Int?) {
-        model.getCombosList(combosType, currentPage + 1)?.execute(object : CodeListHandlerSubscriber<MutableList<CommonDetailBean>>(mView) {
+    fun getCombosList(combosType: Int?, photoType: String) {
+        model.getCombosList(combosType,photoType, currentPage + 1)?.execute(object : CodeListHandlerSubscriber<MutableList<CommonDetailBean>>(mView) {
             override fun onSucceed(data: BasePagingResp<MutableList<CommonDetailBean>>) {
                 if (data.data.size == 0) return
                 currentPage = data.pi.currentPage

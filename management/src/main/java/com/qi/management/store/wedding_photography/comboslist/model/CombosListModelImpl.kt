@@ -10,9 +10,9 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 class CombosListModelImpl @Inject constructor() : CombosListContract.CombosListModel {
-    override fun getCombosList(combosType: Int?, currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>? {
+    override fun getCombosList(combosType: Int?, photoType: String,currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>? {
         val userInfo = UserPrefsUtils.getUserInfo() ?: return null
-        return RetrofitFactoryGet.create(ApiService::class.java).getCombosList(userInfo.id, userInfo.shopId, combosType, currentPage)
+        return RetrofitFactoryGet.create(ApiService::class.java).getCombosList(userInfo.id, userInfo.shopId, combosType,photoType, currentPage)
     }
 
 }

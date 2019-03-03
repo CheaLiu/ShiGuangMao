@@ -16,7 +16,7 @@ interface CombosListContract {
          * @param combosType 套餐类型(0套餐,1私人定制)
          * @param currentPage 当前分页数
          */
-        fun getCombosList(combosType: Int?, currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>?
+        fun getCombosList(combosType: Int?, photoType: String,currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>?
     }
 
     interface CombosListView : BaseView {

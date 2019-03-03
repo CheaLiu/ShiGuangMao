@@ -24,7 +24,7 @@ import com.yizhipin.base.ext.loadUrl
 import com.yizhipin.base.ui.activity.BaseMvpActivity
 import com.yizhipin.base.widgets.BannerImageLoader
 import com.yizhipin.provider.router.RouterPath
-import com.yizhipin.provider.router.RouterPath.Management.Combos_Detail
+import com.yizhipin.provider.router.RouterPath.Management.Detail
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.activity_combos_detail.*
@@ -37,7 +37,7 @@ import java.math.RoundingMode
 /**
  * 详情页（套餐、产品）
  */
-@Route(path = Combos_Detail)
+@Route(path = Detail)
 class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), CombosDetailView {
 
     companion object {
@@ -45,7 +45,7 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
         const val PAGE_TYPE = "PAGE_TYPE"
 
         fun navigation(bean: CommonDetailBean, pageType: PageType) {
-            ARouter.getInstance().build(RouterPath.Management.Combos_Detail)
+            ARouter.getInstance().build(RouterPath.Management.Detail)
                     .withSerializable(CommonDetailActivity.PARAM_COMBOS_BEAN, bean)
                     .withInt(PAGE_TYPE, pageType.ordinal)
                     .navigation()

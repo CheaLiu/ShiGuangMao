@@ -9,6 +9,7 @@ import com.qi.management.R
 import com.qi.management.home.stores.controler.HomeConfig
 import com.qi.management.home.stores.controler.HomeGridItem
 import com.qi.management.store.store_info_management.mvp.StoreInfoManagementPresenterImpl
+import com.qi.management.store.wedding_photography.comboslist.view.CombosListFragment.Companion.PHOTO_TYPE
 
 /**
  * Creator Qi
@@ -40,7 +41,13 @@ class HomeGridAdapter : RecyclerView.Adapter<HomeGridViewHolder>() {
         drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
         holder.textView.setCompoundDrawables(null, drawable, null, null)
         holder.itemView.setOnClickListener {
-            ARouter.getInstance().build(data[position].path).navigation()
+            val postcard = ARouter.getInstance().build(data[position].path)
+            when {
+                data[position].name == R.string.title_baby_photography -> postcard.withString(PHOTO_TYPE, "baby").navigation()
+                data[position].name == R.string.wedding_photo_studio -> postcard.withString(PHOTO_TYPE, "wedding").navigation()
+                data[position].name == R.string.title_portrait_photography -> postcard.withString(PHOTO_TYPE, "photo").navigation()
+                else -> postcard.navigation()
+            }
         }
     }
 }

@@ -65,18 +65,14 @@ object RouterPath {
         const val HOME: String = "/management/home"
         /**门店信息管理*/
         const val STORE_INFORMATION_MANAGEMENT = "/management/store/information_management"
-        /**套餐管理*/
-        const val SET_MENU_MANAGEMENT: String = "/management/store/set_menu_management"
-        /**套餐详情*/
-        const val Combos_Detail: String = "/management/store/combos/combos_detail"
+        /**套餐列表页*/
+        const val PACKAGE_LIST: String = "/management/store/package_list"
+        /**详情*/
+        const val Detail: String = "/management/store/combos/detail"
         /**产品管理*/
-        const val PRODUCTION_MANAGEMENT: String = "/management/store/production_management"
+        const val PRODUCTION_LIST: String = "/management/store/production_management"
         /**服装馆页面*/
         const val COSTUME_PAVILION: String = "/management/store/costume_pavilion"
-        /**宝宝摄影*/
-        const val BABY_PHOTOGRAPHY: String = "/management/store/baby_photography"
-        /**写真摄影*/
-        const val PORTRAIT_PHOTOGRAPHY: String = "/management/store/portrait_photography"
         /**服装列表*/
         const val COSTUME_LIST: String = "/management/store/costume_list"
     }

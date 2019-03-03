@@ -20,13 +20,11 @@ class HomeConfig {
         }
 
         private fun createFinanceItems(): MutableList<HomeGridItem> {
-            val list = mutableListOf<HomeGridItem>()
-            return list
+            return mutableListOf()
         }
 
         private fun createPersonItems(): MutableList<HomeGridItem> {
-            val list = mutableListOf<HomeGridItem>()
-            return list
+            return mutableListOf()
         }
 
         /**
@@ -35,11 +33,11 @@ class HomeConfig {
         private fun createStoreItems(): MutableList<HomeGridItem> {
             val list = mutableListOf<HomeGridItem>()
             list.add(HomeGridItem(R.string.storeInformationManagement, R.drawable.online_store, RouterPath.Management.STORE_INFORMATION_MANAGEMENT))
-            list.add(HomeGridItem(R.string.wedding_photo_studio, R.drawable.ic_homework, RouterPath.Management.SET_MENU_MANAGEMENT))
-            list.add(HomeGridItem(R.string.title_production_manage, R.drawable.ic_product, RouterPath.Management.PRODUCTION_MANAGEMENT))
+            list.add(HomeGridItem(R.string.wedding_photo_studio, R.drawable.ic_homework, RouterPath.Management.PACKAGE_LIST))
+            list.add(HomeGridItem(R.string.title_production_manage, R.drawable.ic_product, RouterPath.Management.PRODUCTION_LIST))
             list.add(HomeGridItem(R.string.title_costume_manage, R.drawable.ic_ballgown, RouterPath.Management.COSTUME_PAVILION))
-            list.add(HomeGridItem(R.string.title_baby_photography, R.drawable.ic_ballgown, RouterPath.Management.BABY_PHOTOGRAPHY))
-            list.add(HomeGridItem(R.string.title_portrait_photography, R.drawable.ic_ballgown, RouterPath.Management.PORTRAIT_PHOTOGRAPHY))
+            list.add(HomeGridItem(R.string.title_baby_photography, R.drawable.ic_ballgown, RouterPath.Management.PACKAGE_LIST))
+            list.add(HomeGridItem(R.string.title_portrait_photography, R.drawable.ic_ballgown, RouterPath.Management.PACKAGE_LIST))
             return list
         }
     }

@@ -26,6 +26,7 @@ class CombosListFragment : BaseMvpFragment<CombosListPresenterImpl>(), CombosLis
     companion object {
 
         const val COMBOS_TYPE = "COMBOS_TYPE"
+        const val PHOTO_TYPE = "PHOTO_TYPE"
 
         /**
          * 全部
@@ -42,7 +43,7 @@ class CombosListFragment : BaseMvpFragment<CombosListPresenterImpl>(), CombosLis
     }
 
     private val adapter = CombosListAdapter()
-
+    private var photoType: String = ""
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return View.inflate(container?.context, R.layout.fragment_combos_list, null)
     }
@@ -55,6 +56,8 @@ class CombosListFragment : BaseMvpFragment<CombosListPresenterImpl>(), CombosLis
         (view as XRecyclerView).setLoadingMoreEnabled(true)
         (view as XRecyclerView).setPullRefreshEnabled(true)
         (view as XRecyclerView).setLoadingListener(this)
+
+        photoType = arguments!!.getString(PHOTO_TYPE)
         (view as XRecyclerView).refresh()
 
     }
@@ -64,11 +67,11 @@ class CombosListFragment : BaseMvpFragment<CombosListPresenterImpl>(), CombosLis
     }
 
     override fun onLoadMore() {
-        mBasePresenter.getCombosList(if (arguments?.getInt(COMBOS_TYPE) == ALL) null else arguments?.getInt(COMBOS_TYPE))
+        mBasePresenter.getCombosList(if (arguments?.getInt(COMBOS_TYPE) == ALL) null else arguments?.getInt(COMBOS_TYPE),photoType)
     }
 
     override fun onRefresh() {
-        mBasePresenter.getCombosList(if (arguments?.getInt(COMBOS_TYPE) == ALL) null else arguments?.getInt(COMBOS_TYPE))
+        mBasePresenter.getCombosList(if (arguments?.getInt(COMBOS_TYPE) == ALL) null else arguments?.getInt(COMBOS_TYPE),photoType)
     }
 
     override fun add(data: MutableList<CommonDetailBean>) {
@@ -81,9 +84,10 @@ class CombosListFragment : BaseMvpFragment<CombosListPresenterImpl>(), CombosLis
         (view as XRecyclerView).loadMoreComplete()
     }
 
-    fun setCombosType(combosType: Int): CombosListFragment {
+    fun setCombosType(combosType: Int, photoType: String): CombosListFragment {
         val bundle = Bundle()
         bundle.putInt(CombosListFragment.COMBOS_TYPE, combosType)
+        bundle.putString(CombosListFragment.PHOTO_TYPE, photoType)
         arguments = bundle
         return this
     }

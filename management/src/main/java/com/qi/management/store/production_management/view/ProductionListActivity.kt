@@ -11,7 +11,7 @@ import com.qi.management.store.production_management.presenter.ProductionListPre
 import com.qi.management.store.wedding_photography.comboslist.adapter.CombosPagerAdapter
 import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.ui.activity.BaseMvpActivity
-import com.yizhipin.provider.router.RouterPath.Management.PRODUCTION_MANAGEMENT
+import com.yizhipin.provider.router.RouterPath.Management.PRODUCTION_LIST
 import kotlinx.android.synthetic.main.activity_combos_list.*
 
 /**
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_combos_list.*
  * Creator Qi
  * Date 2019/2/26
  */
-@Route(path = PRODUCTION_MANAGEMENT)
+@Route(path = PRODUCTION_LIST)
 class ProductionListActivity : BaseMvpActivity<ProductionListPresenterImpl>(), ProductionListView {
 
     var pagerItems: MutableList<CombosPagerAdapter.CombosPagerItem> = arrayListOf()
