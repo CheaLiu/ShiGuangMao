@@ -3,7 +3,10 @@ package com.qi.management.store.common_detail.view
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LevelListDrawable
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.text.Html
+import android.text.TextUtils
 import android.view.View.GONE
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -12,7 +15,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
+import com.qi.management.store.common_detail.adapter.CommonItemAdapter
 import com.qi.management.store.common_detail.dagger.CombosDetailModule
 import com.qi.management.store.common_detail.dagger.DaggerCombosDetailComponent
 import com.qi.management.store.common_detail.presenter.CombosDetailPresenterImpl
@@ -25,6 +29,7 @@ import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.activity_combos_detail.*
 import kotlinx.android.synthetic.main.item_combos_detail_banner_holder.*
+import kotlinx.android.synthetic.main.item_detail_costumes.*
 import kotlinx.android.synthetic.main.item_detail_package_info.*
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -39,7 +44,7 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
         const val PARAM_COMBOS_BEAN = "PARAM_COMBOS_BEAN"
         const val PAGE_TYPE = "PAGE_TYPE"
 
-        fun navigation(bean: CombosBean, pageType: PageType) {
+        fun navigation(bean: CommonDetailBean, pageType: PageType) {
             ARouter.getInstance().build(RouterPath.Management.Combos_Detail)
                     .withSerializable(CommonDetailActivity.PARAM_COMBOS_BEAN, bean)
                     .withInt(PAGE_TYPE, pageType.ordinal)
@@ -56,6 +61,8 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
         Costume
     }
 
+    private val suggestionAdapter = CommonItemAdapter()
+
     override fun injectComponent() {
         DaggerCombosDetailComponent.builder().activityComponent(mActivityComponent).combosDetailModule(CombosDetailModule(this)).build().inject(this)
     }
@@ -66,12 +73,16 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
 
     override fun initView(savedInstanceState: Bundle?) {
         titleDetailView.setOnLeftIconClickListener { onBackPressed() }
+        costumeRecyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL))
+        costumeRecyclerView.adapter = suggestionAdapter
     }
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
-        val bean = intent.getSerializableExtra(PARAM_COMBOS_BEAN) as CombosBean
+        val bean = intent.getSerializableExtra(PARAM_COMBOS_BEAN) as CommonDetailBean
         val pageType = intent.getIntExtra(PAGE_TYPE, -1)
+        mBasePresenter.bean = bean
+        mBasePresenter.pageType = pageType
         when (pageType) {
             PageType.Combos.ordinal -> {//套餐详情
                 titleDetailView.setTitle(R.string.title_combos_detail)
@@ -82,37 +93,47 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
                 titleDetailView.setTitle(R.string.title_production_detail)
                 combosInfoLayout.visibility = GONE//隐藏套餐信息View
                 costumesLayout.visibility = GONE//隐藏服装推荐View
-                evaluationLayout.visibility = GONE//隐藏评价View
-                paymentLayout.visibility = GONE//隐藏拍照支付View
+                moreLayout.visibility = GONE//隐藏评价View
             }
             PageType.Costume.ordinal -> {
                 //服装详情
                 titleDetailView.setTitle(R.string.title_comtume_detail)
-                costumesLayout.visibility = GONE//隐藏服装推荐View
                 combosInfoLayout.visibility = GONE//隐藏套餐信息View
-                costumesLayout.visibility = GONE//隐藏服装推荐View
-                evaluationLayout.visibility = GONE//隐藏评价View
-                paymentLayout.visibility = GONE//隐藏拍照支付View
+                moreLayout.visibility = GONE//隐藏评价View
             }
             //设置图片集合
             //banner设置方法全部调用完毕时最后调用
         }
+        //banner设置方法全部调用完毕时最后调用
+        mBasePresenter.getDetail()
+        if (pageType == PageType.Costume.ordinal)
+            mBasePresenter.getSuggestion()
+    }
+
+    override fun show(bean: CommonDetailBean) {
         titleText.text = bean.title
         countText.text = String.format(resources.getString(R.string.sellCount), bean.sellCount)
         priceText.text = "￥ " + bean.price
         marketPriceText.text = "￥ " + bean.marketPrice
-        storeIcon.loadUrl(bean.storeImgurl)
+        storeIcon.loadUrl(if (TextUtils.isEmpty(bean.storeImgurl)) "" else bean.storeImgurl)
         storeNameText.text = bean.storeName
         clothNumText.text = String.format(resources.getString(R.string.clothNum), bean.clothCount)
         negativeNumText.text = String.format(resources.getString(R.string.negativeNum), bean.filmCount)
         enterNumText.text = String.format(resources.getString(R.string.enterNum), bean.rucheCount)
         detailImageView.text = Html.fromHtml(bean.content, MImageGetter(detailImageView), null)
-        initBanner()
-        val bannerImages = bean.imgurls.split(",") as MutableList<String>
+        val bannerImages = arrayListOf<String>()
+        if (!TextUtils.isEmpty(bean.imgurls))
+            bean.imgurls.split(",").forEach {
+                bannerImages.add(it)
+            }
         //设置图片集合
+        initBanner()
         banner.setImages(bannerImages)
-        //banner设置方法全部调用完毕时最后调用
         banner.start()
+    }
+
+    override fun showSuggestion(data: MutableList<CommonDetailBean>) {
+        suggestionAdapter.addAll(data)
     }
 
     private fun initBanner() {
@@ -149,4 +170,5 @@ class CommonDetailActivity : BaseMvpActivity<CombosDetailPresenterImpl>(), Combo
             return drawable
         }
     }
+
 }

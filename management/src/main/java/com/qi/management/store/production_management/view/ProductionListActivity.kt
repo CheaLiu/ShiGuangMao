@@ -3,7 +3,7 @@ package com.qi.management.store.production_management.view
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.ProductionCategoryBean
 import com.qi.management.store.production_management.dagger.DaggerProductionListComponent
 import com.qi.management.store.production_management.dagger.ProductionListModule
@@ -56,7 +56,7 @@ class ProductionListActivity : BaseMvpActivity<ProductionListPresenterImpl>(), P
         viewPager.adapter = CombosPagerAdapter(supportFragmentManager,pagerItems)
     }
 
-    override fun addList(data: BasePagingResp<MutableList<CombosBean>>) {
+    override fun addList(data: BasePagingResp<MutableList<CommonDetailBean>>) {
     }
 
 }

@@ -107,54 +107,61 @@
             android:layout_height="@dimen/margin_views"
             android:background="@color/common_background" />
 
-        <FrameLayout
-            android:id="@+id/evaluationLayout"
+        <LinearLayout
+            android:id="@+id/moreLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_content">
+            android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:id="@+id/evaluationLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/time_leave_word_the_latest_evaluation" />
+                android:padding="@dimen/padding_content">
 
-            <TextView
-                android:id="@+id/evaluateMoreBtn"
-                android:layout_width="wrap_content"
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_leave_word_the_latest_evaluation" />
+
+                <TextView
+                    android:id="@+id/evaluateMoreBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:drawableEnd="@drawable/ic_right_arrow"
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    android:drawablePadding="5dp"
+                    android:text="@string/more" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_views"
+                android:background="@color/common_background" />
+
+            <FrameLayout
+                android:id="@+id/paymentLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:drawableEnd="@drawable/ic_right_arrow"
-                android:drawableRight="@drawable/ic_right_arrow"
-                android:drawablePadding="5dp"
-                android:text="@string/more" />
-        </FrameLayout>
+                android:padding="@dimen/padding_content">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_views"
-            android:background="@color/common_background" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/take_photos_first_and_pay_when_you_are_satisfied" />
 
-        <FrameLayout
-            android:id="@+id/paymentLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_content">
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/take_photos_first_and_pay_when_you_are_satisfied" />
-
-            <TextView
-                android:id="@+id/photoPayMoreBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:drawableEnd="@drawable/ic_right_arrow"
-                android:drawableRight="@drawable/ic_right_arrow"
-                android:drawablePadding="5dp"
-                android:text="@string/more" />
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/photoPayMoreBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:drawableEnd="@drawable/ic_right_arrow"
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    android:drawablePadding="5dp"
+                    android:text="@string/more" />
+            </FrameLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"

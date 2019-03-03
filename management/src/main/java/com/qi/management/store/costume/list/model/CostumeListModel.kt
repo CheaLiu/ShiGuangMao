@@ -1,6 +1,6 @@
 package com.qi.management.store.costume.list.model
 
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.CostumeCategoryBean
 import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.data.protocol.BaseResp
@@ -26,5 +26,5 @@ interface CostumeListModel : BaseModel {
      * @param sellType 场馆类型
      * @param sex 性别
      */
-    fun getCostumeList(category: Int, currentPage: Int, sellType: Int, sex: Int): Observable<BasePagingResp<MutableList<CombosBean>>>?
+    fun getCostumeList(category: Int, currentPage: Int, sellType: Int, sex: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>?
 }

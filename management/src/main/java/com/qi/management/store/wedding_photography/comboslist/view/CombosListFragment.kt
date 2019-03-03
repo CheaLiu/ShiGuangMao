@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout.VERTICAL
 import com.jcodecraeer.xrecyclerview.XRecyclerView
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.store.wedding_photography.comboslist.CombosListContract
 import com.qi.management.store.wedding_photography.comboslist.adapter.CombosListAdapter
 import com.qi.management.store.wedding_photography.comboslist.dagger.CombosListModule
@@ -71,7 +71,7 @@ class CombosListFragment : BaseMvpFragment<CombosListPresenterImpl>(), CombosLis
         mBasePresenter.getCombosList(if (arguments?.getInt(COMBOS_TYPE) == ALL) null else arguments?.getInt(COMBOS_TYPE))
     }
 
-    override fun add(data: MutableList<CombosBean>) {
+    override fun add(data: MutableList<CommonDetailBean>) {
         adapter.add(data)
     }
 

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.CostumeCategoryBean
 import com.qi.management.store.costume.list.adapter.CostumeListAdapter
 import com.qi.management.store.costume.list.dagger.CostumeListModule
@@ -20,7 +20,7 @@ import com.yizhipin.base.common.BaseDoubleListFragment
  * Creator Qi
  * Date 2019/2/28
  */
-class CostumeListChildFragment : BaseDoubleListFragment<CostumeListPresenterImpl, CombosBean, CostumeListAdapter>(), CostumeListView {
+class CostumeListChildFragment : BaseDoubleListFragment<CostumeListPresenterImpl, CommonDetailBean, CostumeListAdapter>(), CostumeListView {
 
     override fun injectComponent() {
         DaggerCostumeListComponent.builder().activityComponent(mActivityComponent).costumeListModule(CostumeListModule(this)).build().inject(this)

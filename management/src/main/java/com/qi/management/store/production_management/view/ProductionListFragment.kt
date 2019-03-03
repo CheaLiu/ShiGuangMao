@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.jcodecraeer.xrecyclerview.XRecyclerView
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.ProductionCategoryBean
 import com.qi.management.store.production_management.ProductionListAdapter
 import com.qi.management.store.production_management.dagger.DaggerProductionListComponent
@@ -22,7 +22,7 @@ import com.yizhipin.base.ui.fragment.BaseMvpFragment
  * Creator Qi
  * Date 2019/2/26
  */
-class ProductionListFragment : BaseMvpFragment<ProductionListPresenterImpl>(), ProductionListView {
+class ProductionListFragment : BaseMvpFragment<ProductionListPresenterImpl>(), ProductionListView, XRecyclerView.LoadingListener {
 
     companion object {
         const val ARG_PAGE_TYPE = "ARG_PAGE_TYPE"
@@ -48,8 +48,9 @@ class ProductionListFragment : BaseMvpFragment<ProductionListPresenterImpl>(), P
         (view as XRecyclerView).layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         (view as XRecyclerView).addItemDecoration(XGridItemDecoration(context!!.resources.getDrawable(R.drawable.bg_rect_w5dp_solid_bg), context!!.resources.getDrawable(R.drawable.bg_rect_h5dp_solid_bg)))
         (view as XRecyclerView).adapter = adapter
+        (view as XRecyclerView).setLoadingListener(this)
         mBasePresenter.categoryID = arguments!!.getLong(ARG_PAGE_TYPE)
-        mBasePresenter.getProductionList()
+        (view as XRecyclerView).refresh()
     }
 
     fun setCategoryID(categoryID: Long): ProductionListFragment {
@@ -59,11 +60,25 @@ class ProductionListFragment : BaseMvpFragment<ProductionListPresenterImpl>(), P
         return this
     }
 
-    override fun addList(data: BasePagingResp<MutableList<CombosBean>>) {
+    override fun onLoadMore() {
+        mBasePresenter.getProductionList()
+    }
+
+    override fun onRefresh() {
+        mBasePresenter.getProductionList()
+    }
+
+    override fun addList(data: BasePagingResp<MutableList<CommonDetailBean>>) {
         adapter.addAll(data.data)
     }
 
     //不用实现
     override fun showCategory(data: MutableList<ProductionCategoryBean>) {
+    }
+
+    override fun hideLoading() {
+        super.hideLoading()
+        (view as XRecyclerView).refreshComplete()
+        (view as XRecyclerView).loadMoreComplete()
     }
 }

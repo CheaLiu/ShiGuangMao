@@ -1,7 +1,7 @@
 package com.qi.management.store.costume.list.model
 
 import com.qi.management.ApiService
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.CostumeCategoryBean
 import com.yizhipin.base.data.net.RetrofitFactoryGet
 import com.yizhipin.base.data.protocol.BasePagingResp
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @PerComponentScope
 class CostumeListModelImpl @Inject constructor() : CostumeListModel {
-    override fun getCostumeList(category: Int, currentPage: Int, sellType: Int, sex: Int): Observable<BasePagingResp<MutableList<CombosBean>>>? {
+    override fun getCostumeList(category: Int, currentPage: Int, sellType: Int, sex: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>? {
         return RetrofitFactoryGet.create(ApiService::class.java).getCostumeList(category, currentPage, sellType, sex)
     }
 

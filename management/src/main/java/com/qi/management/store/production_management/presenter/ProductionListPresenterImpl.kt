@@ -1,6 +1,6 @@
 package com.qi.management.store.production_management.presenter
 
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.ProductionCategoryBean
 import com.qi.management.store.production_management.model.ProductionListModelImpl
 import com.qi.management.store.production_management.view.ProductionListView
@@ -29,8 +29,9 @@ class ProductionListPresenterImpl @Inject constructor(view: ProductionListView, 
     }
 
     override fun getProductionList() {
-        modle.getProductionList(null, null, categoryID, currentPageIndex + 1)?.execute(object : CodeListHandlerSubscriber<MutableList<CombosBean>>(mView) {
-            override fun onSucceed(data: BasePagingResp<MutableList<CombosBean>>) {
+        modle.getProductionList(null, null, categoryID, currentPageIndex + 1)?.execute(object : CodeListHandlerSubscriber<MutableList<CommonDetailBean>>(mView) {
+            override fun onSucceed(data: BasePagingResp<MutableList<CommonDetailBean>>) {
+                currentPageIndex = data.pi.currentPage
                 mView.addList(data)
             }
 

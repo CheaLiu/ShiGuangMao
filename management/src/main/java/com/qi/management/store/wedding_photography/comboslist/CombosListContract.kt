@@ -1,6 +1,6 @@
 package com.qi.management.store.wedding_photography.comboslist
 
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.yizhipin.base.data.protocol.BasePagingResp
 import com.yizhipin.base.mvp.view.BaseView
 import io.reactivex.Observable
@@ -16,11 +16,11 @@ interface CombosListContract {
          * @param combosType 套餐类型(0套餐,1私人定制)
          * @param currentPage 当前分页数
          */
-        fun getCombosList(combosType: Int?, currentPage: Int): Observable<BasePagingResp<MutableList<CombosBean>>>?
+        fun getCombosList(combosType: Int?, currentPage: Int): Observable<BasePagingResp<MutableList<CommonDetailBean>>>?
     }
 
     interface CombosListView : BaseView {
-        fun add(data: MutableList<CombosBean>)
+        fun add(data: MutableList<CommonDetailBean>)
     }
 
     interface CombosListPresenter

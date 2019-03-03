@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.store.common_detail.view.CommonDetailActivity
 import com.yizhipin.base.ext.loadUrl
 
@@ -17,7 +17,7 @@ import com.yizhipin.base.ext.loadUrl
  */
 class ProductionListAdapter : RecyclerView.Adapter<ProductionViewHolder>() {
 
-    private val mData: MutableList<CombosBean> = arrayListOf()
+    private val mData: MutableList<CommonDetailBean> = arrayListOf()
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductionViewHolder {
         val view = View.inflate(p0.context, R.layout.item_production_list, null)
@@ -32,11 +32,11 @@ class ProductionListAdapter : RecyclerView.Adapter<ProductionViewHolder>() {
         p0.setData(mData[p1])
     }
 
-    fun addAll(data: MutableList<CombosBean>) {
-        val index = mData.size
+    fun addAll(data: MutableList<CommonDetailBean>) {
         if (data.size > 0) {
-            notifyItemInserted(index)
+            val index = mData.size
             mData.addAll(data)
+            notifyItemInserted(index)
         }
     }
 }
@@ -47,11 +47,10 @@ class ProductionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val titleText = itemView.findViewById<TextView>(R.id.titleText)
     private val priceText = itemView.findViewById<TextView>(R.id.priceText)
 
-    fun setData(combosBean: CombosBean) {
-        imageView.loadUrl(combosBean.imgurl)
-        titleText.text = combosBean.title
-        priceText.text = "￥ ${combosBean.price}"
-        itemView.setOnClickListener { CommonDetailActivity.navigation(combosBean, CommonDetailActivity.PageType.Production) }
+    fun setData(commonDetailBean: CommonDetailBean) {
+        imageView.loadUrl(commonDetailBean.imgurl)
+        titleText.text = commonDetailBean.title
+        priceText.text = "￥ ${commonDetailBean.price}"
+        itemView.setOnClickListener { CommonDetailActivity.navigation(commonDetailBean, CommonDetailActivity.PageType.Production) }
     }
-
 }

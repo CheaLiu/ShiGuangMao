@@ -1,6 +1,6 @@
 package com.qi.management.store.costume.list.presenter
 
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.bean.CostumeCategoryBean
 import com.qi.management.store.costume.list.model.CostumeListModelImpl
 import com.qi.management.store.costume.list.view.CostumeListView
@@ -41,11 +41,11 @@ class CostumeListPresenterImpl @Inject constructor(view: CostumeListView, privat
     }
 
     override fun getCostumeList() {
-        mModel.getCostumeList(category, currentPage + 1, sellType, sex)?.execute(object : CodeListHandlerSubscriber<MutableList<CombosBean>>(mView) {
-            override fun onSucceed(data: BasePagingResp<MutableList<CombosBean>>) {
+        mModel.getCostumeList(category, currentPage + 1, sellType, sex)?.execute(object : CodeListHandlerSubscriber<MutableList<CommonDetailBean>>(mView) {
+            override fun onSucceed(data: BasePagingResp<MutableList<CommonDetailBean>>) {
                 if (data.data.size > 0) {
                     currentPage = data.pi.currentPage
-                    (mView as ListView<CombosBean>).add(data.data)
+                    (mView as ListView<CommonDetailBean>).add(data.data)
                 }
             }
 

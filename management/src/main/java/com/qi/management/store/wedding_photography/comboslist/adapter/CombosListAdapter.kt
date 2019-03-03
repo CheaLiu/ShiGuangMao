@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.qi.management.R
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.store.common_detail.view.CommonDetailActivity
 import com.yizhipin.base.ext.loadUrl
 
 class CombosListAdapter : RecyclerView.Adapter<CombosItemViewHolder>() {
 
-    private val mData: MutableList<CombosBean> = arrayListOf()
+    private val mData: MutableList<CommonDetailBean> = arrayListOf()
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CombosItemViewHolder {
         return CombosItemViewHolder(View.inflate(p0.context, R.layout.item_combos_list, null))
@@ -27,7 +27,7 @@ class CombosListAdapter : RecyclerView.Adapter<CombosItemViewHolder>() {
         p0.setData(combosBean)
     }
 
-    fun add(data: MutableList<CombosBean>) {
+    fun add(data: MutableList<CommonDetailBean>) {
         if (data.size == 0) return
         val start = mData.size
         this.mData.addAll(data)
@@ -43,12 +43,12 @@ class CombosItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val priceText = itemView.findViewById<TextView>(R.id.priceText)
     private val countText = itemView.findViewById<TextView>(R.id.countText)
 
-    fun setData(combosBean: CombosBean) {
-        imageView.loadUrl(combosBean.imgurl)
-        titleText.text = combosBean.title
-        priceText.text = "￥ ${combosBean.price}"
-        countText.text = String.format(itemView.context.resources.getString(R.string.sellCount), combosBean.sellCount)
-        itemView.setOnClickListener { CommonDetailActivity.navigation(combosBean, CommonDetailActivity.PageType.Costume) }
+    fun setData(commonDetailBean: CommonDetailBean) {
+        imageView.loadUrl(commonDetailBean.imgurl)
+        titleText.text = commonDetailBean.title
+        priceText.text = "￥ ${commonDetailBean.price}"
+        countText.text = String.format(itemView.context.resources.getString(R.string.sellCount), commonDetailBean.sellCount)
+        itemView.setOnClickListener { CommonDetailActivity.navigation(commonDetailBean, CommonDetailActivity.PageType.Combos) }
     }
 
 

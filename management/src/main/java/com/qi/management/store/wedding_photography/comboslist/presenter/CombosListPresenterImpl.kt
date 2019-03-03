@@ -1,6 +1,6 @@
 package com.qi.management.store.wedding_photography.comboslist.presenter
 
-import com.qi.management.bean.CombosBean
+import com.qi.management.bean.CommonDetailBean
 import com.qi.management.store.wedding_photography.comboslist.CombosListContract
 import com.qi.management.store.wedding_photography.comboslist.model.CombosListModelImpl
 import com.yizhipin.base.data.protocol.BasePagingResp
@@ -17,8 +17,8 @@ class CombosListPresenterImpl
     var currentPage = 0
 
     fun getCombosList(combosType: Int?) {
-        model.getCombosList(combosType, currentPage + 1)?.execute(object : CodeListHandlerSubscriber<MutableList<CombosBean>>(mView) {
-            override fun onSucceed(data: BasePagingResp<MutableList<CombosBean>>) {
+        model.getCombosList(combosType, currentPage + 1)?.execute(object : CodeListHandlerSubscriber<MutableList<CommonDetailBean>>(mView) {
+            override fun onSucceed(data: BasePagingResp<MutableList<CommonDetailBean>>) {
                 if (data.data.size == 0) return
                 currentPage = data.pi.currentPage
                 mView.add(data.data)

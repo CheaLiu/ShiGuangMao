@@ -3,11 +3,11 @@ package com.qi.management.bean
 import java.io.Serializable
 
 /**
- * 套餐bean类
+ * 详情类（套餐、服装、产品等公用）
  * Creator Qi
  * Date 2019/2/24
  */
-data class CombosBean(
+data class CommonDetailBean(
         var attention: Boolean,
         /**服装数量*/
         var clothCount: Int,
@@ -22,7 +22,7 @@ data class CombosBean(
          * 定金(只有婚纱有定金,其他为0)
          */
         var frontMoney: Int,
-        var id: Int,
+        var id: Long,
         /**封面图*/
         var imgurl: String,
         /**轮播图*/
@@ -48,7 +48,7 @@ data class CombosBean(
         /**销售量*/
         var sellCount: Int,
         /**门店ID*/
-        var storeId: Int,
+        var storeId: Long,
         /**门店图标*/
         var storeImgurl: String,
         var storeName: String,
@@ -76,6 +76,24 @@ data class CombosBean(
         /**
          * 售卖类型(0售卖,1共享)
          */
-        var sellType: Int
+        var sellType: Int,
+        var norms: MutableList<Norm>,
+        var store: StoreBean,
+        val amount: Double
+) : Serializable
 
+data class Norm(
+        var clothId: Long,
+        var id: Long,
+        var items: List<Item>,
+        var norm: String
+) : Serializable
+
+data class Item(
+        var id: Long,
+        var imgurl: String,
+        var inventory: Int,
+        var item: String,
+        var normId: Long,
+        var price: Double
 ) : Serializable
